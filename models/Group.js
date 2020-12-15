@@ -2,11 +2,10 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-//Create List Model
-class List extends Model {}
+//Create Group Model
+class Group extends Model {}
 
-//Initialize List 
-List.init(
+Group.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,24 +14,22 @@ List.init(
             autoIncrement: true
         },
 
-        list_name: {
+        group_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
 
-        list_items: {
-            type: DataTypes.STRING
+        group_code: {
+            type: DataTypes.INTEGER
+            //uniqueID//
         }
     },
     {
         sequelize,
-        timestamps: false,
-        freezeTableName: true,
+        freezeTableName,
         underscored: true,
-        modelName: 'list'
+        modelName: 'group'
     }
 );
 
-module.exports = List;
-
-
+module.exports = Group;
