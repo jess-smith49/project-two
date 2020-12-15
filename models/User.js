@@ -8,6 +8,7 @@ class User extends Model {
     //bcrypt stuff
 }
 
+//Initailize User
 User.init(
     {
         id: {
@@ -46,6 +47,8 @@ User.init(
         underscored: true,
         modelName: 'user'
     }
-)
+);
+
+module.exports = User;
 
 
