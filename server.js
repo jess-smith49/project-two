@@ -1,7 +1,7 @@
 const express = require('express');
-const routes = require('./controllers');
-const mysql= require('mysql');
-const sequelize = require('/.config/connection');
+// const routes = require('./controllers');
+const mysql= require('mysql2');
+const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 const session = require('express-session');
@@ -16,7 +16,7 @@ const sess = {
     secret: 'Secret to be guarded to env file',
     cookie: {},
     resave: false,
-    saveUnitialized: true,
+    saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
     })
@@ -25,11 +25,11 @@ const sess = {
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.statis(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(routes);
+// app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));
