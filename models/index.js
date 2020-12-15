@@ -10,8 +10,21 @@ const Category = require('./Category');
 //Creating Associations
 
 //Users belong to many groups
+User.belongsToMany(Group,{
+    foreignKey: 'group_id'
+});
 
-//Categories have many Lists
+//Groups belong to many Users
+Group.belongToMany(User, {
+    foreingKey: 'user_id'
+});
+
+
+//List belong to one user through group
+
+//Drink belong to one user through group
+
+//Recipe belong to one user through group
 
 
 
