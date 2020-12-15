@@ -21,7 +21,7 @@ Group.init(
 
         group_code: {
             type: DataTypes.INTEGER
-            //uniqueID//
+            //uniqueID//shortID
         }
     },
     {

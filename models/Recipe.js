@@ -11,7 +11,7 @@ Recipe.init(
             autoIncrement: true
         },
 
-        model_name: {
+        recipe_name: {
             type: DataTypes.STRING
         },
 
