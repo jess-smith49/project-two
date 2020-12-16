@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Tangerine&effect=neon");
 * {
   box-sizing: border-box;
@@ -19,6 +19,7 @@ header {
   top: 0;
   z-index: 9999;
   min-width: 100%;
+  height: 80px;
 }
 
 .header-img-div .header-img {
@@ -63,6 +64,7 @@ nav ul .log-btn a {
   grid-template-rows: 100%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  top: 1;
   align-content: center;
   justify-content: center;
 }
@@ -77,56 +79,71 @@ nav ul .log-btn a {
 .hero .hero-overlay-div {
   display: grid;
 }
-.hero .hero-text-div {
-  grid-area: 1/1/2/2;
+.hero .hero-cta {
+  grid-area: 2/2/1/1;
+  background-color: rgba(12, 45, 28, 0.6);
+  border: solid 5px rgba(247, 239, 138, 0.5);
+  width: 35%;
+  height: 45%;
+  margin-left: 50%;
+  margin-top: 5%;
+  text-align: center;
 }
-.hero .hero-text-div .hero-text {
+.hero .hero-cta .hero-text {
   display: grid;
   align-items: center;
-  margin-left: 50%;
-  margin-right: 15px;
-  margin-top: 10%;
+  font-family: "Oswald", sans-serif;
 }
-.hero .hero-text-div .cta {
-  font-size: calc(20pt + 0.15vw);
+.hero .hero-cta .hero-text .cta-intro {
+  font-size: calc(15pt + 0.15vw);
   letter-spacing: 0.05em;
   font-style: italic;
   color: white;
 }
-.hero .hero-text-div .cta .cta-span {
-  font-size: calc(23pt + 0.15vw);
+.hero .hero-cta .hero-text .cta-intro .cta-span {
+  font-size: calc(18pt + 0.15vw);
   letter-spacing: 0.05em;
   font-style: italic;
   color: #AE8625;
 }
-.hero h1 {
+.hero .hero-cta .hero-text h1 {
   font-size: calc(40pt + 0.15vw);
   letter-spacing: 0.05em;
   font-weight: bolder;
   text-transform: uppercase;
   color: #AE8625;
 }
-.hero h1:hover {
-  font-size: calc(45pt + 0.15vw);
-  font-weight: bold;
-  color: #AE8625;
-}
-.hero h2 {
+.hero .hero-cta .hero-text p {
   font-size: calc(30pt + 0.15vw);
   letter-spacing: 0.05em;
   color: #F7EF8A;
 }
-.hero h2:hover {
-  font-size: calc(45pt + 0.15vw);
-  font-weight: bold;
-  color: #AE8625;
+.hero .hero-cta .signup-form .form-input {
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.hero .hero-cta .signup-form .form-input :focus {
+  background-color: white;
+}
+.hero .hero-cta .signup-form .form-input :hover {
+  background-color: white;
+  outline: none;
+}
+.hero .hero-cta .signup-form .form-input label {
+  margin: 0 5px;
 }
 
 .card-deck {
   padding: 50px 0px 50px 0px;
 }
-.card-deck .card:hover {
-  transform: scale(1.3);
+.card-deck .card {
+  height: 40vh;
+}
+.card-deck .card #list-card:hover {
+  transform: scale(1.2);
   z-index: 2;
   text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
   background-color: rgba(12, 45, 28, 0.75);
@@ -162,6 +179,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  text-align: center;
 }
 
 @media only screen and (max-width : 768px) {

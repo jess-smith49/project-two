@@ -6,13 +6,14 @@ $black-font: #0000;
 $white-font: white;
 $shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em#fff, 0 0 0.8em #fff, 0 0 1em#fff, 0 0 1.2em#fff;
 $main-font: 'Tangerine', serif;
+$secondary-font: 'Oswald', sans-serif; 
 //create brakpoints for media queries
 $breakpoint-lg-desktop: "only screen and (min-width :1880px)";
 $breakpoint-desktop: "only screen and (min-width :990px)";
 $breakpoint-tablet: "only screen and (max-width : 768px)";
 $breakpoint-phone: "only screen and (max-width : 414px)";
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Tangerine&effect=neon');
 
 //landing page styles
@@ -33,6 +34,7 @@ header {
     top: 0;
     z-index: 9999;
     min-width: 100%;
+    height: 80px;
 }
 
     .header-img-div {
@@ -88,6 +90,7 @@ header {
     grid-template-rows: 100%;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    top: 1;
     align-content: center;
     justify-content: center;
 
@@ -102,71 +105,93 @@ header {
     .hero-overlay-div {
         display: grid;
     }
-    .hero-text-div {
-        grid-area: 1/1/2/2;
-        
+    .hero-cta {
+        grid-area: 2/2/1/1;
+        background-color: rgba($color: #0c2d1c, $alpha: .60) ;
+        border: solid 5px rgba($color: $gold-font-2, $alpha: .50);
+        width: 35%;
+        height: 45%;
+        margin-left: 50%;
+        margin-top: 5%;
+        text-align: center;
         .hero-text {
             display: grid;
             align-items: center;
-            margin-left: 50%;
-            margin-right: 15px;
-            margin-top: 10%;
-            }
-        .cta {
-                font-size: calc(20pt + 0.15vw);
+            font-family: $secondary-font;
+            .cta-intro {
+                font-size: calc(15pt + 0.15vw);
                 letter-spacing: 0.05em;
                 font-style: italic;
                 color: $white-font;
-            .cta-span {
-                font-size: calc(23pt + 0.15vw);
+                
+                .cta-span {
+                    font-size: calc(18pt + 0.15vw);
+                    letter-spacing: 0.05em;
+                    font-style: italic;
+                    
+                    color: $gold-font-1;
+                }
+                
+            }
+            
+            h1 {
+                font-size: calc(40pt + 0.15vw);
                 letter-spacing: 0.05em;
-                font-style: italic;
+                font-weight: bolder;
+                text-transform: uppercase;
                 color: $gold-font-1;
             }
-
-        }
-        }
-
-        h1 {
-            font-size: calc(40pt + 0.15vw);
-            letter-spacing: 0.05em;
-            font-weight: bolder;
-            text-transform: uppercase;
-            color: $gold-font-1;
-            &:hover {
-                font-size: calc(45pt + 0.15vw);
-                font-weight: bold;
-                color: $gold-font-1;
+            
+            p {
+                font-size: calc(30pt + 0.15vw);
+                letter-spacing: 0.05em;
+                color: $gold-font-2;
+                
             }
         }
 
-        h2 {
-            font-size: calc(30pt + 0.15vw);
-            letter-spacing: 0.05em;
-            color: $gold-font-2;
-            &:hover {
-                font-size: calc(45pt + 0.15vw);
-                font-weight: bold;
-                color: $gold-font-1;
-
+        .signup-form {
+            .form-input {
+                display: block;
+                padding: 7px 15px;
+                font-size: 16px;
+                margin-bottom: 15px;
+                background-color: rgba(255,255,255, 0.75);
+                :focus {
+                    background-color: rgba(255,255,255, 1);
+                  }
+                :hover {
+                    background-color: rgba(255,255,255, 1);
+                    outline: none;
+                }
+                label {
+                    margin: 0 5px;
+                }
+                
             }
+        }
+    }
+}
 
-        }
-        }
-    
+
+
 .card-deck {
     padding: 50px 0px 50px 0px;
 
     .card {
-       
-        &:hover {
-            -webkit-transform: scale(1.3);
-            -ms-transform: scale(1.3);
-            transform: scale(1.3);
-            z-index: 2;
-            text-shadow: $shadow;
-            background-color: rgba($color: #0c2d1c, $alpha: .75) ;
-            }
+        height: 40vh;
+       #list-card {
+
+           &:hover {
+              -webkit-transform: scale(1.2);
+               -ms-transform: scale(1.2);
+               transform: scale(1.2);
+               z-index: 2;
+               text-shadow: $shadow;
+               background-color: rgba($color: #0c2d1c, $alpha: .75) ;
+               
+               }
+       }
 
     .card-img-caption {
         border-top-left-radius: calc(.25rem - 1px);
@@ -180,7 +205,7 @@ header {
         height: 40vh;
         object-fit: cover;
 
-        
+       
        
     }
 
@@ -207,7 +232,7 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    
+    text-align: center;
 
 }
 
