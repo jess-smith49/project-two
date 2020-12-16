@@ -1,0 +1,1 @@
+const stylesheet = document.styleSheets;

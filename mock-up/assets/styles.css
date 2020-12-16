@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Tangerine&effect=neon");
 * {
   box-sizing: border-box;
 }
@@ -45,12 +47,14 @@ nav ul .log-btn button {
   text-decoration: none;
   border: none;
   color: #AE8625;
-  font-size: calc(15pt + 0.15vw);
+  font-size: calc(30pt + 0.15vw);
+  font-family: "Tangerine", serif;
 }
 nav ul .log-btn a {
   text-decoration: none;
   color: #AE8625;
-  font-size: calc(15pt + 0.15vw);
+  font-size: calc(30pt + 0.15vw);
+  font-family: "Tangerine", serif;
 }
 
 .hero {
@@ -119,27 +123,37 @@ nav ul .log-btn a {
 }
 
 .card-deck {
-  padding: 50px;
+  padding: 50px 0px 50px 0px;
 }
-.card-deck .card-img-caption {
+.card-deck .card:hover {
+  transform: scale(1.3);
+  z-index: 2;
+  text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
+  background-color: rgba(12, 45, 28, 0.75);
+}
+.card-deck .card .card-img-caption {
   border-top-left-radius: calc(.25rem - 1px);
   border-top-right-radius: calc(.25rem - 1px);
   z-index: 0;
 }
-.card-deck .card-img {
+.card-deck .card .card-img {
   z-index: 0;
   width: 100%;
   height: 40vh;
   object-fit: cover;
 }
-.card-deck .card-text {
+.card-deck .card .card-text {
   text-align: center;
   width: 100%;
-  margin: 33% 0;
   position: absolute;
+  background-color: rgba(12, 45, 28, 0.75);
   z-index: 1;
-  font-size: calc(20pt + 0.15vw);
-  color: white;
+  font-size: calc(30pt + 0.15vw);
+  color: #F7EF8A;
+  font-family: "Tangerine", serif;
+}
+.card-deck .card .card-text:hover {
+  padding: 33% 0;
 }
 
 footer {
