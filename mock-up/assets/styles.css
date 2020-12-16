@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -6,14 +10,11 @@ html, body {
 
 header {
   background-color: #9B2335;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   top: 0;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-position: 80%;
   z-index: 9999;
   min-width: 100%;
 }
@@ -21,37 +22,39 @@ header {
 .header-img-div .header-img {
   height: auto;
   padding-top: 0;
-  padding-right: 90%;
+  float: left;
 }
 
 nav {
   margin: 7px 0;
 }
-nav nav ul {
+nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   list-style: none;
 }
-nav nav ul li {
+nav ul .log-btn {
   display: inline;
-}
-nav nav ul li header nav ul li a {
   padding: 10px 15px;
-  font-weight: lighter;
-  font-size: 1.55vw;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  float: right;
 }
-nav nav ul li button {
-  text-decoration: underline;
+nav ul .log-btn button {
   background: none;
+  text-decoration: none;
+  border: none;
+  color: #AE8625;
+}
+nav ul .log-btn a {
+  text-decoration: none;
+  color: #AE8625;
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100vh;
+  grid-template-rows: 100%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   align-content: center;
@@ -119,4 +122,12 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+@media only screen and (max-width : 768px) {
+  header {
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

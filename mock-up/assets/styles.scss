@@ -5,22 +5,29 @@ $gold-font-2: #F7EF8A;
 $black-font: #0000;
 $white-font: white;
 
+//create brakpoints for media queries
+$breakpoint-lg-desktop: "only screen and (min-width :1880px)";
+$breakpoint-desktop: "only screen and (min-width :990px)";
+$breakpoint-tablet: "only screen and (max-width : 768px)";
+$breakpoint-phone: "only screen and (max-width : 414px)";
+
+
+//landing page styles
+* {
+    box-sizing: border-box;
+}
  html, body {
      height: 100%;
      margin: 0;
      padding: 0;
   }
-//landing page styles
 header {
     background-color: $accent-color;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     top: 0;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-position: 80%;
     z-index: 9999;
     min-width: 100%;
 }
@@ -29,42 +36,47 @@ header {
         .header-img {
             height: auto;
             padding-top: 0;
-            padding-right: 90%;
+            float: left;
         }
     }
 
     nav {
         margin: 7px 0;
-        nav ul {
+         ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             list-style: none;
-         }
-        nav ul li {
+         
+        .log-btn {
             display: inline;
+            padding: 10px 15px;
+            float: right;
             
-            header nav ul li a {
-                padding: 10px 15px;
-                font-weight: lighter;
-                font-size: 1.55vw;
-                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            }
-            
-            button {
-                text-decoration: underline;
-                background: none;
-                
+                button {
+                    background: none;
+                    text-decoration: none;
+                    border: none;
+                    color: $gold-font-1;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: $gold-font-1;
+                }
             }
         }
+            }
+    
         
-    }
+        
+    
 
 .hero {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh;
+    grid-template-rows: 100%;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-content: center;
@@ -140,4 +152,16 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+
+
+
+@media #{$breakpoint-tablet} {
+    header {
+       display: block;
+       flex-direction: column;
+       align-items: flex-start;
+      
+    }
 }
