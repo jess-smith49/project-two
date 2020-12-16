@@ -9,15 +9,20 @@
 </head>
 
 <body>
-  <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Santa's Helper</a>
-      </h1>     
+      <div class="header-img-div">
+         <img class="header-img" src="./assets/images/header.png" href="/" alt="Santa's Helper"> 
+      </div>  
       <nav>
-          <button id="logout" class="btn-no-style">logout</button>
+        <ul>
+        <li class="log-btn">
+          <button id="logout">logout</button>
+        </li>
+        <li class="log-btn">
           <a href="/login">login</a>
-      </nav>        
+        </li>
+        </ul>
+        </nav>        
     </header>
     <section class="hero">
     <div class="hero-img-div">
@@ -26,19 +31,21 @@
     <div class="hero-overlay-div"></div>
     <div class="hero-text-div">
       <span class="hero-text">
-        <h1>Welcome to Santa's Helper</h1>
-        <h2>`Days Until Christmas</h2>
+        <h1>10 Days Until Christmas!</h1>
+        <p class="cta">
+          <span class="cta-span">'Tis the season</span> to come together with your family members and celebrate the holidays. Connect with them here to share your Christmas wish list, as well as family recipes and delicious drinks.
+        </p>
       </span>
       </div>
     </section>
     <main>
       <!-- for handelbars {{{ body }}} -->
     </main>
-    <footer>
-      JJM INC 2020
-    </footer>
-  </div>
+  
 <script src="/javascript/logout.js"></script>
 </body>
+<footer>
+  JJM INC 2020
+</footer>
 
 </html> 
