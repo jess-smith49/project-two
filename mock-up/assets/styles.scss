@@ -12,7 +12,6 @@ $white-font: white;
   }
 //landing page styles
 header {
-    padding: 20px 35px;
     background-color: $accent-color;
     display: flex;
     justify-content: space-between;
@@ -23,6 +22,7 @@ header {
     background-attachment: fixed;
     background-position: 80%;
     z-index: 9999;
+    min-width: 100%;
 }
 
     .header-img-div {
