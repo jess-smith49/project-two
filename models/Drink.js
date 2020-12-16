@@ -25,6 +25,22 @@ Drink.init(
         ingredients: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+
+        group_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'group',
+                key: 'id'
+            }
         }
     },
     {
