@@ -2,26 +2,21 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-//Create List Model
-class List extends Model {}
+//Create Category Model
+class Category extends Model {}
 
-//Initialize List 
-List.init(
+//Initialize Category
+Category.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
         },
 
-        list_name: {
+        cateogry_name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-
-        list_items: {
-            type: DataTypes.STRING
         }
     },
     {
@@ -29,10 +24,9 @@ List.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'list'
+        modelName: 'category'
     }
 );
 
-module.exports = List;
-
-
+//Exporting Category Model
+module.exports = Category
