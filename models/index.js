@@ -15,18 +15,61 @@ User.belongsToMany(Group,{
 });
 
 //Groups belong to many Users
-Group.belongToMany(User, {
+Group.belongsToMany(User, {
     foreingKey: 'user_id'
 });
 
+/*=================================================*/
+//Drink can belong belong to one user
+Drink.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
-//List belong to one user through group
+//user can have many drinks------FK
+User.hasMany(Drink);
 
-//Drink belong to one user through group
+//Drink can belong to one group
+Drink.belongsTo(Group, {
+    foreignKey: 'group_id'
+});
 
-//Recipe belong to one user through group
+//Group has many drinks
+Group.hasMany(Drink);
 
+/*===============================================*/
+Recipe.belongsTo(Group, {
+    foreignKey:'group_id'
+});
 
+User.hasMany(Recipe);
+
+Recipe.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Group.hasMany(Recipe);
+
+/*===============================================*/
+
+List.belongsTo(Group,{
+    foreignKey: 'group_id'
+});
+
+User.hasMany(Recipe);
+
+List.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Group.hasMany(List);
+
+/*===============================================*/
+
+List.belongsTo(Category, {
+    foreignKey: 'category_id'
+});
+
+Category.hasMany(List);
 
 
 

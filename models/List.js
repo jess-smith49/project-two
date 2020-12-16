@@ -22,6 +22,22 @@ List.init(
 
         list_items: {
             type: DataTypes.STRING
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+
+        group_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'group',
+                key: 'id'
+            }
         }
     },
     {
