@@ -45,10 +45,12 @@ nav ul .log-btn button {
   text-decoration: none;
   border: none;
   color: #AE8625;
+  font-size: calc(15pt + 0.15vw);
 }
 nav ul .log-btn a {
   text-decoration: none;
   color: #AE8625;
+  font-size: calc(15pt + 0.15vw);
 }
 
 .hero {
