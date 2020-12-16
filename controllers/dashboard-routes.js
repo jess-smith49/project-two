@@ -1,107 +1,150 @@
 const router = require('express').Router();
-const { Post } = require('.');
-const {} = require('../models');
+const { Recipe, List, Drink, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-//get all posts by user recipes, drinks, and gift list
+//get all recipes
 router.get('/recipes', withAuth, (req, res) => {
-    Post.findAll({
+    Recipe.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id']
+        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+        res.render('dashboard', { recipes, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//get all drinks
 router.get('/drinks', withAuth, (req,res) => {
-    Post.findAll({
+    Drink.findAll({
         where: {
             user_id: req.session.user_id
         },
+        attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbDrinkData => {
+        const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+        res.render('dashboard', { drinks, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//get all lists
 router.get('/lists', withAuth, (req,res) => {
-    Post.findAll({
+    List.findAll({
         where: {
             user_id: req.session.user_id
         },
-        atrributes: []
+        attributes: ['id', 'list_name', 'list_items'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbListData => {
+        const lists = dbListData.map(list => list.get({ plain: true }));
+        res.render('dashboard', { lists, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//create recipe
 router.get('/recipes/new', withAuth, (req,res) => {
     res.render("create-recipe", {
     });
 });
+//edit recipe
 router.get('/recipes/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
-        attributes: []
+    Recipe.findByPk(req.params.id, {
+        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        include: [
+            {  
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+        res.render('dashboard', { recipes, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//create drink
 router.get('/drinks/new', withAuth, (req,res) => {
     res.render("create-drink", {
     });
 });
+//edit drink
 router.get('/drinks/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
-        attributes: []
+    Drink.findByPk(req.params.id, {
+        attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
+        include: [
+            { 
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbDrinkData => {
+        const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+        res.render('dashboard', { drinks, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//create list
 router.get('/lists/new', withAuth, (req,res) => {
     res.render("create-list", {
     });
 });
+//edit list
 router.get('/lists/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
-        attributes: []
+    List.findByPk(req.params.id, {
+        attributes: ['id', 'list_name', 'list_items'],
+        include: [
+            { 
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+    .then(dbListData => {
+        const lists = dbListData.map(list => list.get({ plain: true }));
+        res.render('dashboard', { lists, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
-
 
 module.exports = router;
