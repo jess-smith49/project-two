@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Drink, User } = require('../../models');
+const { Recipe, User } = require('../../models');
 const withAuth = require('../../utils.auth');
 
 router.get('/', withAuth, (req, res) => {
-    Drink.findAll({
+    Recipe.findAll({
         attributes: [
             'id',
-            'drink_name',
+            'recipe_name',
             'ingredients',
             'instructions'
         ],
@@ -17,20 +17,20 @@ router.get('/', withAuth, (req, res) => {
             }
         ]
     })
-    .then(dbDrinkData => res.json(dbDrinkData))
+    .then(dbRecipeData => res.json(dbRecipeData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 router.get('/:id', withAuth, (req, res) => {
-    Drink.findOne({
+    Recipe.findOne({
         where: {
             id: req.params.id
         },
         attributes: [
             'id',
-            'drink_name',
+            'recipe_name',
             'ingredients',
             'instructions'
         ],
@@ -41,12 +41,12 @@ router.get('/:id', withAuth, (req, res) => {
             }
         ]
     })
-    .then(dbDrinkData => {
-        if (!dbDrinkData) {
+    .then(dbRecipeData => {
+        if (!dbRecipeData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
-        res.json(dbDrinkData);
+        res.json(dbRecipeData);
     })
     .catch(err => {
         console.log(err);
@@ -55,13 +55,13 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    Drink.create({
-        drink_name: req.body.drink_name,
+    Recipe.create({
+        recipe_name: req.body.recipe_name,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions
     })
-    .then(dbDrinkData => {
-        res.json(dbDrinkData)
+    .then(dbRecipeData => {
+        res.json(dbRecipeData)
     })
     .catch(err => {
         console.log(err);
@@ -69,8 +69,8 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 router.put('/:id', withAuth, (req, res) => {
-    Drink.update({
-        drink_name: req.body.drink_name,
+    Recipe.update({
+        recipe_name: req.body.recipe_name,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions
     },
@@ -80,12 +80,12 @@ router.put('/:id', withAuth, (req, res) => {
         }
     }
     )
-    .then(dbDrinkData => {
-        if (!dbDrinkData) {
+    .then(dbRecipeData => {
+        if (!dbRecipeData) {
             res.status(404).json({ message: 'No post found with this id.' });
             return;
         }
-        res.json(dbDrinkData);
+        res.json(dbRecipeData);
     })
     .catch(err => {
         console.log(err);
@@ -93,17 +93,17 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 router.delete('/:id', withAuth, (req, res) => {
-    Drink.destroy({
+    Recipe.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbDrinkData => {
-        if (!dbDrinkData) {
+    .then(dbRecipeData => {
+        if (!dbRecipeData) {
             res.status(404).json({ message: 'No post is found with this id.'});
             return;
         }
-        res.json(dbDrinkData);
+        res.json(dbRecipeData);
     })
     .catch(err => {
         console.log(err);

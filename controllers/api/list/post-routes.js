@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Category } = require('../../../models');
-const { Drink, User } = require('../../models');
+const { List, Category, User } = require('../../models');
 const withAuth = require('../../utils.auth');
 
 router.get('/', withAuth, (req, res) => {
