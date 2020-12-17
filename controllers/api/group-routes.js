@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { Drink, User, Group, GroupUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -9,12 +10,12 @@ router.get('/', withAuth, (req, res) => {
             'group_name',
             'group_code'
         ],
-        // include: [
-        //     {
-        //         model: User,
-        //         attributes: ['username']
-        //     }
-        // ]
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
     .then(dbGroupData => res.json(dbGroupData))
     .catch(err => {
@@ -30,7 +31,8 @@ router.get('/:id', withAuth, (req, res) => {
         attributes: [
             'id',
             'group_name',
-            'group_code'
+            'group_code',
+            [sequelize.literal('(SELECT id FROM user WHERE user.id = GroupUser.user_id)'), 'group_user'],
         ],
         // include: [
         //     {

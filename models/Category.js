@@ -12,9 +12,10 @@ Category.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
 
-        cateogry_name: {
+        category_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -29,7 +30,7 @@ Category.init(
     },
     {
         sequelize,
-        timestamps: false,
+        // timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'category'

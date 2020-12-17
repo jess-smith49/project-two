@@ -1,6 +1,6 @@
 const {Category} = require('../models');
 //Require
-const seedCategories = require('./user-seeds');
+// const seedCategories = require('./user-seeds');
 
 //Data
 const categoryData = [

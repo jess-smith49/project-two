@@ -1,5 +1,5 @@
 //Require
-const List = require('../models');
+const {List} = require('../models');
 
 //Data
 const listData = [
