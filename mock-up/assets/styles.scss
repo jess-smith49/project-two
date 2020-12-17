@@ -93,6 +93,7 @@ header {
     top: 1;
     align-content: center;
     justify-content: center;
+   
 
     .hero-img-div {
         grid-area: 1/1/2/2;
@@ -107,10 +108,11 @@ header {
     }
     .hero-cta {
         grid-area: 2/2/1/1;
-        background-color: rgba($color: #0c2d1c, $alpha: .60) ;
+        padding: 15px;
+        background-color: rgba($color: $gold-font-1, $alpha: .60) ;
         border: solid 5px rgba($color: $gold-font-2, $alpha: .50);
-        width: 35%;
-        height: 45%;
+        width: 45%;
+        height: 50%;
         margin-left: 50%;
         margin-top: 5%;
         text-align: center;
@@ -129,7 +131,7 @@ header {
                     letter-spacing: 0.05em;
                     font-style: italic;
                     
-                    color: $gold-font-1;
+                    color: #0c2d1c;
                 }
                 
             }
@@ -139,7 +141,7 @@ header {
                 letter-spacing: 0.05em;
                 font-weight: bolder;
                 text-transform: uppercase;
-                color: $gold-font-1;
+                color: #0c2d1c;
             }
             
             p {
@@ -151,11 +153,13 @@ header {
         }
 
         .signup-form {
-            ;
-           
+            display: grid;
+            place-items: center;
             .form-input {
+                z-index: 2;
                 display: block;
                 font-size: 16px;
+                border: none;
                 background-color: rgba(255,255,255, 0.75);
                 :focus {
                     background-color: rgba(255,255,255, 1);
@@ -184,6 +188,7 @@ header {
               -webkit-transform: scale(1.2);
                -ms-transform: scale(1.2);
                transform: scale(1.2);
+               transition: margin-right 2s ease-in-out;
                z-index: 2;
                text-shadow: $shadow;
                background-color: rgba($color: #0c2d1c, $alpha: .75) ;

@@ -81,10 +81,11 @@ nav ul .log-btn a {
 }
 .hero .hero-cta {
   grid-area: 2/2/1/1;
-  background-color: rgba(12, 45, 28, 0.6);
+  padding: 15px;
+  background-color: rgba(174, 134, 37, 0.6);
   border: solid 5px rgba(247, 239, 138, 0.5);
-  width: 35%;
-  height: 45%;
+  width: 45%;
+  height: 50%;
   margin-left: 50%;
   margin-top: 5%;
   text-align: center;
@@ -104,23 +105,29 @@ nav ul .log-btn a {
   font-size: calc(18pt + 0.15vw);
   letter-spacing: 0.05em;
   font-style: italic;
-  color: #AE8625;
+  color: #0c2d1c;
 }
 .hero .hero-cta .hero-text h1 {
   font-size: calc(40pt + 0.15vw);
   letter-spacing: 0.05em;
   font-weight: bolder;
   text-transform: uppercase;
-  color: #AE8625;
+  color: #0c2d1c;
 }
 .hero .hero-cta .hero-text p {
   font-size: calc(30pt + 0.15vw);
   letter-spacing: 0.05em;
   color: #F7EF8A;
 }
+.hero .hero-cta .signup-form {
+  display: grid;
+  place-items: center;
+}
 .hero .hero-cta .signup-form .form-input {
+  z-index: 2;
   display: block;
   font-size: 16px;
+  border: none;
   background-color: rgba(255, 255, 255, 0.75);
 }
 .hero .hero-cta .signup-form .form-input :focus {
@@ -142,6 +149,7 @@ nav ul .log-btn a {
 }
 .card-deck .card:hover {
   transform: scale(1.2);
+  transition: margin-right 2s ease-in-out;
   z-index: 2;
   text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
   background-color: rgba(12, 45, 28, 0.75);
