@@ -26,9 +26,9 @@ async function loginFormHandler(event){
 async function signUpHandler(event) {
     event.preventDefault();
 
-    const username = document.querySelector().value.trim();
-    const email = document.querySelector().value.trim();
-    const password = document.querySelector().value.trim();
+    const username = document.querySelector('#sign-username').value.trim();
+    const email = document.querySelector('#sign-email').value.trim();
+    const password = document.querySelector('#sign-password').value.trim();
 
 
     if(username && email && password) {
