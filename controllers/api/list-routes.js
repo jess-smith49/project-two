@@ -11,19 +11,9 @@ router.get('/', withAuth, (req, res) => {
         ],
         include: [
             {
-                model: Category,
-                attributes: ['id', 'category_name'],
-                include: [
-                    {
-                        model: User,
-                        attributes: ['username']
-                    }
-                ]
-            },
-            {
                 model: User,
                 attributes: ['username']
-            }
+            },
         ]
     })
     .then(dbListData => res.json(dbListData))
@@ -43,16 +33,6 @@ router.get('/:id', withAuth, (req, res) => {
             'list_items'
         ],
         include: [
-            {
-                model: Category,
-                attributes: ['id', 'category_name'],
-                include: [
-                    {
-                        model: User,
-                        attributes: ['username']
-                    }
-                ]
-            },
             {
                 model: User, 
                 attributes: ['username']
@@ -75,7 +55,8 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
     List.create({
         list_name: req.body.list_name,
-        list_items: req.body.list_items
+        list_items: req.body.list_items,
+        user_id: req.session.user_id
     })
     .then(dbListData => {
         res.json(dbListData)

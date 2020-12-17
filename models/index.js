@@ -59,6 +59,7 @@ Group.hasMany(Recipe);
 List.belongsTo(Group,{
     foreignKey: 'group_id'
 });
+User.hasMany(List);
 
 User.hasMany(Recipe);
 

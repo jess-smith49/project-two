@@ -58,7 +58,8 @@ router.post('/', withAuth, (req, res) => {
     Drink.create({
         drink_name: req.body.drink_name,
         ingredients: req.body.ingredients,
-        instructions: req.body.instructions
+        instructions: req.body.instructions,
+        user_id: req.session.user_id
     })
     .then(dbDrinkData => {
         res.json(dbDrinkData)
