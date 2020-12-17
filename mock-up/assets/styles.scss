@@ -180,8 +180,6 @@ header {
 
     .card {
         height: 40vh;
-       #list-card {
-
            &:hover {
               -webkit-transform: scale(1.2);
                -ms-transform: scale(1.2);
@@ -189,9 +187,9 @@ header {
                z-index: 2;
                text-shadow: $shadow;
                background-color: rgba($color: #0c2d1c, $alpha: .75) ;
-               
+               overflow: hidden;
                }
-       }
+       
 
     .card-img-caption {
         border-top-left-radius: calc(.25rem - 1px);
@@ -221,6 +219,7 @@ header {
 
         &:hover {
             padding: 33% 0;
+            overflow: hidden;
         }
     }
 }

@@ -142,11 +142,12 @@ nav ul .log-btn a {
 .card-deck .card {
   height: 40vh;
 }
-.card-deck .card #list-card:hover {
+.card-deck .card:hover {
   transform: scale(1.2);
   z-index: 2;
   text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
   background-color: rgba(12, 45, 28, 0.75);
+  overflow: hidden;
 }
 .card-deck .card .card-img-caption {
   border-top-left-radius: calc(.25rem - 1px);
@@ -171,6 +172,7 @@ nav ul .log-btn a {
 }
 .card-deck .card .card-text:hover {
   padding: 33% 0;
+  overflow: hidden;
 }
 
 footer {
