@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Recipe, List, Drink, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+//get all groups
+
 //get all recipes
 router.get('/recipes', withAuth, (req, res) => {
     Recipe.findAll({

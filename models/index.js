@@ -5,18 +5,23 @@ const Recipe = require('./Recipe');
 const List = require('./List');
 const Group = require('./Group');
 const Category = require('./Category');
+const GroupUser = require('./GroupUser');
 
 
 //Creating Associations
 
 //Users belong to many groups
-User.belongsToMany(Group,{
-    foreignKey: 'group_id'
+User.belongsToMany(Group, {
+    through: GroupUser,
+    as: 'group_user',
+    foreignKey: 'user_id'
 });
 
 //Groups belong to many Users
 Group.belongsToMany(User, {
-    foreingKey: 'user_id'
+    through: GroupUser,
+    as: 'group_user',
+    foreignKey: 'group_id'
 });
 
 /*=================================================*/
