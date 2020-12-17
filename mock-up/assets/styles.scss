@@ -112,7 +112,7 @@ header {
         background-color: rgba($color: $gold-font-1, $alpha: .60) ;
         border: solid 5px rgba($color: $gold-font-2, $alpha: .50);
         width: 45%;
-        height: 50%;
+        height: 55%;
         margin-left: 50%;
         margin-top: 5%;
         text-align: center;
@@ -159,20 +159,38 @@ header {
                 z-index: 2;
                 display: block;
                 font-size: 16px;
+                line-height: 5px;
+                font-family: $secondary-font;
                 border: none;
-                background-color: rgba(255,255,255, 0.75);
-                :focus {
+                width: 75%;
+                padding: 7px;
+                margin-bottom: 10px;
+                background-color: rgba(255,255,255, 0.5);
+                &:focus {
                     background-color: rgba(255,255,255, 1);
                   }
-                :hover {
+                &:hover {
                     background-color: rgba(255,255,255, 1);
                     outline: none;
                 }
-                label {
-                    margin: 0 5px;
-                }
-                
+
             }
+                .form-submit {
+                    font-family: $main-font;
+                    font-size: calc(20pt + 0.15vw);
+                    padding: 0;
+                    color: $gold-font-1;
+                    background: #0c2d1c;
+                    border: none;
+                    width: 50%;
+                    height: 50px;
+
+                    &:hover {
+                        background-color: $accent-color;
+                        transition: margin-right 4s 1s;
+                        font-size: calc(23pt + 0.15vw);
+                    }
+                }
         }
     }
 }
@@ -181,6 +199,7 @@ header {
 
 .card-deck {
     padding: 50px 0px 50px 0px;
+    align-content: center;
 
     .card {
         height: 40vh;
