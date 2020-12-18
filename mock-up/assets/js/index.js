@@ -43,7 +43,7 @@ window.onload = function() {
 
         let daysUntilChristmas = days + ':' + hours + ':' + minutes;
         console.log(daysUntilChristmas)
-        let countdownContainer = document.getElementById('#countdown');
+        let countdownContainer = document.getElementById('countdown');
         let  titleEl = document.createElement("h1");
         titleEl.classList.add('cta-title');
         titleEl.textContent = `${daysUntilChristmas} Day's Left Until Christmas! `;
