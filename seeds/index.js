@@ -3,7 +3,7 @@ const seedDrinks = require('./drink-seeds');
 const seedLists = require('./list-seeds');
 const seedRecipes = require('./recipe-seeds');
 const seedUsers = require('./user-seeds');
-const seedGroups = require('./group-seeds');
+const seedGroups = require('./groups-seeds');
 
 const sequelize = require('../config/connection');
 

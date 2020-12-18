@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Drink, User, Group, GroupUser } = require('../../models');
+const { Drink, User, Groups, GroupUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-    Group.findAll({
+    Groups.findAll({
         attributes: [
             'id',
-            'group_name',
-            'group_code'
+            'groups_name',
+            'groups_code'
         ],
         // include: [
         //     {
@@ -17,21 +17,21 @@ router.get('/', withAuth, (req, res) => {
         //     }
         // ]
     })
-    .then(dbGroupData => res.json(dbGroupData))
+    .then(dbGroupsData => res.json(dbGroupsData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 router.get('/:id', withAuth, (req, res) => {
-    Group.findOne({
+    Groups.findOne({
         where: {
             id: req.params.id
         },
         attributes: [
             'id',
-            'group_name',
-            'group_code',
+            'groups_name',
+            'groups_code',
             // [sequelize.literal('(SELECT id FROM user WHERE user.id = GroupUser.user_id)'), 'group_user'],
         ],
         // include: [
@@ -41,12 +41,12 @@ router.get('/:id', withAuth, (req, res) => {
         //     }
         // ]
     })
-    .then(dbGroupData => {
-        if (!dbGroupData) {
+    .then(dbGroupsData => {
+        if (!dbGroupsData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
-        res.json(dbGroupData);
+        res.json(dbGroupsData);
     })
     .catch(err => {
         console.log(err);
@@ -55,13 +55,13 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    Group.create({
-        group_name: req.body.group_name,
-        group_code: req.body.group_code,
+    Groups.create({
+        groups_name: req.body.groups_name,
+        groups_code: req.body.groups_code,
         user_id: req.session.user_id
     })
-    .then(dbGroupData => {
-        res.json(dbGroupData)
+    .then(dbGroupsData => {
+        res.json(dbGroupsData)
     })
     .catch(err => {
         console.log(err);
@@ -69,9 +69,9 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 router.put('/:id', withAuth, (req, res) => {
-    Group.update({
-        group_name: req.body.group_name,
-        group_code: req.body.group_code
+    Groups.update({
+        groups_name: req.body.groups_name,
+        groups_code: req.body.groups_code
     },
     {
         where: {
@@ -79,12 +79,12 @@ router.put('/:id', withAuth, (req, res) => {
         }
     }
     )
-    .then(dbGroupData => {
-        if (!dbGroupData) {
+    .then(dbGroupsData => {
+        if (!dbGroupsData) {
             res.status(404).json({ message: 'No post found with this id.' });
             return;
         }
-        res.json(dbGroupData);
+        res.json(dbGroupsData);
     })
     .catch(err => {
         console.log(err);
@@ -92,17 +92,17 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 router.delete('/:id', withAuth, (req, res) => {
-    Group.destroy({
+    Groups.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbGroupData => {
-        if (!dbGroupData) {
+    .then(dbGroupsData => {
+        if (!dbGroupsData) {
             res.status(404).json({ message: 'No post is found with this id.'});
             return;
         }
-        res.json(dbGroupData);
+        res.json(dbGroupsData);
     })
     .catch(err => {
         console.log(err);
