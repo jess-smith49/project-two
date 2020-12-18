@@ -23,6 +23,12 @@ Group.belongsToMany(User, {
     as: 'group_user',
     foreignKey: 'group_id'
 });
+GroupUser.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+GroupUser.belongsTo(Group, {
+    foreignKey: 'group_id'
+});
 
 List.belongsToMany(Category, {
     through: ListCategory,
