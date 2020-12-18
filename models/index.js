@@ -2,9 +2,9 @@ const User = require('./User');
 const Drink = require('./Drink');
 const Recipe = require('./Recipe');
 const List = require('./List');
-const Groups = require('./Group');
+const Groups = require('./Groups');
 const Category = require('./Category');
-const GroupsUser = require('./GroupUser');
+const GroupsUser = require('./GroupsUser');
 const ListCategory = require('./ListCategory');
 
 
@@ -19,7 +19,7 @@ User.belongsToMany(Groups, {
 
 //Groups belong to many Users
 Groups.belongsToMany(User, {
-    through: GroupUser,
+    through: GroupsUser,
     as: 'groups_user',
     foreignKey: 'groups_id'
 });
@@ -27,7 +27,7 @@ GroupsUser.belongsTo(User, {
     foreignKey: 'user_id'
 });
 GroupsUser.belongsTo(Groups, {
-    foreignKey: 'group_id'
+    foreignKey: 'groups_id'
 });
 
 List.belongsToMany(Category, {
@@ -48,9 +48,9 @@ Drink.belongsTo(User, {
 });
 
 //user can have many drinks------FK
-User.hasMany(Drink);
+User.hasMany(Drink, {
     foreignKey: 'user_id'
-
+});
 //Drink can belong to one group
 Drink.belongsTo(Groups, {
     foreignKey: 'groups_id'
@@ -122,7 +122,7 @@ Groups.hasMany(Recipe);
 /*===============================================*/
 
 List.belongsTo(Groups,{
-    foreignKey: 'group_id'
+    foreignKey: 'groups_id'
 });
 User.hasMany(List);
 
