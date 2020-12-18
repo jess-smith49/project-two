@@ -1,5 +1,5 @@
-const {Recipes} = require('../models');
-const Recipe = require('../models/Recipe');
+
+const { Recipe } = require('../models');
 
 const recipeData = [
     {

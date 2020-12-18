@@ -14,7 +14,7 @@ ListCategory.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'List',
+                model: 'list',
                 key: 'id'
             }
         },
@@ -22,7 +22,7 @@ ListCategory.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Category',
+                model: 'category',
                 key: 'id'
             }
         }

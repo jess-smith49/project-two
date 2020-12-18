@@ -4,14 +4,19 @@ const drinkData = [
     {
         drink_name: 'Cranberry Spritzer',
         ingredients: '7up, cranberry juice, fresh limes',
-        instructions: 'Add 2 oz cranberry juice, sqeeze one quarter lime, and fill the rest with 7up'
+        instructions: 'Add 2 oz cranberry juice, sqeeze one quarter lime, and fill the rest with 7up',
+        // user_id: 1,
+        // group_id: 1
     }, 
     {
         drink_name: 'Christmas Punch',
         ingredients: 'Cranberry Juice, Sparkling wine, Ginger Ale, Oranges, Cranberries, Rum or Brandy',
-        instructions: 'Add all ingredients into large bowl'
+        instructions: 'Add all ingredients into large bowl',
+        // user_id: 2,
+        // group_id: 2
     }
 ];
 
-seedDrinks = () => Drink.bulkCreate(drinkData);
+const seedDrinks = () => Drink.bulkCreate(drinkData);
+
 module.exports = seedDrinks;
