@@ -58,7 +58,6 @@ Recipe.belongsTo(Group, {
 });
 
 User.hasMany(Recipe);
-=======
 
 //user can have many drinks------FK
 User.hasMany(Drink);
