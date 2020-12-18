@@ -5,13 +5,13 @@ const seedCategories = require('./user-seeds');
 //Data
 const categoryData = [
     {
-        category_name: 'Drinks'
+        category_name: 'House'
     },
     {
-        category_name: 'Recipes'
+        category_name: 'Decoration'
     },
     {
-        category_name: 'List'
+        category_name: 'Lawn'
     }
 ];
 
