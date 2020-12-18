@@ -43,6 +43,7 @@ Drink.belongsTo(User, {
 
 //user can have many drinks------FK
 User.hasMany(Drink);
+    foreignKey: 'user_id'
 
 //Drink can belong to one group
 Drink.belongsTo(Group, {

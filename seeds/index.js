@@ -1,23 +1,26 @@
-const seedCategory = require('./category-seeds');
-const seedDrink = require('./drink-seeds');
-const seedList = require('./list-seeds');
-const seedRecipe = require('./recipe-seeds');
-const seedUser = require('./user-seeds');
+const seedCategories = require('./category-seeds');
+const seedDrinks = require('./drink-seeds');
+const seedLists = require('./list-seeds');
+const seedRecipes = require('./recipe-seeds');
+const seedUsers = require('./user-seeds');
+const seedGroups = require('./group-seeds');
 
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('=====');
-    await seedCategory();
+    await seedCategories();
     console.log('=====');
-    await seedDrink();
+    await seedDrinks();
     console.log('=====');
-    await seedList();
+    await seedLists();
     console.log('=====');
-    await seedRecipe();
+    await seedRecipes();
     console.log('=====');
-    await seedUser();
+    await seedUsers();
+    console.log('=====');
+    await seedGroups();
     console.log('=====');
 
     process.exit(0);
