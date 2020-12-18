@@ -1,4 +1,3 @@
-//Import All Models
 const User = require('./User');
 const Drink = require('./Drink');
 const Recipe = require('./Recipe');
@@ -59,6 +58,25 @@ Recipe.belongsTo(Group, {
 });
 
 User.hasMany(Recipe);
+=======
+
+//user can have many drinks------FK
+User.hasMany(Drink);
+
+//Drink can belong to one group
+Drink.belongsTo(Group, {
+    foreignKey: 'group_id'
+});
+
+//Group has many drinks
+Group.hasMany(Drink);
+
+/*===============================================*/
+Recipe.belongsTo(Group, {
+    foreignKey:'group_id'
+});
+
+User.hasMany(Recipe);
 
 Recipe.belongsTo(User, {
     foreignKey: 'user_id'
@@ -89,13 +107,34 @@ List.belongsTo(Category, {
 
 Category.hasMany(List);
 
+Recipe.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
+Group.hasMany(Recipe);
 
+/*===============================================*/
 
+List.belongsTo(Group,{
+    foreignKey: 'group_id'
+});
+User.hasMany(List);
 
+User.hasMany(Recipe);
 
+List.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
+Group.hasMany(List);
 
+/*===============================================*/
+
+List.belongsTo(Category, {
+    foreignKey: 'category_id'
+});
+
+Category.hasMany(List);
 
 
 //Exporting the Models
