@@ -32,7 +32,7 @@ router.get('/:id', withAuth, (req, res) => {
             'id',
             'group_name',
             'group_code',
-            [sequelize.literal('(SELECT id FROM user WHERE user.id = GroupUser.user_id)'), 'group_user'],
+            // [sequelize.literal('(SELECT id FROM user WHERE user.id = GroupUser.user_id)'), 'group_user'],
         ],
         // include: [
         //     {
