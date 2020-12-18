@@ -1,6 +1,4 @@
-const sequelize = require('../config/connection');
 //Require
-const sequelize = require('../config/connection');
 const {User} = require('../models');
 
 //Data

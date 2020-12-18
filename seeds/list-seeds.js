@@ -1,23 +1,29 @@
 //Require
-const List = require('../models');
+const {List} = require('../models');
 
 //Data
 const listData = [
     {
         list_name: 'Jess',
-        list_item: 'Airpods, Baking Sheets, Sunglasses, Purse'
+        list_items: 'Airpods, Baking Sheets, Sunglasses, Purse',
+        // user_id: 1,
+        // group_id: 1
     },
     {
         list_name: 'Maya',
-        list_item: 'Laptop, Bed Sheets, Lamp'
+        list_items: 'Laptop, Bed Sheets, Lamp',
+        // user_id: 2,
+        // group_id: 2
     },
     {
-        list_name: 'Johanna',
-        list_item: 'Target Gift Card, Bath and Body Candle, Shoes'
+        list_name: 'Joanna',
+        list_items: 'Target Gift Card, Bath and Body Candle, Shoes',
+        // user_id: 3,
+        // group_id: 3
     }
 ];
 
-const seedList = () => List.bulkCreate(listData);
+const seedLists = () => List.bulkCreate(listData);
 
 //Exporting
-module.exports = seedList;
+module.exports = seedLists;

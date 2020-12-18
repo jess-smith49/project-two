@@ -5,6 +5,7 @@ const List = require('./List');
 const Group = require('./Group');
 const Category = require('./Category');
 const GroupUser = require('./GroupUser');
+const ListCategory = require('./ListCategory');
 
 
 //Creating Associations
@@ -23,6 +24,17 @@ Group.belongsToMany(User, {
     foreignKey: 'group_id'
 });
 
+List.belongsToMany(Category, {
+    through: ListCategory,
+    as: 'list_category',
+    foreignKey: 'list_id'
+});
+
+Category.belongsToMany(List, {
+    through: ListCategory,
+    as: 'list_category',
+    foreignKey: 'category_id'
+})
 /*=================================================*/
 //Drink can belong belong to one user
 Drink.belongsTo(User, {
@@ -31,6 +43,7 @@ Drink.belongsTo(User, {
 
 //user can have many drinks------FK
 User.hasMany(Drink);
+    foreignKey: 'user_id'
 
 //Drink can belong to one group
 Drink.belongsTo(Group, {
@@ -46,7 +59,6 @@ Recipe.belongsTo(Group, {
 });
 
 User.hasMany(Recipe);
-=======
 
 //user can have many drinks------FK
 User.hasMany(Drink);
@@ -77,6 +89,7 @@ Group.hasMany(Recipe);
 List.belongsTo(Group,{
     foreignKey: 'group_id'
 });
+User.hasMany(List);
 
 User.hasMany(Recipe);
 

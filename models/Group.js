@@ -23,18 +23,10 @@ Group.init(
             type: DataTypes.INTEGER
             //uniqueID//shortID
         },
-
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
     },
     {
         sequelize,
-        freezeTableName,
+        freezeTableName: true,
         underscored: true,
         modelName: 'group'
     }

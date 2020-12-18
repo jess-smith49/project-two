@@ -12,24 +12,17 @@ Category.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
 
-        cateogry_name: {
+        category_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-
-        /*list_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'list',
-                key: 'id'
-            }
-        }*/
     },
     {
         sequelize,
-        timestamps: false,
+        // timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'category'
