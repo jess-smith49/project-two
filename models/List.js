@@ -32,10 +32,10 @@ List.init(
             }
         },
 
-        groups_id: {
+        team_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'groups',
+                model: 'team',
                 key: 'id'
             }
         }

@@ -2,32 +2,32 @@ const User = require('./User');
 const Drink = require('./Drink');
 const Recipe = require('./Recipe');
 const List = require('./List');
-const Groups = require('./Groups');
+const Team = require('./Team');
 const Category = require('./Category');
-const GroupsUser = require('./GroupsUser');
+const TeamUser = require('./TeamUser');
 const ListCategory = require('./ListCategory');
 
 
 //Creating Associations
 
 //Users belong to many groups
-User.belongsToMany(Groups, {
-    through: GroupsUser,
-    as: 'groups_user',
+User.belongsToMany(Team, {
+    through: TeamUser,
+    as: 'team_user',
     foreignKey: 'user_id'
 });
 
 //Groups belong to many Users
-Groups.belongsToMany(User, {
-    through: GroupsUser,
-    as: 'groups_user',
-    foreignKey: 'groups_id'
+Team.belongsToMany(User, {
+    through: TeamUser,
+    as: 'team_user',
+    foreignKey: 'team_id'
 });
-GroupsUser.belongsTo(User, {
+TeamUser.belongsTo(User, {
     foreignKey: 'user_id'
 });
-GroupsUser.belongsTo(Groups, {
-    foreignKey: 'groups_id'
+TeamUser.belongsTo(Team, {
+    foreignKey: 'team_id'
 });
 
 List.belongsToMany(Category, {
@@ -52,16 +52,16 @@ User.hasMany(Drink, {
     foreignKey: 'user_id'
 });
 //Drink can belong to one group
-Drink.belongsTo(Groups, {
-    foreignKey: 'groups_id'
+Drink.belongsTo(Team, {
+    foreignKey: 'team_id'
 });
 
 //Group has many drinks
-Groups.hasMany(Drink);
+Team.hasMany(Drink);
 
 /*===============================================*/
-Recipe.belongsTo(Groups, {
-    foreignKey:'groups_id'
+Recipe.belongsTo(Team, {
+    foreignKey:'team_id'
 });
 
 User.hasMany(Recipe);
@@ -70,16 +70,16 @@ User.hasMany(Recipe);
 User.hasMany(Drink);
 
 //Drink can belong to one group
-Drink.belongsTo(Groups, {
-    foreignKey: 'groups_id'
+Drink.belongsTo(Team, {
+    foreignKey: 'team_id'
 });
 
 //Group has many drinks
-Groups.hasMany(Drink);
+Team.hasMany(Drink);
 
 /*===============================================*/
-Recipe.belongsTo(Groups, {
-    foreignKey:'groups_id'
+Recipe.belongsTo(Team, {
+    foreignKey:'team_id'
 });
 
 User.hasMany(Recipe);
@@ -88,12 +88,12 @@ Recipe.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Groups.hasMany(Recipe);
+Team.hasMany(Recipe);
 
 /*===============================================*/
 
-List.belongsTo(Groups,{
-    foreignKey: 'groups_id'
+List.belongsTo(Team,{
+    foreignKey: 'team_id'
 });
 User.hasMany(List);
 
@@ -103,7 +103,7 @@ List.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Groups.hasMany(List);
+Team.hasMany(List);
 
 /*===============================================*/
 
@@ -117,12 +117,12 @@ Recipe.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Groups.hasMany(Recipe);
+Team.hasMany(Recipe);
 
 /*===============================================*/
 
-List.belongsTo(Groups,{
-    foreignKey: 'groups_id'
+List.belongsTo(Team,{
+    foreignKey: 'team_id'
 });
 User.hasMany(List);
 
@@ -132,7 +132,7 @@ List.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Groups.hasMany(List);
+Team.hasMany(List);
 
 /*===============================================*/
 
@@ -144,4 +144,4 @@ Category.hasMany(List);
 
 
 //Exporting the Models
-module.exports = {User, Drink, Recipe, List, Category, Groups};
+module.exports = {User, Drink, Recipe, List, Category, Team};

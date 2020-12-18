@@ -3,7 +3,7 @@ const seedDrinks = require('./drink-seeds');
 const seedLists = require('./list-seeds');
 const seedRecipes = require('./recipe-seeds');
 const seedUsers = require('./user-seeds');
-const seedGroups = require('./groups-seeds');
+const seedTeams = require('./team-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -20,7 +20,7 @@ const seedAll = async () => {
     console.log('=====');
     await seedUsers();
     console.log('=====');
-    await seedGroups();
+    await seedTeams();
     console.log('=====');
 
     process.exit(0);
