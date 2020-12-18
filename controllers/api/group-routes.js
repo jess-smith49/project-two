@@ -10,12 +10,12 @@ router.get('/', withAuth, (req, res) => {
             'group_name',
             'group_code'
         ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
+        // include: [
+        //     {
+        //         model: User,
+        //         attributes: ['username']
+        //     }
+        // ]
     })
     .then(dbGroupData => res.json(dbGroupData))
     .catch(err => {
