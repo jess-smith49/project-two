@@ -16,12 +16,15 @@
       </div>  
       <nav>
         <ul>
+          {{#if loggedIn}}
         <li class="log-btn" id="login-btn">
           <button id="logout">logout</button>
         </li>
+        {{else}}
         <li class="log-btn" id="logout-btn">
           <a href="/login">login</a>
         </li>
+        {{/if}}
         </ul>
         </nav>        
     </header>
