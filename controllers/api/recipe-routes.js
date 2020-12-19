@@ -2,8 +2,7 @@ const router = require('express').Router();
 const { Recipe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
-    console.log("===================working");
+router.get('/', (req, res) => {
     Recipe.findAll({
         attributes: [
             'id',
@@ -24,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Recipe.findOne({
         where: {
             id: req.params.id
@@ -55,7 +54,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Recipe.create({
         recipe_name: req.body.recipe_name,
         ingredients: req.body.ingredients,
@@ -70,7 +69,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Recipe.update({
         recipe_name: req.body.recipe_name,
         ingredients: req.body.ingredients,
@@ -94,7 +93,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Recipe.destroy({
         where: {
             id: req.params.id

@@ -3,19 +3,19 @@ const sequelize = require('../../config/connection');
 const { Drink, User, Team, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Team.findAll({
         attributes: [
             'id',
             'team_name',
             'team_code'
         ],
-        // include: [
-        //     {
-        //         model: User,
-        //         attributes: ['username']
-        //     }
-        // ]
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
     .then(dbTeamData => res.json(dbTeamData))
     .catch(err => {
@@ -23,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Team.findOne({
         where: {
             id: req.params.id
@@ -34,12 +34,12 @@ router.get('/:id', withAuth, (req, res) => {
             'team_code',
             // [sequelize.literal('(SELECT id FROM user WHERE user.id = TeamUser.user_id)'), 'team_user'],
         ],
-        // include: [
-        //     {
-        //         model: User, 
-        //         attributes: ['username']
-        //     }
-        // ]
+        include: [
+            {
+                model: User, 
+                attributes: ['username']
+            }
+        ]
     })
     .then(dbTeamData => {
         if (!dbTeamData) {
@@ -54,7 +54,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Team.create({
         team_name: req.body.team_name,
         team_code: req.body.team_code,
@@ -68,7 +68,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,
         team_code: req.body.team_code
@@ -91,7 +91,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Team.destroy({
         where: {
             id: req.params.id

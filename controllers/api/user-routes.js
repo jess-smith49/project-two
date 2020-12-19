@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, List, User, Drink } = require('../../models');
+const { Recipe, List, User, Drink, Team, TeamUser } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -41,7 +41,15 @@ router.get('/:id', (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            }
+            },
+            // {
+                // model: Team,
+                // attributes: ['id', 'team_name', 'team_code'],
+                // include: {
+                //     model: User,
+                //     attributes: ['username']
+                // }
+            // }
         ],
      })
      .then(dbUserData => {
