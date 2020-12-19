@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Drink, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Drink.findAll({
         attributes: [
             'id',
@@ -24,7 +24,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Drink.findOne({
         where: {
             id: req.params.id
@@ -56,7 +56,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Drink.create({
         drink_name: req.body.drink_name,
         ingredients: req.body.ingredients,
@@ -71,7 +71,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Drink.update({
         drink_name: req.body.drink_name,
         ingredients: req.body.ingredients,
@@ -95,7 +95,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Drink.destroy({
         where: {
             id: req.params.id
