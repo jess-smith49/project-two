@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Recipe, List, Drink } = require('../models');
+const { Recipe, List, Drink, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
 //get posts from recipes
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Recipe.findAll({
         attributes: [
             'id',
@@ -21,7 +21,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbRecipeData => {
         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-        res.render('homepage', {
+        res.render('dashboard', {
             recipes,
             loggedIn: req.session.loggedIn 
         });
@@ -32,7 +32,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 //get posts from drinks
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Drink.findAll({
         attributes: [
             'id',
@@ -49,7 +49,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-        res.render('homepage', {
+        res.render('dashboard', {
             drinks,
             loggedIn: req.session.loggedIn 
         });
@@ -60,7 +60,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 //get posts from gift list
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     List.findAll({
         attributes: [
             'id',
@@ -76,7 +76,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbListData => {
         const lists = dbListData.map(list => list.get({ plain: true }));
-        res.render('homepage', {
+        res.render('dashboard', {
             lists,
             loggedIn: req.session.loggedIn 
         });
@@ -88,10 +88,11 @@ router.get('/', withAuth, (req, res) => {
 });
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
     res.render('login');
+
 }); 
 
 router.get('/signup', (req, res) => {
@@ -99,7 +100,7 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('main');
+  res.render('dashboard');
 });
 
 module.exports = router;
