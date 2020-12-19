@@ -13,14 +13,14 @@ const ListCategory = require('./ListCategory');
 //Users belong to many groups
 User.belongsToMany(Team, {
     through: TeamUser,
-    as: 'team_user',
+    // as: 'team_user',
     foreignKey: 'user_id'
 });
 
 //Groups belong to many Users
 Team.belongsToMany(User, {
     through: TeamUser,
-    as: 'team_user',
+    // as: 'team_user',
     foreignKey: 'team_id'
 });
 TeamUser.belongsTo(User, {
@@ -32,13 +32,13 @@ TeamUser.belongsTo(Team, {
 
 List.belongsToMany(Category, {
     through: ListCategory,
-    as: 'list_category',
+    // as: 'list_category',
     foreignKey: 'list_id'
 });
 
 Category.belongsToMany(List, {
     through: ListCategory,
-    as: 'list_category',
+    // as: 'list_category',
     foreignKey: 'category_id'
 })
 //Drink can belong belong to one user

@@ -3,6 +3,7 @@ const { Recipe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
+    console.log("===================working");
     Recipe.findAll({
         attributes: [
             'id',

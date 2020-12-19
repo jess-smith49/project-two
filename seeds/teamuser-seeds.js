@@ -12,6 +12,10 @@ const teamUserData = [
     {
         user_id: 3,
         team_id: 3
+    },
+    {
+        user_id: 4, 
+        team_id: 1
     }
 ];
 
