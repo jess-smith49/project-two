@@ -35,10 +35,10 @@ Drink.init(
             }
         },
 
-        group_id: {
+        team_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'group',
+                model: 'team',
                 key: 'id'
             }
         }

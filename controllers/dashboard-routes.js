@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Recipe, List, Drink, User, Group } = require('../models');
+const { Recipe, List, Drink, User, Team } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all groups
 router.get('/groups', withAuth, (req, res) => {
-    Group.findAll({
+    Team.findAll({
         
     })
 })
