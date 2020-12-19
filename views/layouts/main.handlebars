@@ -44,12 +44,10 @@
         </p>
       </div>
       <form class="signup-form">
-        <label for="name">Enter Full Name</label>
-          <input type="text" placeholder="Name" name="name" id="name" class="form-input"/>
-        <label for="email">Enter email address:</label>
-        <input type="email" placeholder="Email Address" name="email" id="email" class="form-input"/>
         <label for="password">Create a festive username:</label>
         <input type="username" placeholder="Username" name="username" id="username" class="form-input"/>
+        <label for="email">Enter email address:</label>
+        <input type="email" placeholder="Email Address" name="email" id="email" class="form-input"/>
         <label for="password">Enter a secure password:</label>
         <input type="password" placeholder="Password" name="password" id="password" class="form-input"/>
         <p>Do you want to join an existing group?
@@ -63,17 +61,19 @@
             <label for="group-no">No</label>
         </span>
         </p>
-        <button type="submit-info" class="form-submit">
+        <button type="submit-info" class="form-submit" id="signup-btn">
           Spread Holiday Cheer!
         </button>
       </form>
     </div>
     </section>
    <main>
-     {{{ body }}}
+     {{{ main }}}
    </main>
   
-<script src="./stylesheets/index.js"></script>
+<script src="./javascript/countdown.js"></script>
+<script src="./javascript/login.js"></script>
+<script scr="./javascript/logout.js"></script>
 </body>
 <footer>
   JJM INC 2020

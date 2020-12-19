@@ -21,6 +21,8 @@ async function loginFormHandler(event){
             alert(response.statusText);
         }
     }
+
+    console.log('Successful Login')
 };
 
 async function signUpHandler(event) {
@@ -49,7 +51,9 @@ async function signUpHandler(event) {
             alert(response.statusText);
         }
     }
+
+    console.log('Successful Sign-up')
 }
 
-document.querySelector().addEventListener('submit', loginFormHandler);
-document.querySelector().addEventListener('submit', signUpHandler);
+document.querySelector('#login-btn').addEventListener('submit', loginFormHandler);
+document.querySelector('#signup-btn').addEventListener('submit', signUpHandler);
