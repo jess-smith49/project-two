@@ -8,7 +8,7 @@ Santa's Helper was created to help celebrate the Christmas Holiday! On the appli
 ![](./images/)
 
 ## Installation
-    Node, MYSQL2, dotenv, express-handlebars, sequelize, bcrypt, express-session, connect-session-sequelize, 
+    Node, MYSQL2, dotenv, express-handlebars, sequelize, bcrypt, express-session, connect-session-sequelize, sass
 ## Usage
     For personal use.
 ## License
