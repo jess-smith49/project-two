@@ -16,14 +16,14 @@ const recipeData = [
         instructions: 'Mix',
         // instructions: 'In mixer, combine peanut butter and butter until smooth, turn on low and add powdered sugar and graham racker crumbs. Scoop and roll into balls. Place on backing sheet and refrigerate for 30 minutes. In medium bowl melt chocoalte and stir until smooth. Dip peanut butter balls into chocoalte and place back on parchment. Allow chocoalte to set before eating'
         // user_id: 2,
-        // team_id: 1
+        // team_id: 2
     },
     {
         recipe_name: 'Dirt cake',
         ingredients: 'Pudding, whipped cream, crushed oreos, gummy worms',
         instructions: 'Pour half of pudding in bowl, top with oreos. Put second half in bowl and add crushed oreios. Garnish with gummy worms',
         // user_id: 3,
-        // team_id: 1
+        // team_id: 3
     }
 ];
 

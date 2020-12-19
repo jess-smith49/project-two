@@ -41,7 +41,6 @@ Category.belongsToMany(List, {
     as: 'list_category',
     foreignKey: 'category_id'
 })
-/*=================================================*/
 //Drink can belong belong to one user
 Drink.belongsTo(User, {
     foreignKey: 'user_id'
@@ -59,25 +58,6 @@ Drink.belongsTo(Team, {
 //Group has many drinks
 Team.hasMany(Drink);
 
-/*===============================================*/
-Recipe.belongsTo(Team, {
-    foreignKey:'team_id'
-});
-
-User.hasMany(Recipe);
-
-//user can have many drinks------FK
-User.hasMany(Drink);
-
-//Drink can belong to one group
-Drink.belongsTo(Team, {
-    foreignKey: 'team_id'
-});
-
-//Group has many drinks
-Team.hasMany(Drink);
-
-/*===============================================*/
 Recipe.belongsTo(Team, {
     foreignKey:'team_id'
 });
@@ -90,14 +70,10 @@ Recipe.belongsTo(User, {
 
 Team.hasMany(Recipe);
 
-/*===============================================*/
-
 List.belongsTo(Team,{
     foreignKey: 'team_id'
 });
 User.hasMany(List);
-
-User.hasMany(Recipe);
 
 List.belongsTo(User, {
     foreignKey: 'user_id'
@@ -105,43 +81,13 @@ List.belongsTo(User, {
 
 Team.hasMany(List);
 
-/*===============================================*/
-
 List.belongsTo(Category, {
     foreignKey: 'category_id'
 });
 
 Category.hasMany(List);
 
-Recipe.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-
-Team.hasMany(Recipe);
-
-/*===============================================*/
-
-List.belongsTo(Team,{
-    foreignKey: 'team_id'
-});
-User.hasMany(List);
-
-User.hasMany(Recipe);
-
-List.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-
-Team.hasMany(List);
-
-/*===============================================*/
-
-List.belongsTo(Category, {
-    foreignKey: 'category_id'
-});
-
-Category.hasMany(List);
 
 
 //Exporting the Models
-module.exports = {User, Drink, Recipe, List, Category, Team};
+module.exports = {User, Drink, Recipe, List, Category, Team, TeamUser};
