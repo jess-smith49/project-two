@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Category, Recipe, List, User, Drink } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Category.findAll({
         attributes: [
             'id',
@@ -21,7 +21,7 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Category.findOne({
         where: {
             id: req.params.id
@@ -70,7 +70,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Category.create({
         category_name: req.body.category_name
     })
@@ -82,7 +82,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Category.update({
         category_name: req.body.category_name,
         group_id: req.body.group_id
@@ -105,7 +105,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Category.destroy({
         where: {
             id: req.params.id
