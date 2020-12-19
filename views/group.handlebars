@@ -1,0 +1,64 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Helper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-img-div">
+            <img class="header-img" src="./assets/images/header.png" href="/" alt="Santa's Helper">
+        </div>
+        <nav>
+            <ul>
+                <li class="log-btn" id="login-btn">
+                    <button id="logout">logout</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-img-div">
+            <img class="hero-image" src="./assets/images/main-bg.jpg" alt="Hero Image">
+        </div>
+        <div class="hero-overlay-div"></div>
+        <div class="hero-cta">
+            <div class="hero-text">
+                <div class="cta-title">
+                    <h1>8 Days Until Christmas!</h1>
+                </div>
+            </div>
+    </section>
+    <main> --}}
+        <!-- for handelbars {{{ body }}} -->
+        <main>
+        <section class="db-groups">
+            <div class="card-group">
+                {{#each users as |user|}}
+                <div class="card">
+                    <div class="card-title">
+                        {{username}}
+                    </div>
+                    <div class="card-body">
+                        {{list}}
+                    </div>
+
+                </div>
+            {{/each}}
+            </div>
+        </section>
+    </main>
+
+    {{!-- <script src="./assets/js/index.js"></script>
+</body>
+<footer>
+    JJM INC 2020
+</footer>
+
+</html> --}}

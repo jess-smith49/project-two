@@ -1,54 +1,38 @@
-//Requirements
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-//Create List Model
-class List extends Model {}
+class ListCategory extends Model {}
 
-//Initialize List 
-List.init(
+ListCategory.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-
-        list_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-
-        list_items: {
-            type: DataTypes.STRING
-        },
-
-        user_id: {
+        list_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'user',
+                model: 'list',
                 key: 'id'
             }
         },
-
-        group_id: {
+        category_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'group',
+                model: 'category',
                 key: 'id'
             }
         }
     },
     {
         sequelize,
-        // timestamps: false,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'list'
+        modelName: 'listcategory'
     }
 );
-
-module.exports = List;
-
-
+module.exports = ListCategory;
