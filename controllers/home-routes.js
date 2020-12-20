@@ -91,7 +91,7 @@ router.get('/login', (req, res) => {
         res.redirect('/dashboard');
         return;
     }
-    res.render('login');
+    res.render("login");
 
 }); 
 
@@ -100,7 +100,7 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('dashboard');
+  res.render('sign-up');
 });
 
 module.exports = router;

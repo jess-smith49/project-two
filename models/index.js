@@ -3,9 +3,7 @@ const Drink = require('./Drink');
 const Recipe = require('./Recipe');
 const List = require('./List');
 const Team = require('./Team');
-const Category = require('./Category');
 const TeamUser = require('./TeamUser');
-const ListCategory = require('./ListCategory');
 
 
 //Creating Associations
@@ -30,17 +28,6 @@ TeamUser.belongsTo(Team, {
     foreignKey: 'team_id'
 });
 
-List.belongsToMany(Category, {
-    through: ListCategory,
-    // as: 'list_category',
-    foreignKey: 'list_id'
-});
-
-Category.belongsToMany(List, {
-    through: ListCategory,
-    // as: 'list_category',
-    foreignKey: 'category_id'
-})
 //Drink can belong belong to one user
 Drink.belongsTo(User, {
     foreignKey: 'user_id'
@@ -82,13 +69,6 @@ List.belongsTo(User, {
 
 Team.hasMany(List);
 
-List.belongsTo(Category, {
-    foreignKey: 'category_id'
-});
-
-Category.hasMany(List);
-
-
 
 //Exporting the Models
-module.exports = {User, Drink, Recipe, List, Category, Team, TeamUser};
+module.exports = {User, Drink, Recipe, List, Team, TeamUser};

@@ -15,10 +15,10 @@
         </div>
 
         <form class="signup-form">
-            <label for="password">Create a festive username:</label>
-            <input type="username" placeholder="Username" name="username" id="username" class="form-input"/>
+            <label for="username">Create a festive username:</label>
+            <input type="text" placeholder="Username" name="username" id="username" class="form-input"/>
             <label for="email">Enter email address:</label>
-            <input type="email" placeholder="Email Address" name="email" id="email" class="form-input"/>
+            <input type="text" placeholder="Email Address" name="email" id="email" class="form-input"/>
             <label for="password">Enter a secure password:</label>
             <input type="password" placeholder="Password" name="password" id="password" class="form-input"/>
             <p>Do you want to join an existing group?
@@ -32,12 +32,17 @@
                     <label for="group-no">No</label>
                 </span>
             </p>
-            <button type="submit-info" class="form-submit" id="signup-btn">
+            <button type="submit" class="form-submit" id="signup-btn">
             Spread Holiday Cheer!
             </button>
-            <button href= '/login' type="submit-info" class="form-submit" id="login-btn">
+              <button class="log-btn" id="login-btn">
+          <a href="/login">login</button>
+            {{!-- <button href= '/login' type="click" class="form-submit" id="login-btn"> --}}
+            {{!-- <button onclick="window.location.href='/login'">
             Login to Existing Account
-            </button>
+            </button> --}}
       </form>
     </div>
 </section>
+
+<script src='/javascript/sign-up.js'></script>

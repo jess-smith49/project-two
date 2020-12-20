@@ -16,9 +16,9 @@
       </div>  
       <nav>
         <ul>
-          {{#if loggedIn}}
+        {{#if loggedIn}}
         <li class="log-btn" id="logout-btn">
-          <button id="logout">logout</button>
+          <a href="/" id="logout">logout</a>
         </li>
         {{else}}
         <li class="log-btn" id="login-btn">
@@ -33,10 +33,9 @@
      {{{ body }}}
    </main>
   
-  <script src="./javascript/countdown.js"></script>
-  <script src="./javascript/login.js"></script>
+  <script src="/javascript/countdown.js"></script>
   {{#if loggedIn}}
-  <script scr="./javascript/logout.js"></script>
+  <script src="/javascript/logout.js"></script>
   {{/if}}
 </body>
 
