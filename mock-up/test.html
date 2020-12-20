@@ -5,73 +5,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santa's Helper</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./stylesheets/styles.css">
 </head>
 
 <body>
-    <header>
-      <div class="header-img-div">
-         <img class="header-img" src="./assets/images/header.png" href="/" alt="Santa's Helper"> 
-      </div>  
-      <nav>
-        <ul>
-        <li class="log-btn" id="login-btn">
+  <header>
+    <div class="header-img-div">
+      <img class="header-img" src="./stylesheets/images/header.png" href="/" alt="Santa's Helper">
+    </div>
+    <nav>
+      <ul>
+        {{#if loggedIn}}
+        <li class="log-btn" id="logout-btn">
           <button id="logout">logout</button>
         </li>
-        </ul>
-        </nav>        
-    </header>
-    <section class="hero">
-    <div class="hero-img-div">
-      <img class="hero-image" src="./assets/images/main-bg.jpg" alt="Hero Image">
-    </div>
-    <div class="hero-overlay-div"></div>
-    <div class="hero-cta">
-      <div class="hero-text">
-      <div class="cta-title">
-        <h1>8 Days Until Christmas!</h1>
+        {{else}}
+        <li class="log-btn" id="login-btn">
+          <a href="/login">login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container-fluid team-list">
+      <div class="content-wrapper">
+        <ol class="members">
+          <li>
+            <!-- {{#each user as |user|}} -->
+            <div class="content-title">
+              Jim Bob
+              <!-- {{user.username}} -->
+            </div>
+            <div class="content-text member-list">
+                <ol class=""
+            </div>
+          </li>
+          <!-- {{/each}} -->
+        </ol>
       </div>
-    </div>
-    </section>
-    <main>
-      <!-- for handelbars {{{ body }}} -->
-      <section class="db-groups">
-        <div class="container-fluid">
-          <div class="card-deck">
-            <div class="card" id="group-card">
-              <div class="card-img-caption">
-                <p class="card-text">Group Members</p>
-              <img class="card-img" id="group-img" src="./assets/images/gingerbread.jpg">
-              </div>
-            </div>
-            <div class="card" id="list-card">
-              <div class="card-img-caption">
-                <p class="card-text">Your Wishlist</p>
-              <img class="card-img" id="group-img" src="./assets/images/presents.jpg">
-              </div>
-            </div>
-            <div class="card" id="food-card">
-              <div class="card-img-caption">
-                <p class="card-text">Christmas Meal Recipes</p>
-              <img class="card-img" id="group-img" src="./assets/images/feast.jpg">
-              </div>
-            </div>
-            <div class="card" id="drink-card">
-              <div class="card-img-caption">
-                <p class="card-text">Christmas Cocktails and Cordials</p>
-              <img class="card-img" id="group-img" src="./assets/images/cocktails.jpg">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  
-<script src="./assets/js/index.js"></script>
+    </section>  
+  </main>
+
+  <script src="./javascript/countdown.js"></script>
+  <!-- <script src="./javascript/login.js"></script> -->
+  <!-- {{#if loggedIn}} -->
+  <!-- <script scr="./javascript/logout.js"></script> -->
+  <!-- {{/if}} -->
 </body>
+
 <footer>
   JJM INC 2020
 </footer>
 
-</html> 
+</html>
