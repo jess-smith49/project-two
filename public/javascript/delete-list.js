@@ -15,4 +15,4 @@ async function deleteListHandler(event) {
     }
   }
   
-  document.querySelector('.delete-post-btn').addEventListener('click', deleteListHandler);
+  document.querySelector().addEventListener('click', deleteListHandler);
