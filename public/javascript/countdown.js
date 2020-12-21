@@ -46,7 +46,7 @@ window.onload = function() {
       
         
     
-        countdownContainer.innerHTML= `Only ${daysUntilChristmas} Days Until Christmas! `;
+        // countdownContainer.innerHTML= `Only ${daysUntilChristmas} Days Until Christmas! `;
 
         setTimeout(christmasCountdown, 1000);
   

@@ -11,16 +11,26 @@
       {{> edit}}
       {{> delete}}
     </div>
+
+    {{!-- {{#if list}} --}}
+    <div>
     <div class="content-wrapper">
+        <h2>Wishlists</h2>
+    </div>
+    <div>
       <ul class="wishlist">
-        {{#each this}}
+        {{!-- {{#each this}} --}}
+        {{!-- {{#each list}} --}}
+        <div class="content-title">
+            <h3>Joanna's List {{list.list_name}}</h3>
+        </div>
         <li>
-          <div class="content-title">
-            {{item.itemName}}
-          </div>
+            <p> purse  {{list.list_item}}</p>
         </li>
-        {{/each}}
+        {{!-- {{/each}} --}}
       </ul>
     </div>
+    </div>
+    {{!-- {{/if}} --}}
   </section>
 </div>

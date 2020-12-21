@@ -3,13 +3,28 @@ const { Recipe, List, Drink, User, Team } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all groups
-router.get('/groups', withAuth, (req, res) => {
-    Team.findAll({
-        
-    })
-})
+router.get('/groups', (req, res) => {
+    res.render("team", {
+    });
+});
+router.get('/lists', (req, res) => {
+    res.render("list", {
+    });
+});
+router.get('/drinks', (req, res) => {
+    res.render("drinks", {
+    });
+});
+router.get('/recipes', (req, res) => {
+    res.render("recipes", {
+    });
+});
+router.get('/', (req, res) => {
+    res.render("dashboard", {
+    });
+});
 //get all recipes
-router.get('/recipes', withAuth, (req, res) => {
+router.get('/recipes', (req, res) => {
     Recipe.findAll({
         where: {
             user_id: req.session.user_id
@@ -32,7 +47,7 @@ router.get('/recipes', withAuth, (req, res) => {
     });
 });
 //get all drinks
-router.get('/drinks', withAuth, (req,res) => {
+router.get('/drinks', (req,res) => {
     Drink.findAll({
         where: {
             user_id: req.session.user_id
@@ -55,7 +70,7 @@ router.get('/drinks', withAuth, (req,res) => {
     });
 });
 //get all lists
-router.get('/lists', withAuth, (req,res) => {
+router.get('/lists', (req,res) => {
     List.findAll({
         where: {
             user_id: req.session.user_id
@@ -78,12 +93,12 @@ router.get('/lists', withAuth, (req,res) => {
     });
 });
 //create recipe
-router.get('/recipes/new', withAuth, (req,res) => {
+router.get('/recipes/new', (req,res) => {
     res.render("create-recipe", {
     });
 });
 //edit recipe
-router.get('/recipes/edit/:id', withAuth, (req, res) => {
+router.get('/recipes/edit/:id', (req, res) => {
     Recipe.findByPk(req.params.id, {
         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
         include: [
@@ -103,12 +118,12 @@ router.get('/recipes/edit/:id', withAuth, (req, res) => {
     });
 });
 //create drink
-router.get('/drinks/new', withAuth, (req,res) => {
+router.get('/drinks/new', (req,res) => {
     res.render("create-drink", {
     });
 });
 //edit drink
-router.get('/drinks/edit/:id', withAuth, (req, res) => {
+router.get('/drinks/edit/:id', (req, res) => {
     Drink.findByPk(req.params.id, {
         attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
         include: [
@@ -128,12 +143,12 @@ router.get('/drinks/edit/:id', withAuth, (req, res) => {
     });
 });
 //create list
-router.get('/lists/new', withAuth, (req,res) => {
+router.get('/lists/new', (req,res) => {
     res.render("create-list", {
     });
 });
 //edit list
-router.get('/lists/edit/:id', withAuth, (req, res) => {
+router.get('/lists/edit/:id', (req, res) => {
     List.findByPk(req.params.id, {
         attributes: ['id', 'list_name', 'list_items'],
         include: [

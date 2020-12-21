@@ -17,10 +17,10 @@
         </div>
 
         <form class="signup-form">
-            <label for="password">Create a festive username:</label>
-            <input type="username" placeholder="Username" name="username" id="username" class="form-input" />
+            <label for="username">Create a festive username:</label>
+            <input type="text" placeholder="Username" name="username" id="username" class="form-input"/>
             <label for="email">Enter email address:</label>
-            <input type="email" placeholder="Email Address" name="email" id="email" class="form-input" />
+            <input type="email" placeholder="Email Address" name="email" id="email" class="form-input"/>
             <label for="password">Enter a secure password:</label>
             <input type="password" placeholder="Password" name="password" id="password" class="form-input" />
             <p>Would you like to create a group or join an existing group?
@@ -35,9 +35,15 @@
                     <input type="radio" name="group-confirm" id="join-group" />
                     <label for="join-group">Join a Group</label>
                 </span>
-                <button type="submit-info" class="form-submit" id="signup-btn">
+                <button type="submit" class="form-submit" id="signup-btn">
                     Spread Holiday Cheer!
                 </button>
+                 {{!-- <button class="log-btn" id="login-btn"> --}}
+          {{!-- <a href="/login">login</button> --}}
+            {{!-- <button href= '/login' type="click" class="form-submit" id="login-btn"> --}}
+            {{!-- <button onclick="window.location.href='/login'">
+            Login to Existing Account
+            </button> --}}
                     {{#if joinGroup}}
                         <input type="number" name="group-code"class="form-input" id="group" >
                         <label for="group-number">Enter your Group's Code</label>

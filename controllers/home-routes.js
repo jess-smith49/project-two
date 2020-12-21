@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Recipe, List, Drink, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-
 //get posts from recipes
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -59,7 +58,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-//get posts from gift list
+// //get posts from gift list
 router.get('/', (req, res) => {
     List.findAll({
         attributes: [
@@ -87,20 +86,25 @@ router.get('/', (req, res) => {
     });
 });
 router.get('/login', (req, res) => {
+    console.log("test======================")
     if (req.session.loggedIn) {
-        res.redirect('/dashboard');
+        res.redirect('/');
         return;
     }
     res.render('login');
 
 }); 
-
+// router.get('/', (req, res) => {
+//     res.render("dashboard", {
+//     loggedIn: req.session.loggedIn
+//     })
+// });
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('dashboard');
+  res.render('sign-up');
 });
 
 module.exports = router;

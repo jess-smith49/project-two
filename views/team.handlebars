@@ -1,19 +1,23 @@
+{{!-- {{#if teams}} --}}
  <section class="container-fluid">
       <div class="content-wrapper">
+        <div>
+          <h4>Groups</h4>
+        </div>
         <ol class="members">
-          <li>
-            {{#each user as |user|}} 
+            {{!-- {{#each teams as |team|}}  --}}
             <div class="content-title">
-              Jim Bob
-              {{user.username}} 
-            </div>
+            <li>
             <div class="content-text">
                 <ol class="content-list" id="wishlist">
+                  <p>Jim Bob {{user.username}} </p>
                 </ol>
             </div>
-          </li>
-           {{/each}} 
+            </li>
+            </div>
+           {{!-- {{/each}}  --}}
         </ol>
-      </div>
-    </section>  
+    </div>
+  </section>  
+{{!-- {{/if}} --}}
 
