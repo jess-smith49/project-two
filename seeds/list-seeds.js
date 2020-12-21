@@ -5,19 +5,19 @@ const {List} = require('../models');
 const listData = [
     {
         list_name: 'Jess',
-        list_items: [3,4],
+        list_items: 1,
         user_id: 1,
         team_id: 1
     },
     {
         list_name: 'Maya',
-        list_items: [1,2],
+        list_items: 2,
         user_id: 2,
         team_id: 2
     },
     {
         list_name: 'Joanna',
-        list_items: [1,3],
+        list_items: 3,
         user_id: 3,
         team_id: 3
     }
