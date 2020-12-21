@@ -14,5 +14,6 @@ router.use('/users', userRoutes);
 router.use('/teams', teamRoutes);
 router.use('/categories', categoryRoutes);
 
+
 module.exports = router;
 
