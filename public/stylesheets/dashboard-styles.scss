@@ -1,0 +1,76 @@
+$primary-color: #0f4c81;
+$accent-color: #9B2335;
+$gold-font-1: #AE8625;
+$gold-font-2: #F7EF8A;
+$black-font: #0000;
+$white-font: white;
+$shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em#fff, 0 0 0.8em #fff, 0 0 1em#fff, 0 0 1.2em#fff;
+$main-font: 'Tangerine', serif;
+$secondary-font: 'Oswald', sans-serif; 
+//create brakpoints for media queries
+$breakpoint-lg-desktop: "only screen and (min-width :1880px)";
+$breakpoint-desktop: "only screen and (min-width :990px)";
+$breakpoint-tablet: "only screen and (max-width : 768px)";
+$breakpoint-phone: "only screen and (max-width : 414px)";
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Tangerine&effect=neon');
+
+.container-fluid {
+    height: 100vh;
+    width: 100%;
+    background-image: url('./images/main-bg.jpg');
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+.card-deck {
+    padding: 50px 0px 50px 0px;
+    align-content: center;
+    justify-content: center;
+
+    .card {
+        position: relative;
+        max-width: 20.5em;
+           &:hover {
+              -webkit-transform: scale(1.2);
+               -ms-transform: scale(1.2);
+               transform: scale(1.2);
+               transition: margin-right 2s ease-in-out;
+               z-index: 2;
+               text-shadow: $shadow;
+               background-color: rgba($color: #0c2d1c, $alpha: .75) ;
+               overflow: hidden;
+               }
+       
+
+    .card-img-caption {
+        border-top-left-radius: calc(.25rem - 1px);
+        border-top-right-radius: calc(.25rem - 1px);
+        z-index: 0;
+    }
+
+    .card-img {
+        z-index: 0;
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    .card-title {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        background-color: rgba($color: #0c2d1c, $alpha: .75) ;
+        z-index: 1;
+        font-size: calc(30pt + 0.15vw);
+        color: $gold-font-2;
+        font-family: $main-font;
+
+        &:hover {
+            padding: 33% 0;
+            overflow: hidden;
+        }
+    }
+}
+}

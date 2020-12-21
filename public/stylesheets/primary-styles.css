@@ -158,47 +158,6 @@ nav ul .log-btn a {
   font-size: calc(23pt + 0.15vw);
 }
 
-.card-deck {
-  padding: 50px 0px 50px 0px;
-  align-content: center;
-}
-.card-deck .card {
-  height: 40vh;
-}
-.card-deck .card:hover {
-  transform: scale(1.2);
-  transition: margin-right 2s ease-in-out;
-  z-index: 2;
-  text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
-  background-color: rgba(12, 45, 28, 0.75);
-  overflow: hidden;
-}
-.card-deck .card .card-img-caption {
-  border-top-left-radius: calc(.25rem - 1px);
-  border-top-right-radius: calc(.25rem - 1px);
-  z-index: 0;
-}
-.card-deck .card .card-img {
-  z-index: 0;
-  width: 100%;
-  height: 40vh;
-  object-fit: cover;
-}
-.card-deck .card .card-text {
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(12, 45, 28, 0.75);
-  z-index: 1;
-  font-size: calc(30pt + 0.15vw);
-  color: #F7EF8A;
-  font-family: "Tangerine", serif;
-}
-.card-deck .card .card-text:hover {
-  padding: 33% 0;
-  overflow: hidden;
-}
-
 footer {
   background-color: #9B2335;
   color: #F7EF8A;
