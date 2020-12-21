@@ -20,7 +20,7 @@ Team.init(
         },
 
         team_code: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
             //uniqueID//shortID
         },
     },

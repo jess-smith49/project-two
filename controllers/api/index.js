@@ -12,5 +12,6 @@ router.use('/drinks', drinkRoutes);
 router.use('/users', userRoutes);
 router.use('/teams', teamRoutes);
 
+
 module.exports = router;
 
