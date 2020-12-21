@@ -1,18 +1,26 @@
- <section class="container-fluid">
-     <div class="edit-add-container">
-         <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your List</button>
-         <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit an Item on Your List</button>
-         <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From Your List</button>
-     </div>
-      <div class="content-wrapper">
-        <ul class="wishlist">
-            {{#each this}} 
-          <li>
-            <div class="content-title">
-              {{item.itemName}} 
-            </div>
-          </li>
-           {{/each}} 
-        </ul>
-      </div>
-    </section>
+<div class="content-container">
+  <section class="container-fluid">
+    <div class="edit-add-container">
+      <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
+        List</button>
+      <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit an Item on Your
+        List</button>
+      <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From
+        Your List</button>
+      {{> add}}
+      {{> edit}}
+      {{> delete}}
+    </div>
+    <div class="content-wrapper">
+      <ul class="wishlist">
+        {{#each this}}
+        <li>
+          <div class="content-title">
+            {{item.itemName}}
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+</div>
