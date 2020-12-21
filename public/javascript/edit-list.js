@@ -1,13 +1,13 @@
 async function editListHandler(event) {
     event.preventDefault();
 
-    const listName = document.querySelector().value.trim()
-    const listItems = document.querySelector().value.trim()
+    //const listName = document.querySelector().value.trim()
+    const listItems = document.querySelector('#editItem').value.trim()
 
     const response = await fetch('/api/list', {
         method: 'PUT',
         body: JSON.stringify({
-            listName,
+            //listName
             listItems
         }),
         headers: {
