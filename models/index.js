@@ -59,7 +59,8 @@ Drink.belongsTo(Team, {
 Team.hasMany(Drink);
 
 Recipe.belongsTo(Team, {
-    foreignKey:'team_id'
+    foreignKey:'team_id',
+    constraints: false
 });
 
 User.hasMany(Recipe);

@@ -1,0 +1,19 @@
+ <section class="container-fluid">
+      <div class="content-wrapper">
+        <ol class="members">
+          <li>
+            {{#each user as |user|}} 
+            <div class="content-title">
+              Jim Bob
+              {{user.username}} 
+            </div>
+            <div class="content-text">
+                <ol class="content-list" id="wishlist">
+                </ol>
+            </div>
+          </li>
+           {{/each}} 
+        </ol>
+      </div>
+    </section>  
+

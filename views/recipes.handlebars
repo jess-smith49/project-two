@@ -1,18 +1,27 @@
-<main>
-    <section class="db-groups">
-        <div class="card-group">
+<div class="edit-add-container">
+    <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
+        List</button>
+    <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit an Item on Your
+        List</button>
+    <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From
+        Your List</button>
+    {{> add}}
+    {{> edit}}
+    {{> delete}}
+</div>
+<section class="db-groups">
+    <div class="card-group">
         {{#each recipes as |recipe|}}
-            <div class="card">
-                <div class="card-title">
-                    {{recipe_name}}
-                </div>
-                    <div class="card-body">
-                    {{ingredients}}
-                    {{instructions}}
-                </div>
+        <div class="card">
+            <div class="card-title">
+                {{recipe_name}}
             </div>
-        {{/each}}
+            <div class="card-body">
+                {{ingredients}}
+                {{instructions}}
+            </div>
         </div>
-    </section>
-</main>
-
+        {{/each}}
+    </div>
+</section>
+</div>

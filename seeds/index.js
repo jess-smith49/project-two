@@ -11,6 +11,12 @@ const sequelize = require('../config/connection');
 const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('=====');
+    await seedUsers();
+    console.log('=====');
+    await seedTeams();
+    console.log('=====');
+    await seedTeamUsers();
+    console.log('=====');
     await seedCategories();
     console.log('=====');
     await seedDrinks();
@@ -19,12 +25,7 @@ const seedAll = async () => {
     console.log('=====');
     await seedRecipes();
     console.log('=====');
-    await seedUsers();
-    console.log('=====');
-    await seedTeams();
-    console.log('=====');
-    await seedTeamUsers();
-    console.log('=====');
+
 
     process.exit(0);
 };
