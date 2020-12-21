@@ -4,6 +4,10 @@ const withAuth = require('../utils/auth');
 
 //get posts from recipes
 router.get('/', (req, res) => {
+    res.render("homepage", {
+    });
+});
+router.get('/', (req, res) => {
     Recipe.findAll({
         attributes: [
             'id',
@@ -94,11 +98,6 @@ router.get('/login', (req, res) => {
     res.render('login');
 
 }); 
-// router.get('/', (req, res) => {
-//     res.render("dashboard", {
-//     loggedIn: req.session.loggedIn
-//     })
-// });
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

@@ -77,7 +77,6 @@ router.post('/', (req, res) => {
     });
 });
 
-
 //add team member to a team
 router.post('/addMember/:teamCode', (req, res) => {
 Team.findOne({
