@@ -12,7 +12,7 @@ Santa's Helper was created to help celebrate the Christmas Holiday! On the appli
 ## Usage
     For personal use.
 ## License
-    none
+    N/A
 ## Contributors
     Jessica Smith, js.jessicasmith774@gmail.com
     Maya Santiago, msatori.code@gmail.com 
@@ -31,4 +31,8 @@ Please contact <joannagrosshans2@gmail.com> for additional Information.
  *Node <br>
  *MYSQL2<br>
  *SEQUELIZE<br>
- *EXPRESS-HANDLEBARS
+ *EXPRESS-HANDLEBARS<br>
+ *HTML<br>
+ *SASS<br>
+ *CSS<br>
+ *Express
