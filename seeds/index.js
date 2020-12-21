@@ -5,6 +5,7 @@ const seedRecipes = require('./recipe-seeds');
 const seedUsers = require('./user-seeds');
 const seedTeams = require('./team-seeds');
 const seedTeamUsers = require('./teamuser-seeds');
+const seedItems = require('./list-item-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -25,6 +26,8 @@ const seedAll = async () => {
     console.log('=====');
     await seedRecipes();
     console.log('=====');
+    await seedItems();
+    console.log('=====')
 
 
     process.exit(0);
