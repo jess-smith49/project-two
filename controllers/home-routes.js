@@ -91,7 +91,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-    res.redirect('login');
+    res.render('login');
 
 }); 
 // router.get('/', (req, res) => {
