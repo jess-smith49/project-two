@@ -4,12 +4,22 @@ const withAuth = require('../utils/auth');
 
 //get all groups
 router.get('/groups', (req, res) => {
-    Team.findAll({
-        
-    })
-})
+    res.render("team", {
+    });
+});
+router.get('/lists', (req, res) => {
+    res.render("list", {
+    });
+});
+router.get('/drinks', (req, res) => {
+    res.render("drinks", {
+    });
+});
+router.get('/recipes', (req, res) => {
+    res.render("recipes", {
+    });
+});
 router.get('/', (req, res) => {
-    console.log("in dashboard==================")
     res.render("dashboard", {
     });
 });
