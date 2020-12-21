@@ -24,28 +24,29 @@ router.get('/', (req, res) => {
     });
 });
 //get all recipes
-// router.get('/recipes', (req, res) => {
-//     Recipe.findAll({
-//         where: {
-//             user_id: req.session.user_id
-//         },
-//         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
-//         include: [
-//             {
-//                 model: User,
-//                 attributes: ['username']
-//             }
-//         ]
-//     })
-//     .then(dbRecipeData => {
-//         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-//         res.render('dashboard', { recipes, loggedIn: true });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.render(500).json(err);
-//     });
-// });
+router.get('/recipes', (req, res) => {
+    console.log("===================")
+    Recipe.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+        res.render('recipes', { recipes, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.render(500).json(err);
+    });
+});
 //get all drinks
 // router.get('/drinks', (req,res) => {
 //     Drink.findAll({

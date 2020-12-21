@@ -14,18 +14,18 @@
     <div class="card-group">
         <h2>Recipes</h2>
     </div>
-        {{!-- {{#each recipes as |recipe|}} --}}
+        {{#each recipes}}
         <div class="card">
             <div class="card-title">
-                <h4>Recipe Name: {{recipe_name}}</h4>
+                <h4>Recipe Name: {{this.recipe_name}}</h4>
             </div>
             <div class="card-body">
-                <p>Ingredients: {{ingredients}}</p>
-                <p>Instructions: {{instructions}}</p>
+                <p>Ingredients: {{this.ingredients}}</p>
+                <p>Instructions: {{this.instructions}}</p>
                 <p>Created By: {{user.username}}</p>
             </div>
         </div>
-        {{!-- {{/each}} --}}
+        {{/each}}
 </section>
 {{!-- {{/if}} --}}
 </div>
