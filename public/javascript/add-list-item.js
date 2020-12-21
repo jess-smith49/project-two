@@ -1,18 +1,18 @@
-const { response } = require("express");
+const {response} = require("express");
 
-async function listFormHandler(event){
+async function listItemFormHandler(event){
     event.preventDefault();
 
-    const listName = document.querySelector().value;
-
+    const listItems = document.querySelector().value;
+    
     const response = await fetch('/api/list', {
         method: 'POST',
         body: JSON.stringify({
-            listName,
+            listItems
         }),
-        
+
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type': 'application/json'
         }
     });
 
@@ -24,5 +24,4 @@ async function listFormHandler(event){
     }
 }
 
-document.querySelector().addEventListener('submit', listFormHandler);
-
+document.querySelector().addEventListener('submit', listItemFormHandler);

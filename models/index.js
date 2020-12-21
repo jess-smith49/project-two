@@ -6,6 +6,7 @@ const Team = require('./Team');
 const Category = require('./Category');
 const TeamUser = require('./TeamUser');
 const ListCategory = require('./ListCategory');
+const ListItems = require('./ListItems');
 
 
 //Creating Associations
@@ -88,7 +89,9 @@ List.belongsTo(Category, {
 
 Category.hasMany(List);
 
+List.hasMany(ListItems);
+
 
 
 //Exporting the Models
-module.exports = {User, Drink, Recipe, List, Category, Team, TeamUser};
+module.exports = {User, Drink, Recipe, List, Category, Team, TeamUser, ListItems};
