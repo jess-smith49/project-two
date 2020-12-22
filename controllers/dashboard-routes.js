@@ -3,22 +3,6 @@ const { Recipe, List, Drink, User, Team } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all groups
-// router.get('/groups', (req, res) => {
-//     res.render("team", {
-//     });
-// });
-// router.get('/lists', (req, res) => {
-//     res.render("list", {
-//     });
-// });
-// router.get('/drinks', (req, res) => {
-//     res.render("drinks", {
-//     });
-// });
-// router.get('/recipes', (req, res) => {
-//     res.render("recipes", {
-//     });
-// });
 router.get('/', (req, res) => {
     res.render("dashboard", {
     });
@@ -27,9 +11,9 @@ router.get('/', (req, res) => {
 router.get('/recipes', (req, res) => {
     console.log("===================")
     Recipe.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
+        // where: {
+        //     user_id: req.session.user_id
+        // },
         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
         include: [
             {
