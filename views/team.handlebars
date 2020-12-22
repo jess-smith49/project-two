@@ -1,23 +1,22 @@
 {{!-- {{#if teams}} --}}
- <section class="container-fluid">
-      <div class="content-wrapper">
-        <div>
-          <h4>Groups</h4>
-        </div>
-        <ol class="members">
-            {{!-- {{#each teams as |team|}}  --}}
-            <div class="content-title">
-            <li>
-            <div class="content-text">
-                <ol class="content-list" id="wishlist">
-                  <p>Jim Bob {{user.username}} </p>
-                </ol>
+ <section class="db-groups">
+      <div class="card-group">
+          <h2>Groups</h2>
+      </div>
+          {{#each teams as |team|}}
+          <div class="card">
+            <div class="card-title">
+              <h3>{{this.team_name}}</h3>
             </div>
-            </li>
+            <div class="card-body">
+                {{!-- <ol class="content-list" id="wishlist"> --}}
+                  {{#each users as |user|}}
+                  <p>{{this.username}}</p>
+                  {{/each}}
+                {{!-- </ol> --}}
             </div>
-           {{!-- {{/each}}  --}}
-        </ol>
-    </div>
-  </section>  
+            </div>
+           {{/each}}
+</section>  
 {{!-- {{/if}} --}}
 
