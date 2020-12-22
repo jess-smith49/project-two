@@ -6,7 +6,7 @@ async function newTeamFormHandler(event){
     const team = document.querySelector().value;
     
 
-    const response = await fetch('/api/team', {
+    const response = await fetch('/api/team/new-code', {
         method: 'POST',
         body: JSON.stringify({
             team

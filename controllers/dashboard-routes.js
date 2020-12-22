@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
     res.render("dashboard", {
     });
 });
+
 //get all recipes
 router.get('/recipes', (req, res) => {
     Recipe.findAll({
@@ -75,6 +76,8 @@ router.get('/lists', (req, res) => {
         res.render(500).json(err);
     });
 });
+
+//get all groups
 router.get('/groups', (req, res) => {
     Team.findAll({
         attributes: [
@@ -86,6 +89,8 @@ router.get('/groups', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+                
+               
             }
         ]
     })

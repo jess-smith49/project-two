@@ -59,7 +59,7 @@ router.get('/:id', (req, res) => {
 
 
 //create team code //short unique ID
-router.post('/', (req, res) => {
+router.post('/new-code', (req, res) => {
     const uid = new ShortUniqueId();
     teamCode = uid.randomUUID(6);
 
@@ -91,15 +91,15 @@ Team.findOne({
             team_id: dbTeamUserData.dataValues.id
         }
     )
-})
-.then(dbTeamUserData =>{
-    res.json(dbTeamUserData);
-})
+    })
+    .then(dbTeamUserData =>{
+        res.json(dbTeamUserData);
+    })
 
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-})   
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })   
 });
 
 
