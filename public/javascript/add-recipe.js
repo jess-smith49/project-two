@@ -1,11 +1,9 @@
-const { response } = require("express");
-
 async function recipeFormHandler(event){
     event.preventDefault();
 
-    const recipeName = document.querySelector().value;
-    const recipeIngredients = document.querySelector().value;
-    const recipeInstructions = document.quereySelector().value;
+    const recipeName = document.querySelector('#newRecipeName').value;
+    const recipeIngredients = document.querySelector('#newRecipeIngr').value;
+    const recipeInstructions = document.quereySelector('newRecipeIns').value;
 
     const response = await fetch('/api/recipe', {
         method: 'POST',
@@ -28,4 +26,4 @@ async function recipeFormHandler(event){
     }
 }
 
-document.querySelector().addEventListener('submit', recipeFormHandler);
+document.querySelector('#new-recipe').addEventListener('submit', recipeFormHandler);

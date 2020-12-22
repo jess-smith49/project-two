@@ -1,8 +1,8 @@
 async function editListHandler(event) {
     event.preventDefault();
 
-    const listName = document.querySelector().value.trim()
-    const listItems = document.querySelector().value.trim()
+    const listName = document.querySelector('#editListName').value.trim()
+    const listItems = document.querySelector('#editListItem').value.trim()
 
     const response = await fetch('/api/list', {
         method: 'PUT',
@@ -23,4 +23,4 @@ async function editListHandler(event) {
     }
 }
 
-document.querySelector().addEventListener('submit', editListHandler)
+document.querySelector('#edit-list').addEventListener('submit', editListHandler)

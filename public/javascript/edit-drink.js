@@ -1,9 +1,9 @@
 async function editDrinkHandler(event) {
     event.preventDefault();
 
-    const drinkName = document.querySelector().value.trim();
-    const drinkIns = document.querySelector().value.trim();
-    const drinkIngr = document.querySelector().value.trim();
+    const drinkName = document.querySelector('#editDrinkName').value.trim();
+    const drinkIns = document.querySelector('#editDrinkIns').value.trim();
+    const drinkIngr = document.querySelector('#editDrinkIngr').value.trim();
 
     const response = await fetch('/api/drink', {
         method: 'PUT',
@@ -25,4 +25,4 @@ async function editDrinkHandler(event) {
     }
 }
 
-document.querySelector().addEventListener('submit', editDrinkHandler)
+document.querySelector('#edit-drink').addEventListener('submit', editDrinkHandler)

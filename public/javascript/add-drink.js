@@ -3,9 +3,9 @@ const { response } = require("express");
 async function drinkFormHandler(event){
     event.preventDefault();
 
-    const drinkName = document.querySelector().value;
-    const drinkIngredients = document.querySelector().value;
-    const drinkInstructions = document.quereySelector().value;
+    const drinkName = document.querySelector('#newDrinkName').value;
+    const drinkIngredients = document.querySelector('#newDrinkIngr').value;
+    const drinkInstructions = document.quereySelector('#newDrinkIns').value;
 
     const response = await fetch('/api/drink', {
         method: 'POST',
@@ -28,4 +28,4 @@ async function drinkFormHandler(event){
     }
 }
 
-document.querySelector().addEventListener('submit', drinkFormHandler);
+document.querySelector('#new-drink').addEventListener('submit', drinkFormHandler);

@@ -1,9 +1,9 @@
 async function editRecipeHandler(event) {
     event.preventDefault();
 
-        const recipeName = document.querySelector().value.trim()
-        const recipeIns = document.querySelector().value.trim()
-        const recipeIngr = document.querySelector().value.trim()
+        const recipeName = document.querySelector('#editRecipeName').value.trim()
+        const recipeIns = document.querySelector('#editRecipeIns').value.trim()
+        const recipeIngr = document.querySelector('#editRecipeIngr').value.trim()
 
     const response = await fetch('/api/recipe', {
         method: 'PUT',
@@ -25,4 +25,4 @@ async function editRecipeHandler(event) {
     }
 }
 
-document.querySelector().addEventListener('submit', editRecipeHandler)
+document.querySelector('#edit-recipe').addEventListener('submit', editRecipeHandler)
