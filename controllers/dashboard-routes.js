@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
 //get all recipes
 router.get('/recipes', (req, res) => {
     Recipe.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -32,9 +32,9 @@ router.get('/recipes', (req, res) => {
 //get all drinks
 router.get('/drinks', (req, res) => {
     Drink.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -55,9 +55,9 @@ router.get('/drinks', (req, res) => {
 //get all lists
 router.get('/lists', (req, res) => {
     List.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'list_name', 'list_items'],
         include: [
             {
