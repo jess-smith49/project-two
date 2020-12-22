@@ -14,7 +14,7 @@
     <div class="card-group">
         <h2>Recipes</h2>
     </div>
-        {{#each recipes}}
+        {{#each recipes as |recipe|}}
         <div class="card">
             <div class="card-title">
                 <h4>Recipe Name: {{this.recipe_name}}</h4>
@@ -28,4 +28,3 @@
         {{/each}}
 </section>
 {{!-- {{/if}} --}}
-</div>

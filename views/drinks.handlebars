@@ -10,23 +10,24 @@
         {{> edit}}
         {{> delete}}
     </div>
+</div>
+
     {{!-- {{#if drinks}} --}}
     <section class="db-groups">
         <div class="card-group">
             <h2>Drinks</h2>
         </div>
-            {{!-- {{#each drink as |drink|}} --}}
+            {{#each drinks as |drink|}}
             <div class="card">
                 <div class="card-title">
-                    <h4>Drink Name: {{drink_name}}</h4>
+                    <h4>Drink Name: {{this.drink_name}}</h4>
                 </div>
                 <div class="card-body">
-                    <p>Ingredients: {{ingredients}}</p>
-                    <p>Instructions: {{instructions}}</p>
+                    <p>Ingredients: {{this.ingredients}}</p>
+                    <p>Instructions: {{this.instructions}}</p>
                     <p>Created By: {{user.username}}</p>
                 </div>
             </div>
-            {{!-- {{/each}} --}}
+            {{/each}}
     </section>
     {{!-- {{/if}} --}}
-</div>
