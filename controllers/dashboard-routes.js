@@ -23,6 +23,7 @@ router.get('/recipes', (req, res) => {
     .then(dbRecipeData => {
         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
         res.render('recipes', { recipes, loggedIn: true });
+        console.log("===========", req.session)
     })
     .catch(err => {
         console.log(err);

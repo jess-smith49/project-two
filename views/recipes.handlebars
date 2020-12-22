@@ -22,7 +22,9 @@
             <div class="card-body">
                 <p>Ingredients: {{this.ingredients}}</p>
                 <p>Instructions: {{this.instructions}}</p>
+                 {{#if loggedIn}}
                 <p>Created By: {{user.username}}</p>
+                {{/if}}
             </div>
         </div>
         {{/each}}
