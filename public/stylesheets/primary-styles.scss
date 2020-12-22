@@ -95,7 +95,7 @@ header {
     justify-content: center;
    
 
-    .hero-img-div {
+    &-img-div {
         grid-area: 1/1/2/2;
         .hero-image {
             grid-area: 1/1/2/2;
@@ -103,10 +103,11 @@ header {
             object-fit: cover;
         }
     }
-    .hero-overlay-div {
+    &-overlay-div {
         display: grid;
     }
-    .hero-cta {
+    
+    &-cta {
         grid-area: 2/2/1/1;
         padding: 15px;
         background-color: rgba($color: $gold-font-1, $alpha: .60) ;

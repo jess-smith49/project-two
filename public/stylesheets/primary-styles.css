@@ -68,18 +68,18 @@ nav ul .log-btn a {
   align-content: center;
   justify-content: center;
 }
-.hero .hero-img-div {
+.hero-img-div {
   grid-area: 1/1/2/2;
 }
-.hero .hero-img-div .hero-image {
+.hero-img-div .hero-image {
   grid-area: 1/1/2/2;
   display: grid;
   object-fit: cover;
 }
-.hero .hero-overlay-div {
+.hero-overlay-div {
   display: grid;
 }
-.hero .hero-cta {
+.hero-cta {
   grid-area: 2/2/1/1;
   padding: 15px;
   background-color: rgba(174, 134, 37, 0.6);
@@ -90,40 +90,40 @@ nav ul .log-btn a {
   margin-top: 5%;
   text-align: center;
 }
-.hero .hero-cta .hero-text {
+.hero-cta .hero-text {
   display: grid;
   align-items: center;
   font-family: "Oswald", sans-serif;
 }
-.hero .hero-cta .hero-text .cta-intro {
+.hero-cta .hero-text .cta-intro {
   font-size: calc(15pt + 0.15vw);
   letter-spacing: 0.05em;
   font-style: italic;
   color: white;
 }
-.hero .hero-cta .hero-text .cta-intro .cta-span {
+.hero-cta .hero-text .cta-intro .cta-span {
   font-size: calc(18pt + 0.15vw);
   letter-spacing: 0.05em;
   font-style: italic;
   color: #0c2d1c;
 }
-.hero .hero-cta .hero-text h1 {
+.hero-cta .hero-text h1 {
   font-size: calc(40pt + 0.15vw);
   letter-spacing: 0.05em;
   font-weight: bolder;
   text-transform: uppercase;
   color: #0c2d1c;
 }
-.hero .hero-cta .hero-text p {
+.hero-cta .hero-text p {
   font-size: calc(30pt + 0.15vw);
   letter-spacing: 0.05em;
   color: #F7EF8A;
 }
-.hero .hero-cta .signup-form {
+.hero-cta .signup-form {
   display: grid;
   place-items: center;
 }
-.hero .hero-cta .signup-form .form-input {
+.hero-cta .signup-form .form-input {
   z-index: 2;
   display: block;
   font-size: 16px;
@@ -135,14 +135,14 @@ nav ul .log-btn a {
   margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.5);
 }
-.hero .hero-cta .signup-form .form-input:focus {
+.hero-cta .signup-form .form-input:focus {
   background-color: white;
 }
-.hero .hero-cta .signup-form .form-input:hover {
+.hero-cta .signup-form .form-input:hover {
   background-color: white;
   outline: none;
 }
-.hero .hero-cta .signup-form .form-submit {
+.hero-cta .signup-form .form-submit {
   font-family: "Tangerine", serif;
   font-size: calc(20pt + 0.15vw);
   padding: 0;
@@ -152,7 +152,7 @@ nav ul .log-btn a {
   width: 50%;
   height: 50px;
 }
-.hero .hero-cta .signup-form .form-submit:hover {
+.hero-cta .signup-form .form-submit:hover {
   background-color: #9B2335;
   transition: margin-right 4s 1s;
   font-size: calc(23pt + 0.15vw);

@@ -16,7 +16,8 @@
 }
 .card-deck .card {
   position: relative;
-  max-width: 20.5em;
+  max-width: 25em;
+  min-height: 40vh;
 }
 .card-deck .card:hover {
   transform: scale(1.2);
