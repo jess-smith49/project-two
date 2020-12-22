@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santa's Helper</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./stylesheets/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-img-div">
+      <img class="header-img" src="./stylesheets/images/header.png" href="/" alt="Santa's Helper">
+    </div>
+    <nav>
+      <ul>
+        {{#if loggedIn}}
+        <li class="log-btn" id="logout-btn">
+          <button id="logout">logout</button>
+        </li>
+        {{else}}
+        <li class="log-btn" id="login-btn">
+          <a href="/login">login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container-fluid">
+      <div class="content-wrapper">
+        <ol class="members">
+          <li>
+            <!-- {{#each user as |user|}} -->
+            <div class="content-title">
+              Jim Bob
+              <!-- {{user.username}} -->
+            </div>
+            <div class="content-text">
+                <ol class="content-list" id="wishlist">
+                  <li class="list-item"> {{{}}}</li>
+                </ol>
+            </div>
+          </li>
+          <!-- {{/each}} -->
+        </ol>
+      </div>
+    </section>  
+  </main>
+
+  <script src="./javascript/countdown.js"></script>
+  <!-- <script src="./javascript/login.js"></script> -->
+  <!-- {{#if loggedIn}} -->
+  <!-- <script scr="./javascript/logout.js"></script> -->
+  <!-- {{/if}} -->
+</body>
+
+<footer>
+  JJM INC 2020
+</footer>
+
+</html>

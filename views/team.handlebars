@@ -1,0 +1,22 @@
+{{!-- {{#if teams}} --}}
+ <section class="db-groups">
+      <div class="card-group">
+          <h2>Groups</h2>
+      </div>
+          {{#each teams as |team|}}
+          <div class="card">
+            <div class="card-title">
+              <h3>{{this.team_name}}</h3>
+            </div>
+            <div class="card-body">
+                {{!-- <ol class="content-list" id="wishlist"> --}}
+                  {{#each users as |user|}}
+                  <p>{{this.username}}</p>
+                  {{/each}}
+                {{!-- </ol> --}}
+            </div>
+            </div>
+           {{/each}}
+</section>  
+{{!-- {{/if}} --}}
+

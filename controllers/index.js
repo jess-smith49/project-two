@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const apiRoutes = require('./api');
+const homeRoutes = require('./home-routes.js');
+//merge dashboard router module into the app
+const dashboardRoutes = require('./dashboard-routes.js');
+
+router.use('/', homeRoutes);
+router.use('/dashboard', dashboardRoutes);
+router.use('/api', apiRoutes);
+
+
+module.exports = router;

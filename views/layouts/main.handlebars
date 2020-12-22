@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santa's Helper</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/primary-styles.css" >
+  <link type="text/css" rel="stylesheet" href="/stylesheets/dashboard-styles.css">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/sub-groups.css">
+</head>
+
+<body>
+    <header>
+      <div class="header-img-div">
+         <img class="header-img" src="/stylesheets/images/header.png" href="/" alt="Santa's Helper"> 
+      </div>  
+      <nav>
+        <ul>
+        <li class="log-btn" id="logout-btn">
+          <a href="/" id="logout">logout</a>
+        </li>
+        <li class="log-btn" id="login-btn">
+          <a href="/login">login</a>
+        </li>
+        </ul>
+        </nav>        
+    </header>
+
+   <main>
+     {{{ body }}}
+   </main>
+  
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<footer>
+  JJM INC 2020
+</footer>
+</body>
+
+
+</html> 
