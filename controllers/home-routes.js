@@ -90,20 +90,13 @@ router.get('/', (req, res) => {
     });
 });
 router.get('/login', (req, res) => {
-    console.log("test======================")
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-    res.render('login');
+    res.render('login', {
+    });
 
 }); 
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('sign-up');
+router.get('/sign-up', (req, res) => {
+  res.render('sign-up', {
+  });
 });
 
 module.exports = router;

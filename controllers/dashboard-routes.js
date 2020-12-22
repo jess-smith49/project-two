@@ -2,32 +2,16 @@ const router = require('express').Router();
 const { Recipe, List, Drink, User, Team } = require('../models');
 const withAuth = require('../utils/auth');
 
-//get all groups
-// router.get('/groups', (req, res) => {
-//     res.render("team", {
-//     });
-// });
-// router.get('/lists', (req, res) => {
-//     res.render("list", {
-//     });
-// });
-// router.get('/drinks', (req, res) => {
-//     res.render("drinks", {
-//     });
-// });
-// router.get('/recipes', (req, res) => {
-//     res.render("recipes", {
-//     });
-// });
 router.get('/', (req, res) => {
-    res.render("dashboard");
+    res.render("dashboard", {
+    });
 });
 //get all recipes
 router.get('/recipes', (req, res) => {
     Recipe.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
+        // where: {
+        //     user_id: req.session.user_id
+        // },
         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -46,11 +30,11 @@ router.get('/recipes', (req, res) => {
     });
 });
 //get all drinks
-router.get('/drinks', (req,res) => {
+router.get('/drinks', (req, res) => {
     Drink.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
+        // where: {
+        //     user_id: req.session.user_id
+        // },
         attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -61,7 +45,7 @@ router.get('/drinks', (req,res) => {
     })
     .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-        res.render('dashboard', { drinks, loggedIn: true });
+        res.render('drinks', { drinks, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -69,11 +53,11 @@ router.get('/drinks', (req,res) => {
     });
 });
 //get all lists
-router.get('/lists', (req,res) => {
+router.get('/lists', (req, res) => {
     List.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
+        // where: {
+        //     user_id: req.session.user_id
+        // },
         attributes: ['id', 'list_name', 'list_items'],
         include: [
             {
@@ -84,11 +68,34 @@ router.get('/lists', (req,res) => {
     })
     .then(dbListData => {
         const lists = dbListData.map(list => list.get({ plain: true }));
-        res.render('dashboard', { lists, loggedIn: true });
+        res.render('list', { lists, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
+    });
+});
+router.get('/groups', (req, res) => {
+    Team.findAll({
+        attributes: [
+            'id',
+            'team_name',
+            'team_code'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbTeamData => {
+        const teams = dbTeamData.map(team => team.get({ plain: true }));
+        res.render('team', { teams, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 //create recipe

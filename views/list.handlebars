@@ -1,5 +1,4 @@
 <div class="content-container">
-  <section class="container-fluid">
     <div class="edit-add-container">
       <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
         List</button>
@@ -11,26 +10,25 @@
       {{> edit}}
       {{> delete}}
     </div>
+</div>
 
     {{!-- {{#if list}} --}}
-    <div>
-    <div class="content-wrapper">
-        <h2>Wishlists</h2>
-    </div>
-    <div>
-      <ul class="wishlist">
-        {{!-- {{#each this}} --}}
-        {{!-- {{#each list}} --}}
-        <div class="content-title">
-            <h3>Joanna's List {{list.list_name}}</h3>
+    <section class="db-groups">
+        <div class="card-group">
+            <h2>Wishlists</h2>
         </div>
-        <li>
-            <p> purse  {{list.list_item}}</p>
-        </li>
-        {{!-- {{/each}} --}}
-      </ul>
-    </div>
-    </div>
+            {{#each lists as |list|}}
+            <div class="card">
+                <div class="card-title">
+                    <h3>{{this.list_name}}</h3>
+                </div>
+                <div class="card-body">
+                {{!-- <ul class="wishlist"> --}}
+                    <p>{{this.list_items}}</p>
+                {{!-- </ul> --}}
+                </div>
+                </div>
+            {{/each}}
+    </section>
     {{!-- {{/if}} --}}
-  </section>
-</div>
+
