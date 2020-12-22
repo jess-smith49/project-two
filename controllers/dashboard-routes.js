@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, List, Drink, User, Team } = require('../models');
+const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -77,13 +77,23 @@ router.get('/lists', (req, res) => {
     });
 });
 router.get('/groups', (req, res) => {
-    Team.findAll({
+    TeamUser.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
-            'team_name',
-            'team_code'
+            'team_id'
         ],
         include: [
+            {
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                // include: {
+                //     model: User,
+                //     attributes: ['username']
+                // }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -93,6 +103,7 @@ router.get('/groups', (req, res) => {
     .then(dbTeamData => {
         const teams = dbTeamData.map(team => team.get({ plain: true }));
         res.render('team', { teams, loggedIn: true });
+        console.log(teams, " ===============")
     })
     .catch(err => {
         console.log(err);

@@ -1,4 +1,4 @@
-{{!-- {{#if teams}} --}}
+
  <section class="db-groups">
       <div class="card-group">
           <h2>Groups</h2>
@@ -6,17 +6,18 @@
           {{#each teams as |team|}}
           <div class="card">
             <div class="card-title">
+              {{#each team as |team|}}
               <h3>{{this.team_name}}</h3>
+              {{/each}}
             </div>
             <div class="card-body">
                 {{!-- <ol class="content-list" id="wishlist"> --}}
-                  {{#each users as |user|}}
+                  {{#each user as |user|}}
                   <p>{{this.username}}</p>
-                  {{/each}}
+                  {{/each}} 
                 {{!-- </ol> --}}
             </div>
             </div>
            {{/each}}
 </section>  
-{{!-- {{/if}} --}}
 
