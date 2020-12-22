@@ -41,12 +41,12 @@ window.onload = function() {
         seconds = diffSeconds;
     }
  
-        let daysUntilChristmas = days;
+        let daysUntilChristmas = days + ':' + hours + ':' + seconds;
         let countdownContainer = document.getElementById('countdown');
       
         
     
-        countdownContainer.innerHTML= `Only ${daysUntilChristmas} Days Until Christmas! `;
+        countdownContainer.innerHTML= `Only ${daysUntilChristmas} Until Christmas Eve! `;
 
         setTimeout(christmasCountdown, 1000);
   
