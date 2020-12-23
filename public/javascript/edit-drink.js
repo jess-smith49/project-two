@@ -25,4 +25,4 @@ async function editDrinkHandler(event) {
     }
 }
 
-document.querySelector('#edit-drink').addEventListener('submit', editDrinkHandler)
+document.querySelector('#editDrink').addEventListener('submit', editDrinkHandler)

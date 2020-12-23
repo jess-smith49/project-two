@@ -17,4 +17,4 @@ async function deleteListHandler(event) {
     console.log('delete')
   }
   
-  document.querySelector().addEventListener('click', deleteListHandler);
+  document.querySelector('#deleteList').addEventListener('click', deleteListHandler);

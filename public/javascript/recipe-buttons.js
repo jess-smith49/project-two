@@ -15,9 +15,9 @@ insertAddInput = function () {
             <label for="newRecipeName">List Name</label>
             <input type="text" placeholder="Corned Beef and Hash" name="newRecipeName" id="newRecipeName" class="form-input" />
             <label for="newRecipeIngredients">List Ingredients Here:</label>
-            <input type="text" placeholder="Potatoes" name="newRecipeIngredients" id="newRecipeIngredients" class="form-input"/>
-            <label for="newRecipeInstructions">Write Instructions Here:</label>
-            <input type="text" placeholder="Potatoes" name="newRecipeInstructions" id="newRecipeInstructions" class="form-input"/>
+            <input type="text" placeholder="Potatoes" name="newRecipeIngr" id="newRecipeIngr" class="form-input"/>
+            <label for="newRecipeInst">Write Instructions Here:</label>
+            <input type="text" placeholder="Potatoes" name="newRecipeIns" id="newRecipeIns" class="form-input"/>
             <button class="add-list-item" id="editList">Add Item to Your List</button>
             </div>`
     addContainer.innerHTML = addInput;
@@ -27,7 +27,7 @@ insertNameEditInput = function() {
 
 
     let editNameInput =  `<label for="editRecipeName"> Edit Recipe Name</label>
-                        <input type="text" placeholder="Ex: Escargotes" name="editListName" id="editRecipeName" class="form-input" />
+                        <input type="text" placeholder="Ex: Escargotes" name="editRecipeName" id="editRecipeName" class="form-input" />
                         <button class="edit-recipe-name" id="editRecipeName">Edit Recipe Name</button>`;
  
 
