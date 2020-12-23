@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
 //get all recipes
 router.get('/recipes', (req, res) => {
     Recipe.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -84,23 +84,26 @@ router.get('/groups', (req, res) => {
         },
         attributes: [
             'id',
+            'user_id',
             'team_id'
         ],
         include: [
             {
-                model: Team,
-                attributes: ['id', 'team_name', 'team_code'],
-            },
-            {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
             }
+           
         ]
     })
     .then(dbTeamData => {
         const teams = dbTeamData.map(team => team.get({ plain: true }));
         res.render('team', { teams, loggedIn: true });
         console.log(teams, " ===============")
+        console.log(req.session.user_id, " =============")
     })
     .catch(err => {
         console.log(err);

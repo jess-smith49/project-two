@@ -4,6 +4,9 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Drink.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
         attributes: [
             'id',
             'drink_name',
@@ -18,7 +21,10 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbDrinkData => res.json(dbDrinkData))
+    .then(dbDrinkData => {
+        const drinks = dbDrinkData.map(recipe => recipe.get({ plain: true }));
+        res.render('mydrinks', { drinks, loggedIn: true });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
