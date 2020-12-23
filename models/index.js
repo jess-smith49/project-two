@@ -27,7 +27,6 @@ TeamUser.belongsTo(User, {
 TeamUser.belongsTo(Team, {
     foreignKey: 'team_id'
 });
-
 //Drink can belong belong to one user
 Drink.belongsTo(User, {
     foreignKey: 'user_id'

@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <div class="edit-add-container">
     <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
         List</button>
@@ -5,11 +6,13 @@
         List</button>
     <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From
         Your List</button>
+    <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
     {{> add}}
     {{> edit}}
     {{> delete}}
+{{/if}}
 </div>
-{{!-- {{#if recipes}} --}}
+
 <section class="db-groups">
     <div class="card-group">
         <h2>Recipes</h2>
@@ -22,11 +25,10 @@
             <div class="card-body">
                 <p>Ingredients: {{this.ingredients}}</p>
                 <p>Instructions: {{this.instructions}}</p>
-                 {{#if loggedIn}}
                 <p>Created By: {{user.username}}</p>
-                {{/if}}
             </div>
         </div>
         {{/each}}
 </section>
-{{!-- {{/if}} --}}
+
+

@@ -33,9 +33,9 @@ router.get('/recipes', (req, res) => {
 //get all drinks
 router.get('/drinks', (req, res) => {
     Drink.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
         include: [
             {
@@ -56,9 +56,9 @@ router.get('/drinks', (req, res) => {
 //get all lists
 router.get('/lists', (req, res) => {
     List.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: ['id', 'list_name', 'list_items'],
         include: [
             {
@@ -76,6 +76,7 @@ router.get('/lists', (req, res) => {
         res.render(500).json(err);
     });
 });
+//gets group that user is in
 router.get('/groups', (req, res) => {
     TeamUser.findAll({
         where: {
@@ -89,10 +90,6 @@ router.get('/groups', (req, res) => {
             {
                 model: Team,
                 attributes: ['id', 'team_name', 'team_code'],
-                // include: {
-                //     model: User,
-                //     attributes: ['username']
-                // }
             },
             {
                 model: User,
@@ -110,6 +107,7 @@ router.get('/groups', (req, res) => {
         res.status(500).json(err);
     });
 });
+
 //create recipe
 router.get('/recipes/new', (req,res) => {
     res.render("create-recipe", {

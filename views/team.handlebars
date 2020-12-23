@@ -1,4 +1,6 @@
-
+<div>
+  <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+</div>
  <section class="db-groups">
       <div class="card-group">
           <h2>Groups</h2>
@@ -12,7 +14,7 @@
             </div>
             <div class="card-body">
                 {{!-- <ol class="content-list" id="wishlist"> --}}
-                  {{#each user as |user|}}
+                  {{#each team as |team|}}
                   <p>{{this.username}}</p>
                   {{/each}} 
                 {{!-- </ol> --}}
