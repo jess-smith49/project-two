@@ -10,16 +10,16 @@
             <div class="card-title">
               {{#each team as |team|}}
               <h3>{{this.team_name}}</h3>
-              {{/each}}
             </div>
             <div class="card-body">
-                {{!-- <ol class="content-list" id="wishlist"> --}}
-                  {{#each team as |team|}}
-                  <p>{{this.username}}</p>
+                <ol class="content-list" id="wishlist">
+                  {{#each users as |user|}}
+                  <li>{{this.username}}</li>
                   {{/each}} 
-                {{!-- </ol> --}}
+                </ol>
+                {{/each}}
             </div>
             </div>
            {{/each}}
-</section>  
+  </section>  
 

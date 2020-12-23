@@ -56,11 +56,21 @@ router.get('/drinks', (req, res) => {
 //get all lists
 router.get('/lists', (req, res) => {
     List.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // },
-        attributes: ['id', 'list_name', 'list_items'],
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: ['id', 'user_id', 'list_name', 'list_items'],
         include: [
+            {
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -70,13 +80,14 @@ router.get('/lists', (req, res) => {
     .then(dbListData => {
         const lists = dbListData.map(list => list.get({ plain: true }));
         res.render('list', { lists, loggedIn: true });
+        console.log(lists, "===========")
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
-//gets group that user is in
+//gets group memebrs of group that user is in
 router.get('/groups', (req, res) => {
     TeamUser.findAll({
         where: {
@@ -89,14 +100,19 @@ router.get('/groups', (req, res) => {
         ],
         include: [
             {
-                model: User,
-                attributes: ['username']
-            },
-            {
                 model: Team,
                 attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
+            },
+            {
+                model: User,
+                attributes: ['username']
             }
-           
         ]
     })
     .then(dbTeamData => {
