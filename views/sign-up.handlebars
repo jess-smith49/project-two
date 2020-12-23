@@ -35,22 +35,31 @@
                     <input type="radio" name="group-confirm" id="join-group" />
                     <label for="join-group">Join a Group</label>
                 </span>
+                <span>
+                    <div>
+                        <label for="group-number">Enter your Group's Code</label>
+                        <input type="text" name="group-code"class="form-input" id="group" >
+                    
+                    </div>
+                </span>
+
                 <button type="submit" class="form-submit" id="signup-btn">
                     Spread Holiday Cheer!
                 </button>
                  {{!-- <button class="log-btn" id="login-btn"> --}}
           {{!-- <a href="/login">login</button> --}}
             {{!-- <button href= '/login' type="click" class="form-submit" id="login-btn"> --}}
-            {{!-- <button onclick="window.location.href='/login'">
+            {{!-- <button onclick="='/login'">
             Login to Existing Account
             </button> --}}
-                    {{#if joinGroup}}
-                        <input type="number" name="group-code"class="form-input" id="group" >
-                        <label for="group-number">Enter your Group's Code</label>
-                    {{/if}}
+                    <!-- {{#if joinGroup}} -->
+                
+                        
+                    <!--{{/if}} -->
             </div>
         </form>
     </div>
 </section>
 
 <script src="/javascript/sign-up.js"></script>
+

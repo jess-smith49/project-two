@@ -3,7 +3,7 @@ const { response } = require("express");
 async function newTeamFormHandler(event){
     event.preventDefault();
 
-    const team = document.querySelector().value;
+    const team = document.querySelector('#create-group').value;
     
 
     const response = await fetch('/api/team', {
