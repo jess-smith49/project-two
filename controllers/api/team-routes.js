@@ -4,6 +4,7 @@ const { default: ShortUniqueId } = require('short-unique-id');
 const { Drink, User, Team, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//GET ALL TEAMS
 router.get('/', (req, res) => {
     Team.findAll({
         attributes: [
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
     });
 });
 
-
+//GET TEAM BY ID
 router.get('/:id', (req, res) => {
     Team.findOne({
         where: {
@@ -58,7 +59,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-//create team code //short unique ID
+//CREATE TEAM CODE
 router.post('/', (req, res) => {
     const uid = new ShortUniqueId();
     teamCode = uid.randomUUID(6);
@@ -77,7 +78,8 @@ router.post('/', (req, res) => {
     });
 });
 
-//add team member to a team
+
+//ADD A MEMBER TO A TEAM
 router.post('/addMember/:teamCode', (req, res) => {
     Team.findOne({
         where: {
@@ -100,6 +102,9 @@ router.post('/addMember/:teamCode', (req, res) => {
         res.status(500).json(err);
     })   
 });
+
+
+//UPDATE TEAM BY ID
 router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,
@@ -123,6 +128,9 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
+//DELETE TEAM
 router.delete('/:id', (req, res) => {
     Team.destroy({
         where: {

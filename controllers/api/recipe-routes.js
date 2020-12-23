@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Recipe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//GET ALL RECIPES
 router.get('/', (req, res) => {
     Recipe.findAll({
         where: {
@@ -29,6 +30,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//GET RECIPE BY ID
 router.get('/:id', (req, res) => {
     Recipe.findOne({
         where: {
@@ -60,6 +63,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//CREATE RECIPE
 router.post('/', (req, res) => {
     Recipe.create({
         recipe_name: req.body.recipe_name,
@@ -75,6 +79,8 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//UPDATE RECIPE BY ID
 router.put('/:id', (req, res) => {
     Recipe.update({
         recipe_name: req.body.recipe_name,
@@ -99,6 +105,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//DELETE RECIPE BY ID
 router.delete('/:id', (req, res) => {
     Recipe.destroy({
         where: {

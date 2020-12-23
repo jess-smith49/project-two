@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { List, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//GET ALL LISTS
 router.get('/', (req, res) => {
     List.findAll({
         where: {
@@ -28,6 +29,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//GET LIST BY ID
 router.get('/:id', (req, res) => {
     List.findOne({
         where: {
@@ -58,6 +61,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//CREATE LIST
 router.post('/', (req, res) => {
     List.create({
         list_name: req.body.list_name,
@@ -72,6 +76,8 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//UPDATE LIST
 router.put('/:id', (req, res) => {
     List.update({
         list_name: req.body.list_name,
@@ -95,6 +101,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//DELETE LIST
 router.delete('/:id', (req, res) => {
     List.destroy({
         where: {

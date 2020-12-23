@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Drink, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//GET ALL DRINKS
 router.get('/', (req, res) => {
     Drink.findAll({
             where: {
@@ -30,6 +31,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//GET DRINK BY ID
 router.get('/:id', (req, res) => {
     Drink.findOne({
         where: {
@@ -62,6 +65,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//CREATE DRINK 
 router.post('/', (req, res) => {
     Drink.create({
         drink_name: req.body.drink_name,
@@ -101,6 +105,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//DELETE DRINK
 router.delete('/:id', (req, res) => {
     Drink.destroy({
         where: {

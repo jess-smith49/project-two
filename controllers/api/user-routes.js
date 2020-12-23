@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Recipe, List, User, Drink, Team, TeamUser } = require('../../models');
 
+
+//GET ALL USERS
 router.get('/', (req, res) => {
     User.findAll({
         attributes: {exclude: ['password'] }
@@ -11,6 +13,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//GET USER BY ID
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -64,6 +68,8 @@ router.get('/:id', (req, res) => {
          res.status(500).json(err);
      })
 })
+
+//CREATE NEW USER
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
@@ -81,6 +87,8 @@ router.post('/', (req, res) => {
         });
     });
 });
+
+//FIND ONE USER
 router.post('/login', (req, res) => {
     console.log(req.body, "===============");
     User.findOne({
@@ -108,6 +116,8 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
+//LOGOUT
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -118,6 +128,8 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+//UPDATE USER BY ID
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -137,6 +149,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+//DESTROY USER BY ID
 router.delete('/:id', (req, res) => {
     User.destroy({
         where: {

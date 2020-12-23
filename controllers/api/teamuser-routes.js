@@ -4,6 +4,8 @@ const { default: ShortUniqueId } = require('short-unique-id');
 const { Drink, User, Team, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+//FIND ALL TEAM USERS
 router.get('/', (req, res) => {
     TeamUser.findAll({
         where: {
