@@ -1,17 +1,8 @@
-<div class="container">
-    <div class="container-input">
-        <div class="addContainer">
-            <button class="container-button add-btn" id="new-recipe">Enter a New Recipe</button>
-        </div>
-          <div class="editContainer">
-            <button class="container-button edit-btn" id="edit-recipe">Edit an Existing Recipe</button>
-        </div>
-           <div class="existingContainer">
-            <button class="container-button delete-btn" id="delete-recipe">Delete a Recipe</button>
-        </div>
-    </div>
+<div class="edit-add-container">
+    <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+    <button onclick="window.location.href='/api/recipes'">My recipes to view, add, and edit</button>
 </div>
-{{!-- {{#if recipes}} --}}
+
 <section class="db-groups">
     <div class="card-group">
         <h2>Recipes</h2>
@@ -29,4 +20,5 @@
     </div>
     {{/each}}
 </section>
-{{!-- {{/if}} --}}
+
+
