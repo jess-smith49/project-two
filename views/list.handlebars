@@ -8,16 +8,23 @@
         <div class="card-group">
             <h2>Wishlist</h2>
         </div>
-            {{#each lists as |list|}}
+        {{#each wish as |wish|}}
+            {{!-- {{#each team as |team|}} --}}
+            {{#each team.users as |user|}}
+            
             <div class="card">
+                {{#each lists as |list|}}
                 <div class="card-title">
                     <h3>{{this.list_name}}</h3>
                 </div>
                 <div class="card-body">
                     <p>{{this.list_items}}</p>
                 </div>
-                </div>
+                {{/each}}
+            </div>
+
             {{/each}}
+        {{/each}}
     </section>
     {{!-- {{/if}} --}}
 

@@ -13,8 +13,13 @@
             </div>
             <div class="card-body">
                 <ol class="content-list" id="wishlist">
-                  {{#each users as |user|}}
+                  {{#each team.users as |user|}}
                   <li>{{this.username}}</li>
+                  {{!-- {{#each lists as |list|}}
+                  <p>list {{this.list_name}}</p>
+                  <p>list items {{this.list_items}}</p>
+                  {{/each}} --}}
+                  
                   {{/each}} 
                 </ol>
                 {{/each}}
