@@ -112,9 +112,9 @@ header {
         padding: 15px;
         background-color: rgba($color: $gold-font-1, $alpha: .60) ;
         border: solid 5px rgba($color: $gold-font-2, $alpha: .50);
-        width: 45%;
-        height: 55%;
-        margin-left: 50%;
+        width: 55%;
+        height: 45%;
+        margin-left: 40%;
         margin-top: 5%;
         text-align: center;
         .hero-text {
@@ -175,6 +175,7 @@ header {
                     outline: none;
                 }
 
+
             }
                 .form-submit {
                     font-family: $main-font;
@@ -192,6 +193,35 @@ header {
                         font-size: calc(23pt + 0.15vw);
                     }
                 }
+
+                label{
+                    font-family: $secondary-font;
+                }
+
+                .cta-question {
+                    font-family: $secondary-font;
+                }
+        }
+    }
+
+    #ctaChoice {
+        button {
+        font-family: $secondary-font;
+        font-size: calc(13pt + 0.15vw);
+        padding: 5pt;
+        color: $gold-font-1;
+        background: #0c2d1c;
+        border: none;
+        height: 50px;
+        width: 50%;
+        margin: 15pt;
+
+            &:hover {
+                background-color: $accent-color;
+                transition: margin-right 4s 1s;
+                font-size: calc(15pt + 0.15vw);
+            }
+
         }
     }
 }

@@ -66,4 +66,8 @@ $secondary-font: 'Oswald', sans-serif;
 .db-groups {
     font-family: $secondary-font;
     padding: 20pt;
+
+    .card {
+        padding: 10pt;
+    }
 }
