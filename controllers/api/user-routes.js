@@ -42,14 +42,14 @@ router.get('/:id', (req, res) => {
                     attributes: ['username']
                 }
             },
-            // {
-                // model: Team,
-                // attributes: ['id', 'team_name', 'team_code'],
-                // include: {
-                //     model: User,
-                //     attributes: ['username']
-                // }
-            // }
+            {
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }
         ],
      })
      .then(dbUserData => {

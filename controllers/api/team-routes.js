@@ -79,32 +79,27 @@ router.post('/', (req, res) => {
 
 //add team member to a team
 router.post('/addMember/:teamCode', (req, res) => {
-Team.findOne({
-    where: {
-        team_code: req.params.teamCode
-    }
-})
-.then(dbTeamUserData => {
-    TeamUser.create(
-        {
-            user_id: req.session.user_id,
-            team_id: dbTeamUserData.dataValues.id
+    Team.findOne({
+        where: {
+            team_code: req.params.teamCode
         }
-    )
-})
-.then(dbTeamUserData =>{
-    res.json(dbTeamUserData);
-})
-
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-})   
+    })
+    .then(dbTeamUserData => {
+        TeamUser.create(
+            {
+                user_id: req.session.user_id,
+                team_id: dbTeamUserData.dataValues.id
+            }
+        )
+    })
+    .then(dbTeamUserData =>{
+        res.json(dbTeamUserData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })   
 });
-
-
-
-
 router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,
@@ -128,10 +123,6 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-
-
-
 router.delete('/:id', (req, res) => {
     Team.destroy({
         where: {

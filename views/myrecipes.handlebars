@@ -1,11 +1,19 @@
 <div class="edit-add-container">
+    <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add a Recipe to Your
+        List</button>
+    <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit a Recipe on Your
+        List</button>
+    <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete a Recipe From
+        Your List</button>
     <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
-    <button onclick="window.location.href='/api/recipes'">My recipes to view, add, and edit</button>
+    <button onclick="window.location.href='/dashboard/recipes'">Return to Recipes</button>
+    {{> add}}
+    {{> edit}}
+    {{> delete}}
 </div>
-
 <section class="db-groups">
     <div class="card-group">
-        <h2>Recipes</h2>
+        <h2>My Recipes</h2>
     </div>
         {{#each recipes as |recipe|}}
         <div class="card">
@@ -20,5 +28,3 @@
         </div>
         {{/each}}
 </section>
-
-
