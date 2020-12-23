@@ -1,15 +1,17 @@
-<div class="edit-add-container">
-    <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add a Recipe to Your
-        List</button>
-    <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit a Recipe on Your
-        List</button>
-    <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete a Recipe From
-        Your List</button>
+<div class="content-container">
+  <div class="addContainer" id="add-container">
+    <button class="add-list-item" id="newList">Add a New Reciep</button>
+  </div>
+  <div class="editContainer" id="edit-container">
+    <div class="editNameInput" id="edit-name"></div>
+    <div class="editNameInput" id="edit-item"></div>
+    <button class="edit-list-item" id="editList">Edit a Recipe name or Ingredients</button>
+  </div>
+  <div class="deleteContainer">
+    <button class="delete-list-item" id="deleteList">Delete a Recipe</button>
+  </div>
     <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
     <button onclick="window.location.href='/dashboard/recipes'">Return to Recipes</button>
-    {{> add}}
-    {{> edit}}
-    {{> delete}}
 </div>
 <section class="db-groups">
     <div class="card-group">
@@ -28,3 +30,5 @@
         </div>
         {{/each}}
 </section>
+
+<script src="/javascript/recipe-buttons.js"></script>
