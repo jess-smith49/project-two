@@ -1,30 +1,32 @@
-<div class="edit-add-container">
-    <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
-        List</button>
-    <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit an Item on Your
-        List</button>
-    <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From
-        Your List</button>
-    {{> add}}
-    {{> edit}}
-    {{> delete}}
+<div class="container">
+    <div class="container-input">
+        <div class="addContainer">
+            <button class="container-button add-btn" id="new-recipe">Enter a New Recipe</button>
+        </div>
+          <div class="editContainer">
+            <button class="container-button edit-btn" id="edit-recipe">Edit an Existing Recipe</button>
+        </div>
+           <div class="existingContainer">
+            <button class="container-button delete-btn" id="delete-recipe">Delete a Recipe</button>
+        </div>
+    </div>
 </div>
 {{!-- {{#if recipes}} --}}
 <section class="db-groups">
     <div class="card-group">
         <h2>Recipes</h2>
     </div>
-        {{#each recipes as |recipe|}}
-        <div class="card">
-            <div class="card-title">
-                <h4>Recipe Name: {{this.recipe_name}}</h4>
-            </div>
-            <div class="card-body">
-                <p>Ingredients: {{this.ingredients}}</p>
-                <p>Instructions: {{this.instructions}}</p>
-                <p>Created By: {{user.username}}</p>
-            </div>
+    {{#each recipes as |recipe|}}
+    <div class="card">
+        <div class="card-title">
+            <h4>Recipe Name: {{this.recipe_name}}</h4>
         </div>
-        {{/each}}
+        <div class="card-body">
+            <p>Ingredients: {{this.ingredients}}</p>
+            <p>Instructions: {{this.instructions}}</p>
+            <p>Created By: {{user.username}}</p>
+        </div>
+    </div>
+    {{/each}}
 </section>
 {{!-- {{/if}} --}}

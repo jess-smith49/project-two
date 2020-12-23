@@ -15,4 +15,4 @@ async function deleteRecipeHandler(event) {
     }
   }
   
-  document.querySelector().addEventListener('click', deleteRecipeHandler);
+  document.querySelector("#delete-recipe").addEventListener('click', deleteRecipeHandler);
