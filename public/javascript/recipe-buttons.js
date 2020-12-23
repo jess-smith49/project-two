@@ -2,31 +2,33 @@ const addContainer = document.getElementById("add-container");
 const editContainer = document.getElementById('edit-container');
     let = editNameContainer = document.getElementById('edit-name');
     let = editItemContainer = document.getElementById('edit-item');
+    let = editInstContainer = document.getElementById('edit-inst');
 
 
-let addEvent = document.querySelector('#newList');
-let editEvent = document.querySelector('#editList');
+let addEvent = document.querySelector('#newRecipe');
+let editEvent = document.querySelector('#editRecipe');
 
 
 
 insertAddInput = function () {
     let addInput = `<div class="inputContainer">
-            <label for="newListName">List Name</label>
-            <input type="text" placeholder="Ex: Jim Bob's List" name="newListName" id="newListName" class="form-input" />
-            <label for="newListItems">Item Name</label>
-            <input type="text" placeholder="Ex: Hot Cheetos" name="newListItems" id="newListItems" class="form-input" />
+            <label for="newRecipeName">List Name</label>
+            <input type="text" placeholder="Corned Beef and Hash" name="newRecipeName" id="newRecipeName" class="form-input" />
+            <label for="newRecipeIngredients">List Ingredients Here:</label>
+            <input type="text" placeholder="Potatoes" name="newRecipeIngredients" id="newRecipeIngredients" class="form-input"/>
+            <label for="newRecipeInstructions">Write Instructions Here:</label>
+            <input type="text" placeholder="Potatoes" name="newRecipeInstructions" id="newRecipeInstructions" class="form-input"/>
             <button class="add-list-item" id="editList">Add Item to Your List</button>
             </div>`
     addContainer.innerHTML = addInput;
-    console.log(addInput)
 };
 
 insertNameEditInput = function() {
 
 
-    let editNameInput =  `<label for="editListName"> Edit List Name</label>
-                        <input type="text" placeholder="Ex: Jim Bob's New List" name="editListName" id="editListName" class="form-input" />
-                        <button class="edit-list-name" id="editListName">Edit List Name</button>`;
+    let editNameInput =  `<label for="editRecipeName"> Edit Recipe Name</label>
+                        <input type="text" placeholder="Ex: Escargotes" name="editListName" id="editRecipeName" class="form-input" />
+                        <button class="edit-recipe-name" id="editRecipeName">Edit Recipe Name</button>`;
  
 
     editNameContainer.innerHTML = editNameInput;
@@ -34,24 +36,35 @@ insertNameEditInput = function() {
 
 }
 
-insertItemEditInput = function() {
-    let editItemInput = `<label for="editListItems">New List Item</label>
-                         <input type="text" placeholder="Ex: Lime Hot Cheetos" name="newListItems" id="newListItems" class="form-input" />
-                         <button class="edit-list-item" id="editListItem">Edit List Item</button>`;
+insertInstEditInput = function() {
+    let editInstInput = `<label for="editRecipeIns">Edit Instructions Here</label>
+                         <input type="text" placeholder="Dice Onion" name="editRecipeIns" id="editRecipeIns" class="form-input" />
+                         <button class="edit-recipe-ins" id="editRecipeIns">Edit Recipe Instructions</button>`;
     
-    editItemContainer.innerHTML = editItemInput;
+    editInstContainer.innerHTML = editInstInput;
 }
+
+insertIngrEditInput = function() {
+    let editIngrInput = `<label for="editRecipeIngr">Edit Ingredients Here</label>
+                         <input type="text" placeholder="Yellow Onion" name="editRecipeIngr" id="editRecipeIngr" class="form-input" />
+                         <button class="edit-recipe-ingr" id="editRecipeIngr">Edit List Item</button>`;
+    
+    editItemContainer.innerHTML = editIngrInput;
+    insertInstEditInput();
+};
+
 
 addEvent.onclick = function () {
     return insertAddInput();
 };
 
 editEvent.onclick = function () {
-    document.getElementById("editList").style.display = "none";
+    document.getElementById("editRecipe").style.display = "none";
     insertNameEditInput();
-    insertItemEditInput();
+    insertIngrEditInput();
+    
     
 };
 
-document.querySelector('#newList').addEventListener('submit', insertAddInput);
-document.querySelector('#editList').addEventListener('submit', insertNameEditInput);
+document.querySelector('#newRecipe').addEventListener('submit', insertAddInput);
+document.querySelector('#editRecipe').addEventListener('submit', insertNameEditInput);
