@@ -1,13 +1,24 @@
-const addContainer = document.getElementById('.addContainer');
-const editContainer = document.getElementById('.editContainer');
-const deletContainer = document.getElementById('.deleteContainer');
+const addContainer = document.getElementById("add-container");
+const editContainer = document.getElementById('edit-container');
 
-function insertAddInput() {
-    let addEvent = document.querySelector('#new-recipe');
 
-    if (addContainer === addEvent) {
-        return `
-        
-        `
-    }
+let addEvent = document.querySelector('#newList');
+
+insertAddInput = function()  {
+let addInput = 
+`
+    <label for="newListName">Item Name</label>
+    <input type="text" placeholder="Ex: Jim Bob's List" name="newListName" id="newListName" class="form-input" />
+    <label for="newListItems">Item Name</label>
+    <input type="text" placeholder="Ex: Hot Cheetos" name="newListItems" id="newListItems" class="form-input" />
+`
+    addContainer.append(addInput)
+    console.log(addInput)
+};
+
+addEvent.onclick = function() {
+        return insertAddInput();
 }
+
+
+document.querySelector('#newList').addEventListener('submit', insertAddInput);
