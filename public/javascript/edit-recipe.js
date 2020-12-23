@@ -25,4 +25,4 @@ async function editRecipeHandler(event) {
     }
 }
 
-document.querySelector('#edit-recipe').addEventListener('submit', editRecipeHandler)
+document.querySelector('#editRecipe').addEventListener('submit', editRecipeHandler)

@@ -13,6 +13,8 @@ async function deleteListHandler(event) {
     } else {
       alert(response.statusText);
     }
+
+    console.log('delete')
   }
   
-  document.querySelector().addEventListener('click', deleteListHandler);
+  document.querySelector('#deleteList').addEventListener('click', deleteListHandler);

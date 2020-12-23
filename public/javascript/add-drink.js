@@ -28,4 +28,4 @@ async function drinkFormHandler(event){
     }
 }
 
-document.querySelector('#new-drink').addEventListener('submit', drinkFormHandler);
+document.querySelector('#newDrink').addEventListener('submit', drinkFormHandler);

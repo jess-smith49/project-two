@@ -23,4 +23,4 @@ async function editListHandler(event) {
     }
 }
 
-document.querySelector('#edit-list').addEventListener('submit', editListHandler)
+document.querySelector('#editList').addEventListener('submit', editListHandler)

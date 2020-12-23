@@ -1,16 +1,19 @@
 <div class="content-container">
-    <div class="edit-add-container">
-        <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add a Drink to Your
-            List</button>
-        <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit a Drink on Your
-            List</button>
-        <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete a Drink From
-            Your List</button>
+  <div class="addContainer" id="add-container">
+    <button class="add-drink" id="newDrink">Add a New Drink</button>
+  </div>
+  <div class="editContainer" id="edit-container">
+    <div class="editNameInput" id="edit-name"></div>
+    <div class="editNameInput" id="edit-item"></div>
+    <div class="editNameInput" id="edit-inst"></div>
+    <button class="edit-list-item" id="editDrink">Edit Drink Recipe</button>
+  </div>
+  <div class="deleteContainer">
+    <button class="delete-list-item" id="deleteDrink">Delete a Recipe</button>
+  </div>
         <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
         <button onclick="window.location.href='/dashboard/drinks'">Return to Drinks</button>
-        {{> add}}
-        {{> edit}}
-        {{> delete}}
+     
     </div>
 </div>
 
@@ -31,3 +34,5 @@
             </div>
             {{/each}}
 </section>
+
+<script src="/javascript/drink-buttons.js"></script>
