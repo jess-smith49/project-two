@@ -2,81 +2,81 @@ const router = require('express').Router();
 const { Team } = require('../../models');
 const { List, User, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
-router.get('/', (req, res) => {
-    TeamUser.findAll({
-        where: {
-            user_id: req.body.user_id
-        },
-        attributes: [
-            'id',
-            'user_id',
-            'team_id'
-        ],
-        include: [
-            {
-                model: Team,
-                attributes: ['id', 'team_name', 'team_code'],
-                include: [
-                    {
-                        model: User,
-                        attributes: ['username'],
-                        include: [
-                            {
-                            model: List,
-                            attributes: ['list_name', 'list_items']
-                            }
-                        ]
-                    }
-                ],
-            },
-            {
-                model: User,
-                attributes: ['username'],
-                include: [
-                    { 
-                        model: List,
-                        attributes: ['list_name', 'list_items']
-                    }
-                ]
-            }
-        ]
-})
-.then(dbListData => {
-    const wishs = dbListData.map(wish => wish.get({ plain: true }));
-    res.render('mylist', { wishs, loggedIn: true });
-})
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-});
-});
 // router.get('/', (req, res) => {
-//     List.findAll({
+//     TeamUser.findAll({
 //         where: {
-//             user_id: req.session.user_id
+//             user_id: req.body.user_id
 //         },
 //         attributes: [
 //             'id',
 //             'user_id',
-//             'list_name',
-//             'list_items'
+//             'team_id'
 //         ],
 //         include: [
 //             {
-//                 model: User,
-//                 attributes: ['username']
+//                 model: Team,
+//                 attributes: ['id', 'team_name', 'team_code'],
+//                 include: [
+//                     {
+//                         model: User,
+//                         attributes: ['username'],
+//                         include: [
+//                             {
+//                             model: List,
+//                             attributes: ['list_name', 'list_items']
+//                             }
+//                         ]
+//                     }
+//                 ],
 //             },
+//             {
+//                 model: User,
+//                 attributes: ['username'],
+//                 include: [
+//                     { 
+//                         model: List,
+//                         attributes: ['list_name', 'list_items']
+//                     }
+//                 ]
+//             }
 //         ]
-//     })
-//     .then(dbListData => {
-//         const lists = dbListData.map(list => list.get({ plain: true }));
-//         res.render('mylist', { lists, loggedIn: true });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     });
+// })
+// .then(dbListData => {
+//     const wishs = dbListData.map(wish => wish.get({ plain: true }));
+//     res.render('mylist', { wishs, loggedIn: true });
+// })
+// .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
 // });
+// });
+router.get('/', (req, res) => {
+    List.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'user_id',
+            'list_name',
+            'list_items'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+        ]
+    })
+    .then(dbListData => {
+        const lists = dbListData.map(list => list.get({ plain: true }));
+        res.render('mylist', { lists, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 router.get('/:id', (req, res) => {
     List.findOne({
         where: {
