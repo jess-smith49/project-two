@@ -4,14 +4,30 @@ const { default: ShortUniqueId } = require('short-unique-id');
 const { Drink, User, Team, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//gets all group members of user's group
 router.get('/', (req, res) => {
-    Team.findAll({
+    TeamUser.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
-            'team_name',
-            'team_code'
+            'user_id',
+            'team_id'
         ],
         include: [
+            {
+                model: Team, 
+                attributes: [
+                    'id', 'team_name', 'team_code'
+                ],
+                include: [ 
+                    {
+                    model: User,
+                    attributes: ['username']
+                    }
+                ]
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -24,8 +40,6 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-
 router.get('/:id', (req, res) => {
     Team.findOne({
         where: {

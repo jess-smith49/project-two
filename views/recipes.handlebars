@@ -7,18 +7,24 @@
     <div class="card-group">
         <h2>Recipes</h2>
     </div>
-    {{#each recipes as |recipe|}}
-    <div class="card">
-        <div class="card-title">
-            <h4>Recipe Name: {{this.recipe_name}}</h4>
+
+        {{#each food as |food|}}
+        <div class="card">
+            <div class="card-title">
+            {{#each team.users as |user|}}
+            <p>Created By: {{this.username}}</p>
         </div>
-        <div class="card-body">
-            <p>Ingredients: {{this.ingredients}}</p>
-            <p>Instructions: {{this.instructions}}</p>
-            <p>Created By: {{user.username}}</p>
+            <div class="card-body">
+                {{#each user.recipes as |recipe|}}
+                <p>Recipe Name: {{this.recipe_name}}</p>
+                <p>Ingredients: {{this.ingredients}}</p>
+                <p>Instructions: {{this.instructions}}</p>
+                {{/each}}
+            </div>
+        {{/each}}
         </div>
-    </div>
-    {{/each}}
+        {{/each}}
+        </div>
 </section>
 
 
