@@ -1,0 +1,56 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Tangerine&effect=neon");
+.edit-add-container {
+  background-color: rgba(174, 134, 37, 0.6);
+  border: solid 5px rgba(247, 239, 138, 0.5);
+  align-content: center;
+  justify-content: center;
+  margin: 10pt;
+  padding: 5pt;
+}
+.edit-add-container .form-input {
+  display: block;
+  font-size: 16px;
+  line-height: 5px;
+  font-family: "Oswald", sans-serif;
+  border: none;
+  width: 50%;
+  padding: 7px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.edit-add-container .form-input:focus {
+  background-color: white;
+}
+.edit-add-container .form-input:hover {
+  background-color: white;
+  outline: none;
+}
+.edit-add-container label {
+  font-family: "Oswald", sans-serif;
+  font-size: calc(15pt + 0.15vw);
+}
+.edit-add-container button {
+  font-family: "Oswald", sans-serif;
+  font-size: calc(13pt + 0.15vw);
+  padding: 5pt;
+  color: #AE8625;
+  background: #0c2d1c;
+  border: none;
+  height: 50px;
+  margin: 15pt;
+}
+.edit-add-container button:hover {
+  background-color: #9B2335;
+  transition: margin-right 4s 1s;
+  font-size: calc(15pt + 0.15vw);
+}
+
+.db-groups {
+  font-family: "Oswald", sans-serif;
+  padding: 20pt;
+}
+.db-groups .card {
+  padding: 10pt;
+}
