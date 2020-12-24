@@ -84,9 +84,9 @@ nav ul .log-btn a {
   padding: 15px;
   background-color: rgba(174, 134, 37, 0.6);
   border: solid 5px rgba(247, 239, 138, 0.5);
-  width: 45%;
-  height: 55%;
-  margin-left: 50%;
+  width: 55%;
+  height: 45%;
+  margin-left: 40%;
   margin-top: 5%;
   text-align: center;
 }
@@ -156,6 +156,28 @@ nav ul .log-btn a {
   background-color: #9B2335;
   transition: margin-right 4s 1s;
   font-size: calc(23pt + 0.15vw);
+}
+.hero-cta .signup-form label {
+  font-family: "Oswald", sans-serif;
+}
+.hero-cta .signup-form .cta-question {
+  font-family: "Oswald", sans-serif;
+}
+.hero #ctaChoice button {
+  font-family: "Oswald", sans-serif;
+  font-size: calc(13pt + 0.15vw);
+  padding: 5pt;
+  color: #AE8625;
+  background: #0c2d1c;
+  border: none;
+  height: 50px;
+  width: 50%;
+  margin: 15pt;
+}
+.hero #ctaChoice button:hover {
+  background-color: #9B2335;
+  transition: margin-right 4s 1s;
+  font-size: calc(15pt + 0.15vw);
 }
 
 footer {
