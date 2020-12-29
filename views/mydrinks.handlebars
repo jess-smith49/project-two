@@ -1,0 +1,68 @@
+<div class="edit-add-container">
+  <div class="container-form">
+    <div class="addContainer" id="add-container">
+      <button class="add-drink" id="newDrink">Add a New Drink</button>
+    </div>
+    <div class="editContainer" id="edit-container">
+      <div class="editNameInput" id="edit-name"></div>
+      <div class="editNameInput" id="edit-item"></div>
+      <div class="editNameInput" id="edit-inst"></div>
+      <button class="edit-list-item" id="editDrink">Edit Drink Recipe</button>
+    </div>
+    <div class="deleteContainer">
+      <button class="delete-list-item" id="deleteDrink">Delete a Recipe</button>
+    </div>
+  </div>
+  <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+  <button onclick="window.location.href='/dashboard/drinks'">Return to Drinks</button>
+
+</div>
+</div>
+
+<section class="db-groups">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0984b1ecf2e67a8c4f72efc99b3796e8d5cd5f0b
+    <div class="card-group">
+            <h2>My Drinks</h2>
+        </div>
+            {{#each drinks as |drink|}}
+            <div class="card">
+                <div class="card-title">
+                     <h4>Drink Name: {{this.drink_name}}</h4>
+                </div>
+                <div class="card-body">
+                    <p>Ingredients: {{this.ingredients}}</p>
+                    <p>Instructions: {{this.instructions}}</p>
+                    <p>Created By: {{user.username}}</p>
+                </div>
+            </div>
+            {{/each}}
+</section>
+<<<<<<< HEAD
+=======
+  <div class="card-group">
+    <h2>My Drinks</h2>
+  </div>
+  {{#each drinks as |drink|}}
+  <div class="card">
+    <div class="card-title">
+      <h4>Drink Name: {{this.drink_name}}</h4>
+    </div>
+    <div class="card-body">
+      <p>Ingredients: {{this.ingredients}}</p>
+      <p>Instructions: {{this.instructions}}</p>
+      <p>Created By: {{user.username}}</p>
+    </div>
+  </div>
+  {{/each}}
+</section>
+
+<script src="/javascript/drink-buttons.js"></script>
+>>>>>>> ec0880d102412c01ec710567156ae22f5180a8b9
+=======
+
+<script src="/javascript/drink-buttons.js"></script>
+>>>>>>> 0984b1ecf2e67a8c4f72efc99b3796e8d5cd5f0b

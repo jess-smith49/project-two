@@ -1,0 +1,35 @@
+<div class="edit-add-container">
+  <div class="container-form">
+    <div class="addContainer" id="add-container">
+      <button class="add-list-item" id="newList">Add an Item to Your List</button>
+    </div>
+    <div class="editContainer" id="edit-container">
+      <div class="editNameInput" id="edit-name"></div>
+      <div class="editNameInput" id="edit-item"></div>
+      <button class="edit-list-item" id="editList">Edit an Item on Your List</button>
+    </div>
+    <div class="deleteContainer">
+      <button class="delete-list-item" id="deleteList">Delete an Item From Your List</button>
+    </div>
+  </div>
+  <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+  <button onclick="window.location.href='/dashboard/lists'">Return to Lists</button>
+</div>
+
+<section class="db-groups">
+  <div class="card-group">
+    <h2>My Wishlist</h2>
+  </div>
+  {{#each lists as |list|}}
+  <div class="card">
+    <div class="card-title">
+      <h3>{{this.list_name}}</h3>
+    </div>
+    <div class="card-body">
+      <p>{{this.list_items}}</p>
+    </div>
+  </div>
+  {{/each}}
+</section>
+
+<script src="/javascript/list-buttons.js"></script>

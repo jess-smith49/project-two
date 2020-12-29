@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const { Recipe, User } = require('../../models');
+const { Recipe, User, TeamUser, Team, List } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Recipe.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'recipe_name',
@@ -17,7 +20,10 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbRecipeData => res.json(dbRecipeData))
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+        res.render('myrecipes', { recipes, loggedIn: true });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);

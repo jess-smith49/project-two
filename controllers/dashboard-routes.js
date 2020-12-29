@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, List, Drink, User, Team } = require('../models');
+const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -8,21 +8,39 @@ router.get('/', (req, res) => {
 });
 //get all recipes
 router.get('/recipes', (req, res) => {
-    Recipe.findAll({
+    TeamUser.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        attributes: [
+            'id',
+            'user_id',
+            'team_id'
+        ],
         include: [
             {
-                model: User,
-                attributes: ['username']
-            }
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                        include: [
+                            {
+                            model: Recipe,
+                            attributes: ['recipe_name', 'ingredients', 'instructions']
+                            }
+                        ]
+                    }
+                ],
+            },
         ]
     })
     .then(dbRecipeData => {
-        const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-        res.render('recipes', { recipes, loggedIn: true });
+        const food = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+        res.render('recipes', { food, loggedIn: true });
+        // res.json(food)
+        console.log("===========", req.session, food)
     })
     .catch(err => {
         console.log(err);
@@ -31,21 +49,38 @@ router.get('/recipes', (req, res) => {
 });
 //get all drinks
 router.get('/drinks', (req, res) => {
-    Drink.findAll({
+    TeamUser.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
+        attributes: [
+            'id',
+            'user_id',
+            'team_id'
+        ],
         include: [
             {
-                model: User,
-                attributes: ['username']
-            }
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                        include: [
+                            {
+                            model: Drink,
+                            attributes: ['drink_name', 'ingredients', 'instructions']
+                            }
+                        ]
+                    }
+                ],
+            },
         ]
     })
     .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
         res.render('drinks', { drinks, loggedIn: true });
+        // res.json(drinks)
     })
     .catch(err => {
         console.log(err);
@@ -54,50 +89,97 @@ router.get('/drinks', (req, res) => {
 });
 //get all lists
 router.get('/lists', (req, res) => {
-    List.findAll({
+    TeamUser.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'list_name', 'list_items'],
+        attributes: [
+            'id',
+            'user_id',
+            'team_id'
+        ],
         include: [
             {
-                model: User,
-                attributes: ['username']
-            }
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                        include: [
+                            {
+                            model: List,
+                            attributes: ['list_name', 'list_items']
+                            }
+                        ]
+                    }
+                ],
+            },
         ]
     })
     .then(dbListData => {
-        const lists = dbListData.map(list => list.get({ plain: true }));
-        res.render('list', { lists, loggedIn: true });
+        const wish = dbListData.map(list => list.get({ plain: true }));
+        res.render('list', { wish, loggedIn: true });
+        // res.json(lists)
+        console.log(lists, "===========")
     })
     .catch(err => {
         console.log(err);
         res.render(500).json(err);
     });
 });
+//gets group memebrs of group that user is in
 router.get('/groups', (req, res) => {
-    Team.findAll({
+    TeamUser.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
-            'team_name',
-            'team_code'
+            'user_id',
+            'team_id'
         ],
         include: [
             {
+                model: Team,
+                attributes: ['id', 'team_name', 'team_code'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username'],
+                        include: [
+                            {
+                            model: List,
+                            attributes: ['list_name', 'list_items']
+                            }
+                        ]
+                    }
+                ],
+            },
+            {
                 model: User,
-                attributes: ['username']
+                attributes: ['username'],
+                include: [
+                    { 
+                        model: List,
+                        attributes: ['list_name', 'list_items']
+                    }
+                ]
             }
         ]
     })
     .then(dbTeamData => {
         const teams = dbTeamData.map(team => team.get({ plain: true }));
         res.render('team', { teams, loggedIn: true });
+        console.log(teams, " ===============")
+        console.log(req.session.user_id, " =============")
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
+
 //create recipe
 router.get('/recipes/new', (req,res) => {
     res.render("create-recipe", {

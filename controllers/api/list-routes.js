@@ -1,11 +1,63 @@
 const router = require('express').Router();
-const { List, User } = require('../../models');
+const { Team } = require('../../models');
+const { List, User, TeamUser } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-router.get('/', withAuth, (req, res) => {
+// router.get('/', (req, res) => {
+//     TeamUser.findAll({
+//         where: {
+//             user_id: req.body.user_id
+//         },
+//         attributes: [
+//             'id',
+//             'user_id',
+//             'team_id'
+//         ],
+//         include: [
+//             {
+//                 model: Team,
+//                 attributes: ['id', 'team_name', 'team_code'],
+//                 include: [
+//                     {
+//                         model: User,
+//                         attributes: ['username'],
+//                         include: [
+//                             {
+//                             model: List,
+//                             attributes: ['list_name', 'list_items']
+//                             }
+//                         ]
+//                     }
+//                 ],
+//             },
+//             {
+//                 model: User,
+//                 attributes: ['username'],
+//                 include: [
+//                     { 
+//                         model: List,
+//                         attributes: ['list_name', 'list_items']
+//                     }
+//                 ]
+//             }
+//         ]
+// })
+// .then(dbListData => {
+//     const wishs = dbListData.map(wish => wish.get({ plain: true }));
+//     res.render('mylist', { wishs, loggedIn: true });
+// })
+// .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+// });
+// });
+router.get('/', (req, res) => {
     List.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
+            'user_id',
             'list_name',
             'list_items'
         ],
@@ -16,13 +68,16 @@ router.get('/', withAuth, (req, res) => {
             },
         ]
     })
-    .then(dbListData => res.json(dbListData))
+    .then(dbListData => {
+        const lists = dbListData.map(list => list.get({ plain: true }));
+        res.render('mylist', { lists, loggedIn: true });
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     List.findOne({
         where: {
             id: req.params.id
@@ -52,7 +107,7 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     List.create({
         list_name: req.body.list_name,
         list_items: req.body.list_items,
@@ -66,7 +121,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     List.update({
         list_name: req.body.list_name,
         list_items: req.body.list_items
@@ -89,7 +144,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     List.destroy({
         where: {
             id: req.params.id

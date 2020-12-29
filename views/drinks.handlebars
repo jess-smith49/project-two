@@ -1,33 +1,27 @@
-<div class="content-container">
-    <div class="edit-add-container">
-        <button class="add-list-item" data-bs-toggle="modal" data-bs-target="#addItemModal">Add an Item to Your
-            List</button>
-        <button class="edit-list-item" data-bs-toggle="modal" data-bs-target="#editItemModal">Edit an Item on Your
-            List</button>
-        <button class="delete-list-item" data-bs-toggle="modal" data-bs-target="#deleteItemModal">Delete an Item From
-            Your List</button>
-        {{> add}}
-        {{> edit}}
-        {{> delete}}
-    </div>
+<div class="edit-add-container">
+    <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+    <button onclick="window.location.href='/api/drinks'">My drinks to view, add, and edit</button>
 </div>
 
-    {{!-- {{#if drinks}} --}}
-    <section class="db-groups">
+<section class="db-groups">
         <div class="card-group">
             <h2>Drinks</h2>
         </div>
             {{#each drinks as |drink|}}
             <div class="card">
                 <div class="card-title">
+                    {{#each team.users as |user|}}
+                    {{#each user.drinks as |drink|}}
                     <h4>Drink Name: {{this.drink_name}}</h4>
                 </div>
                 <div class="card-body">
                     <p>Ingredients: {{this.ingredients}}</p>
                     <p>Instructions: {{this.instructions}}</p>
                     <p>Created By: {{user.username}}</p>
+                    {{/each}}
                 </div>
+                {{/each}}
             </div>
             {{/each}}
-    </section>
-    {{!-- {{/if}} --}}
+</section>
+

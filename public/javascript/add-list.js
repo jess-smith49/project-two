@@ -3,8 +3,8 @@ const { response } = require("express");
 async function listFormHandler(event){
     event.preventDefault();
 
-    const listName = document.querySelector().value;
-    const listItems = document.querySelector().value;
+    const listName = document.querySelector('#newListName').value;
+    const listItems = document.querySelector('#newListItems').value;
 
     const response = await fetch('/api/list', {
         method: 'POST',
@@ -26,5 +26,5 @@ async function listFormHandler(event){
     }
 }
 
-document.querySelector().addEventListener('submit', listFormHandler);
+document.querySelector('#newList').addEventListener('submit', listFormHandler);
 

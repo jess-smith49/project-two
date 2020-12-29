@@ -1,4 +1,6 @@
-{{!-- {{#if teams}} --}}
+<div class="edit-add-container">
+  <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
+</div>
  <section class="db-groups">
       <div class="card-group">
           <h2>Groups</h2>
@@ -6,17 +8,23 @@
           {{#each teams as |team|}}
           <div class="card">
             <div class="card-title">
+              {{#each team as |team|}}
               <h3>{{this.team_name}}</h3>
             </div>
             <div class="card-body">
-                {{!-- <ol class="content-list" id="wishlist"> --}}
-                  {{#each users as |user|}}
-                  <p>{{this.username}}</p>
-                  {{/each}}
-                {{!-- </ol> --}}
+                <ol class="content-list" id="wishlist">
+                  {{#each team.users as |user|}}
+                  <li>{{this.username}}</li>
+                  {{!-- {{#each lists as |list|}}
+                  <p>list {{this.list_name}}</p>
+                  <p>list items {{this.list_items}}</p>
+                  {{/each}} --}}
+                  
+                  {{/each}} 
+                </ol>
+                {{/each}}
             </div>
             </div>
            {{/each}}
-</section>  
-{{!-- {{/if}} --}}
+  </section>  
 
