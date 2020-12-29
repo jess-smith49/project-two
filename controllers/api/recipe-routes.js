@@ -75,9 +75,30 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+//edit recipe
+router.get('/edit/:id', (req, res) => {
+    Recipe.findByPk(req.params.id, {
+        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        include: [
+            {  
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.get({ plain: true });
+        res.render('edit-recipe', { recipes, loggedIn: true });
+        
+    })
+    .catch(err => {
+        console.log(err);
+        res.render(500).json(err);
+    });
+});
 router.put('/:id', (req, res) => {
     Recipe.update({
-        recipe_name: req.body.recipe_name,
+        recipe_name: req.body.name,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions
     },
