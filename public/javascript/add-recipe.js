@@ -5,7 +5,7 @@ async function recipeFormHandler(event){
     const recipeIngredients = document.querySelector('#newRecipeIngr').value;
     const recipeInstructions = document.quereySelector('newRecipeIns').value;
 
-    const response = await fetch('/api/recipe', {
+    const response = await fetch('/api/recipes', {
         method: 'POST',
         body: JSON.stringify({
             recipeName,
