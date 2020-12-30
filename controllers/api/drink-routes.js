@@ -85,8 +85,8 @@ router.get('/edit/:id', (req, res) => {
 router.post('/', (req, res) => {
     Drink.create({
         drink_name: req.body.drinkName,
-        ingredients: req.body.drinkIns,
-        instructions: req.body.drinkIngr,
+        ingredients: req.body.drinkInstructions,
+        instructions: req.body.drinkIngredients,
         user_id: req.session.user_id
     })
     .then(dbDrinkData => {

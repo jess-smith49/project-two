@@ -3,6 +3,15 @@
     <div class="addContainer" id="add-container">
       <button class="add-list-item" id="newRecipe">Add a New Recipe</button>
     </div>
+    <div class="inputContainer">
+            <label name="newRecipeName" for="newRecipeName">List Name</label>
+            <input type="text" placeholder="Corned Beef and Hash" name="newRecipeName" id="newRecipeName" class="form-input" />
+            <label for="newRecipeIngredients">List Ingredients Here:</label>
+            <input type="text" placeholder="Potatoes" name="newRecipeIngr" id="newRecipeIngr" class="form-input"/>
+            <label for="newRecipeInst">Write Instructions Here:</label>
+            <input type="text" placeholder="Potatoes" name="newRecipeIns" id="newRecipeIns" class="form-input"/>
+            <button type="submit" class="add-list-item" id="addRecipe">Add Item to Your List</button>
+    </div>
     <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
@@ -35,5 +44,5 @@
   {{/each}}
 </section>
 
-<script src="/javascript/recipe-buttons.js"></script>
+{{!-- <script src="/javascript/recipe-buttons.js"></script> --}}
 <script src="/javascript/add-recipe.js"></script>

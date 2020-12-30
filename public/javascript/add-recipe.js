@@ -26,4 +26,4 @@ async function recipeFormHandler(event){
     }
 }
 
-document.querySelector('#newRecipe').addEventListener('submit', recipeFormHandler);
+document.querySelector('#addRecipe').addEventListener('click', recipeFormHandler);

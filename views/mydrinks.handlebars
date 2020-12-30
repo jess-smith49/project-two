@@ -3,6 +3,15 @@
     <div class="addContainer" id="add-container">
       <button class="add-drink" id="newDrink">Add a New Drink</button>
     </div>
+    <div class="inputContainer">
+            <label for="newRecipeName">Drink Name</label>
+            <input type="text" placeholder="Grasshopper" name="newDrinkName" id="newDrinkName" class="form-input" />
+            <label for="newDrinkIngr">List Ingredients Here:</label>
+            <input type="text" placeholder="Creme De Menthe" name="newDrinkIngr" id="newDrinkIngr" class="form-input"/>
+            <label for="newRecipeInstructions">Write Instructions Here:</label>
+            <input type="text" placeholder="Blend Ice Cream" name="newDrinkIns" id="newDrinkIns" class="form-input"/>
+            <button type="submit" class="add-list-item" id="addDrink">Add Item to Your List</button>
+    </div>
     <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
@@ -38,5 +47,5 @@
             {{/each}}
 </section>
 
-<script src="/javascript/drink-buttons.js"></script>
+<script src="/javascript/add-drink.js"></script>
 
