@@ -1,16 +1,18 @@
 async function editDrinkHandler(event) {
     event.preventDefault();
 
-    const drinkName = document.querySelector('#editDrinkName').value.trim();
-    const drinkIns = document.querySelector('#editDrinkIns').value.trim();
-    const drinkIngr = document.querySelector('#editDrinkIngr').value.trim();
-
-    const response = await fetch('/api/drink', {
+    const drinkName = document.querySelector('input[name="drink-name"]').value.trim();
+    const drinkIngr = document.querySelector('input[name="drink-instructions"]').value.trim();
+    const drinkIns = document.querySelector('input[name="drink-ingredients"]').value.trim();
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
+    const response = await fetch(`/api/drinks/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             drinkName,
-            drinkIns,
-            drinkIngr
+            drinkIngr,
+            drinkIns
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -18,11 +20,11 @@ async function editDrinkHandler(event) {
     });
 
     if(response.ok){
-        document.location.replace();
+        document.location.replace('/api/drinks');
     }
     else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('#editDrink').addEventListener('submit', editDrinkHandler)
+document.querySelector('#save-drink').addEventListener('click', editDrinkHandler)

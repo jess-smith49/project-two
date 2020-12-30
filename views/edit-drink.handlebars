@@ -5,28 +5,25 @@
   <div class="card">
     <div class="card-title">
       <h4>Drink Name:</h4>
-      <input name="recipe-name" type="text" value="{{recipes.recipe_name}}" />
+      <input name="drink-name" type="text" value="{{drinks.drink_name}}" />
     </div>
     <div class="card-body">
     <h5>Ingredients:</h5>
-      <input name="recipe-ingredients" type="text" value=" Ingredients: {{recipes.ingredients}}" />
+      <input name="drink-ingredients" type="text" value="{{drinks.ingredients}}" />
     <h5>Instructions: </h5>
-      <input name="recipe-instructions" type="text" value=" Instructions: {{recipes.instructions}}" />
+      <input name="drink-instructions" type="text" value="{{drinks.instructions}}" />
     <h5>Created By: </h5>
-      <input name="recipe-user" type="text" value="Created By: {{recipes.user.username}}" />
-      {{!-- <p>Instructions: {{this.instructions}}</p> --}}
-      {{!-- <p>Created By: {{user.username}}</p> --}}
+      <input name="drink-user" type="text" value="{{drinks.user.username}}" />
     </div>
   </div>
-  {{!-- {{/each}} --}}
+
 </section>
 
-{{!-- <script src="/javascript/recipe-buttons.js"></script> --}}
     <div class="btn">
-      <button type="submit" id="save-recipe">Save recipe</button>
-      <button type="button" id="delete-recipe">Delete recipe</button>
+      <button type="submit" id="save-drink">Save drink</button>
+      <button type="button" id="delete-drink">Delete drink</button>
     </div>
     </div>
 
 
-<script src="/javascript/edit-recipe.js"></script>
+<script src="/javascript/edit-drink.js"></script>
