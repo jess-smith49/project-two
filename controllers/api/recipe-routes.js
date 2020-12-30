@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, User, TeamUser, Team, List } = require('../../models');
+const { Recipe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -62,9 +62,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Recipe.create({
-        recipe_name: req.body.recipe_name,
-        ingredients: req.body.ingredients,
-        instructions: req.body.instructions,
+        recipe_name: req.body.recipeName,
+        ingredients: req.body.recipeIngredients,
+        instructions: req.body.recipeInstructions,
         user_id: req.session.user_id
     })
     .then(dbRecipeData => {
@@ -75,9 +75,30 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+//edit recipe
+router.get('/edit/:id', (req, res) => {
+    Recipe.findByPk(req.params.id, {
+        attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
+        include: [
+            {  
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbRecipeData => {
+        const recipes = dbRecipeData.get({ plain: true });
+        res.render('edit-recipe', { recipes, loggedIn: true });
+        
+    })
+    .catch(err => {
+        console.log(err);
+        res.render(500).json(err);
+    });
+});
 router.put('/:id', (req, res) => {
     Recipe.update({
-        recipe_name: req.body.recipe_name,
+        recipe_name: req.body.name,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions
     },

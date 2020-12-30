@@ -3,7 +3,16 @@
     <div class="addContainer" id="add-container">
       <button class="add-list-item" id="newRecipe">Add a New Recipe</button>
     </div>
-    <div class="editContainer" id="edit-container">
+    <div class="inputContainer">
+        <label for="newRecipeName">List Name</label>
+        <input type="text" placeholder="Corned Beef and Hash" name="newRecipeName" id="newRecipeName" class="form-input" />
+        <label for="newRecipeIngredients">List Ingredients Here:</label>
+        <input type="text" placeholder="Potatoes" name="newRecipeIngr" id="newRecipeIngr" class="form-input"/>
+        <label for="newRecipeInst">Write Instructions Here:</label>
+        <input type="text" placeholder="Potatoes" name="newRecipeIns" id="newRecipeIns" class="form-input"/>
+        <button type="submit" class="add-list-item" id="addRecipe">Add Recipe to Your List</button>
+    </div>
+    {{!-- <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
       <div class="editNameInput" id="edit-inst"></div>
@@ -12,7 +21,7 @@
     <div class="deleteContainer">
       <button class="delete-list-item" id="deleteRecipe">Delete a Recipe</button>
     </div>
-  </div>
+  </div> --}}
   <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
   <button onclick="window.location.href='/dashboard/recipes'">Return to Recipes</button>
 </div>
@@ -23,15 +32,17 @@
   {{#each recipes as |recipe|}}
   <div class="card">
     <div class="card-title">
-      <h4>Recipe Name: {{this.recipe_name}}</h4>
-    </div>
+      <h4>Recipe Name:</h4>
+      <a href='/api/recipes/edit/{{id}}'>{{this.recipe_name}}</a>
     <div class="card-body">
       <p>Ingredients: {{this.ingredients}}</p>
       <p>Instructions: {{this.instructions}}</p>
       <p>Created By: {{user.username}}</p>
     </div>
+    </div>
+    </div>
   </div>
   {{/each}}
 </section>
 
-<script src="/javascript/recipe-buttons.js"></script>
+<script src="/javascript/add-recipe.js"></script>

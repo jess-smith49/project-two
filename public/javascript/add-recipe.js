@@ -1,11 +1,11 @@
 async function recipeFormHandler(event){
     event.preventDefault();
 
-    const recipeName = document.querySelector('#newRecipeName').value;
-    const recipeIngredients = document.querySelector('#newRecipeIngr').value;
-    const recipeInstructions = document.quereySelector('newRecipeIns').value;
-
-    const response = await fetch('/api/recipe', {
+    const recipeName = document.querySelector('input[name="newRecipeName"]').value;
+    const recipeIngredients = document.querySelector('input[name="newRecipeIngr"]').value;
+    const recipeInstructions = document.querySelector('input[name="newRecipeIns"]').value;
+    
+    const response = await fetch('/api/recipes', {
         method: 'POST',
         body: JSON.stringify({
             recipeName,
@@ -19,11 +19,11 @@ async function recipeFormHandler(event){
     });
 
     if(response.ok){
-        document.location.replace()
+        document.location.replace('/api/recipes')
     }
     else{
         alert(response.statusText);
     }
 }
 
-document.querySelector('#newRecipe').addEventListener('submit', recipeFormHandler);
+document.querySelector('#addRecipe').addEventListener('click', recipeFormHandler);

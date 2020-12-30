@@ -1,13 +1,11 @@
-const { response } = require("express");
-
 async function drinkFormHandler(event){
     event.preventDefault();
 
-    const drinkName = document.querySelector('#newDrinkName').value;
-    const drinkIngredients = document.querySelector('#newDrinkIngr').value;
-    const drinkInstructions = document.quereySelector('#newDrinkIns').value;
+    const drinkName = document.querySelector('input[name="newDrinkName"]').value;
+    const drinkIngredients = document.querySelector('input[name="newDrinkIngr"]').value;
+    const drinkInstructions = document.querySelector('input[name="newDrinkIns"]').value;
 
-    const response = await fetch('/api/drink', {
+    const response = await fetch('/api/drinks', {
         method: 'POST',
         body: JSON.stringify({
             drinkName,
@@ -21,11 +19,11 @@ async function drinkFormHandler(event){
     });
 
     if(response.ok){
-        document.location.replace()
+        document.location.replace('/api/drinks')
     }
     else{
         alert(response.statusText);
     }
 }
 
-document.querySelector('#newDrink').addEventListener('submit', drinkFormHandler);
+document.querySelector('#addDrink').addEventListener('click', drinkFormHandler);
