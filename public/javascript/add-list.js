@@ -1,12 +1,10 @@
-const { response } = require("express");
-
 async function listFormHandler(event){
     event.preventDefault();
 
-    const listName = document.querySelector('#newListName').value;
-    const listItems = document.querySelector('#newListItems').value;
+    const listName = document.querySelector('input[name="newListName"]').value;
+    const listItems = document.querySelector('input[name="newListItems"]').value;
 
-    const response = await fetch('/api/list', {
+    const response = await fetch('/api/lists', {
         method: 'POST',
         body: JSON.stringify({
             listName,
@@ -19,12 +17,12 @@ async function listFormHandler(event){
     });
 
     if(response.ok){
-        document.location.replace()
+        document.location.replace('/api/lists')
     }
     else{
         alert(response.statusText);
     }
 }
 
-document.querySelector('#newList').addEventListener('submit', listFormHandler);
+document.querySelector('#addList').addEventListener('click', listFormHandler);
 

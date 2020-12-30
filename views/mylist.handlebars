@@ -3,6 +3,13 @@
     <div class="addContainer" id="add-container">
       <button class="add-list-item" id="newList">Add an Item to Your List</button>
     </div>
+    <div class="inputContainer">
+        <label for="newListName">List Name</label>
+        <input type="text" placeholder="Ex: Jim Bob's List" name="newListName" id="newListName" class="form-input" />
+        <label for="newListItems">Item Name</label>
+        <input type="text" placeholder="Ex: Hot Cheetos" name="newListItems" id="newListItems" class="form-input" />
+        <button type="submit" class="add-list-item" id="addList">Add Item to Your List</button>
+    </div>
     <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
@@ -33,5 +40,5 @@
   {{/each}}
 </section>
 
-<script src="/javascript/list-buttons.js"></script>
-<script src="/javascript/edit-list.js"></script>
+<script src="/javascript/add-list.js"></script>
+

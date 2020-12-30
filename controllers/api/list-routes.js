@@ -109,8 +109,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     List.create({
-        list_name: req.body.list_name,
-        list_items: req.body.list_items,
+        list_name: req.body.listName,
+        list_items: req.body.listItems,
         user_id: req.session.user_id
     })
     .then(dbListData => {
