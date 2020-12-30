@@ -3,28 +3,23 @@
     <button onclick="window.location.href='/api/lists'">My lists to view, add, and edit</button>
 </div>
 
-    {{!-- {{#if list}} --}}
-    <section class="db-groups">
-        <div class="card-group">
-            <h2>Wishlist</h2>
+<section class="db-groups">
+    <div class="card-group">
+        <h2>Wishlist</h2>
+    </div>
+    {{#each wish as |wish|}}
+        {{#each team.users as |user|}}
+        <div class="card">
+        {{#each lists as |list|}}
+        <div class="card-title">
+            <h3>{{this.list_name}}</h3>
         </div>
-        {{#each wish as |wish|}}
-            {{!-- {{#each team as |team|}} --}}
-            {{#each team.users as |user|}}
-            
-            <div class="card">
-                {{#each lists as |list|}}
-                <div class="card-title">
-                    <h3>{{this.list_name}}</h3>
-                </div>
-                <div class="card-body">
-                    <p>{{this.list_items}}</p>
-                </div>
-                {{/each}}
+            <div class="card-body">
+            <p>{{this.list_items}}</p>
             </div>
-
             {{/each}}
+        </div>
         {{/each}}
-    </section>
-    {{!-- {{/if}} --}}
+    {{/each}}
+</section>
 

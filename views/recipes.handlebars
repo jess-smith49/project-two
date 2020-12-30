@@ -6,13 +6,11 @@
 <section class="db-groups">
     <div class="card-group">
         <h2>Recipes</h2>
-    </div>
         {{#each food as |food|}}
         <div class="card">
             <div class="card-title">
             {{#each team.users as |user|}}
             <p>Created By: {{this.username}}</p>
-        </div>
             <div class="card-body">
                 {{#each user.recipes as |recipe|}}
                 <p>Recipe Name: {{this.recipe_name}}</p>
@@ -22,8 +20,10 @@
             </div>
         {{/each}}
         </div>
+        </div>
         {{/each}}
         </div>
+    </div>
 </section>
 
 
