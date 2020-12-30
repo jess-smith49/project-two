@@ -26,5 +26,22 @@ async function editDrinkHandler(event) {
         alert(response.statusText);
     }
 }
-
+async function deleteDrinkHandler(event) {
+    event.preventDefault();
+  
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
+    const response = await fetch(`/api/drinks/${id}`, {
+      method: 'DELETE'
+    });
+  
+    if (response.ok) {
+      document.location.replace('/api/drinks');
+    } else {
+      alert(response.statusText);
+    }
+  }
+  
+document.querySelector('#delete-drink').addEventListener('click', deleteDrinkHandler);
 document.querySelector('#save-drink').addEventListener('click', editDrinkHandler)

@@ -27,5 +27,24 @@ async function editFormHandler(event) {
         }
         console.log("save clicked")
 }
-
+  
+async function deleteRecipeHandler(event) {
+  event.preventDefault();
+    
+  const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+      ];
+      const response = await fetch(`/api/recipes/${id}`, {
+      method: 'DELETE'
+      });
+          
+      if (response.ok) {
+        document.location.replace('/api/recipes');
+      } else {
+        alert(response.statusText);
+    }
+      console.log('button clicked');
+}
+   
 document.querySelector('#save-recipe').addEventListener('click', editFormHandler);
+document.querySelector("#delete-recipe").addEventListener('click', deleteRecipeHandler);
