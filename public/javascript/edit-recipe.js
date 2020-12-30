@@ -49,11 +49,11 @@ async function editFormHandler(event) {
         });
       
         if (response.ok) {
-          document.location.replace('/myrecipes')
+          document.location.replace('/api/recipes')
         } else {
           alert(response.statusText);
         }
         console.log("save clicked")
 }
 
-document.querySelector('#save-btn').addEventListener('click', editFormHandler);
+document.querySelector('#save-recipe').addEventListener('click', editFormHandler);

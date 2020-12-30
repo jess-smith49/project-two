@@ -18,11 +18,10 @@ insertAddInput = function () {
             <input type="text" placeholder="Potatoes" name="newRecipeIngr" id="newRecipeIngr" class="form-input"/>
             <label for="newRecipeInst">Write Instructions Here:</label>
             <input type="text" placeholder="Potatoes" name="newRecipeIns" id="newRecipeIns" class="form-input"/>
-            <button class="add-list-item" id="editList">Add Item to Your List</button>
+            <button class="add-list-item" id="newRecipe">Add Item to Your List</button>
             </div>`
     addContainer.innerHTML = addInput;
 };
-
 insertNameEditInput = function() {
 
 

@@ -62,9 +62,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Recipe.create({
-        recipe_name: req.body.recipe_name,
-        ingredients: req.body.ingredients,
-        instructions: req.body.instructions,
+        recipe_name: req.body.recipeName,
+        ingredients: req.body.recipeIngredients,
+        instructions: req.body.recipeInstructions,
         user_id: req.session.user_id
     })
     .then(dbRecipeData => {
