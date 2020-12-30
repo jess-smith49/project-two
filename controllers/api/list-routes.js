@@ -121,10 +121,31 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+//edit list
+router.get('/edit/:id', (req, res) => {
+    List.findByPk(req.params.id, {
+        attributes: ['id', 'list_name', 'list_items'],
+        include: [
+            {  
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbListData => {
+        const lists = dbListData.get({ plain: true });
+        res.render('edit-list', { lists, loggedIn: true });
+        
+    })
+    .catch(err => {
+        console.log(err);
+        res.render(500).json(err);
+    });
+});
 router.put('/:id', (req, res) => {
     List.update({
-        list_name: req.body.list_name,
-        list_items: req.body.list_items
+        list_name: req.body.listName,
+        list_items: req.body.listItems
     },
     {
         where: {

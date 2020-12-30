@@ -1,4 +1,3 @@
-
 async function editFormHandler(event) {
     event.preventDefault();
     const name = document.querySelector('input[name="recipe-name"]').value;
