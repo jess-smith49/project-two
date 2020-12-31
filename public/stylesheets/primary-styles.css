@@ -75,6 +75,7 @@ nav ul .log-btn a {
   grid-area: 1/1/2/2;
   display: grid;
   object-fit: cover;
+  z-index: 0;
 }
 .hero-overlay-div {
   display: grid;
@@ -89,6 +90,7 @@ nav ul .log-btn a {
   margin-left: 40%;
   margin-top: 5%;
   text-align: center;
+  z-index: 999999;
 }
 .hero-cta .hero-text {
   display: grid;
@@ -124,7 +126,7 @@ nav ul .log-btn a {
   place-items: center;
 }
 .hero-cta .signup-form .form-input {
-  z-index: 2;
+  z-index: 99999;
   display: block;
   font-size: 16px;
   line-height: 5px;
