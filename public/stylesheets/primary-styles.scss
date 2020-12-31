@@ -25,6 +25,9 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
      margin: 0;
      padding: 0;
   }
+.hide {
+    display: none;
+}
 header {
     background-color: $accent-color;
     overflow: hidden;
