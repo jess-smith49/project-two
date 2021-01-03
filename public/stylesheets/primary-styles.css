@@ -11,39 +11,38 @@ html, body {
 }
 
 header {
+  border: black;
+  border-width: 2px;
+  box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.06);
+}
+header .navbar {
   background-color: #9B2335;
+  position: fixed;
+  top: 0px;
+  z-index: 99999;
+  width: 100%;
   overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  top: 0;
-  z-index: 9999;
-  min-width: 100%;
+}
+header .navbar .header-img-div {
+  float: left;
+  margin-left: 20px;
+}
+header .navbar .header-img-div .header-img {
   height: 80px;
 }
-
-.header-img-div .header-img {
-  height: auto;
-  padding-top: 0;
-  float: left;
-}
-
-nav {
-  margin: 7px 0;
-}
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-nav ul .log-btn {
-  display: inline;
-  padding: 10px 15px;
+header .navbar .navbar-container {
+  margin-top: 5px;
   float: right;
 }
-nav ul .log-btn button {
+header .navbar .navbar-container ul {
+  list-style: none;
+  margin-right: -10px;
+}
+header .navbar .navbar-container ul .log-btn {
+  display: inline;
+  margin-right: 0px;
+}
+header .navbar .navbar-container ul .log-btn button {
   background: none;
   text-decoration: none;
   border: none;
@@ -51,7 +50,7 @@ nav ul .log-btn button {
   font-size: calc(30pt + 0.15vw);
   font-family: "Tangerine", serif;
 }
-nav ul .log-btn a {
+header .navbar .navbar-container ul .log-btn a {
   text-decoration: none;
   color: #AE8625;
   font-size: calc(30pt + 0.15vw);
@@ -85,11 +84,13 @@ nav ul .log-btn a {
   padding: 15px;
   background-color: rgba(174, 134, 37, 0.6);
   border: solid 5px rgba(247, 239, 138, 0.5);
+  box-shadow: 10px 10px 10px 10px #0000;
   width: 55%;
   height: 45%;
   margin-left: 40%;
   margin-top: 5%;
   text-align: center;
+  position: relative;
   z-index: 999999;
 }
 .hero-cta .hero-text {
@@ -191,10 +192,13 @@ footer {
   text-align: center;
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 414px) {
   header {
+    float: none;
     display: block;
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: left;
+  }
+  header nav {
+    float: none;
   }
 }
