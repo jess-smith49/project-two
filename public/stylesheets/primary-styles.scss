@@ -32,52 +32,50 @@ header {
 	box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.06);
 
 .navbar {
+    z-index: 9999999;
+    width: 100%;
     background-color: $accent-color;
     position: fixed;
     top: 0px;
-    z-index: 99999;
-    width: 100%;
     overflow: hidden;
  
    
     .header-img-div {
         float:left;
-        margin-left: 20px;
         .header-img {
             height: 80px;
         }
     }
     
     .navbar-container {
-        margin-top:5px;
-        float:right;
-
-      
+        margin: 0;
+        float: right;
+        
+        
         ul {
-            list-style: none;
-            margin-right: -10px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            display: inline;
+            padding-left: 80%;
+          
+             li {
+                float: right;
+                margin-top: 5px;
+                
+             }
+    
+
             .log-btn {
-              display: inline;
-              margin-right:0px; 
-                
-                button {
-                    background: none;
-                    text-decoration: none;
-                    border: none;
-                    color: $gold-font-1;
-                    font-size: calc(30pt + 0.15vw);
-                    font-family: $main-font;
-                    
-                }
-                
-                a {
-                    text-decoration: none;
-                    color: $gold-font-1;
-                    font-size: calc(30pt + 0.15vw);
-                    font-family: $main-font;
-                    
-                }
+                background: none;
+                text-decoration: none;
+                color: $gold-font-1;
+                font-size: calc(30pt + 0.15vw);
+                font-family: $main-font;
+                width: 50pt;
+             
+               
             }
+        
         }
     }
     
@@ -95,7 +93,8 @@ header {
     top: 1;
     align-content: center;
     justify-content: center;
-   
+    position: fixed;
+    width: 100%;
     &-img-div {
         grid-area: 1/1/2/2;
         .hero-image {
@@ -118,7 +117,7 @@ header {
         width: 55%;
         height: 45%;
         margin-left: 40%;
-        margin-top: 5%;
+        margin-top: 15%;
         text-align: center;
         position: relative;
         z-index: 999999;

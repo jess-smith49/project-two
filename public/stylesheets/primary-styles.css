@@ -16,45 +16,40 @@ header {
   box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.06);
 }
 header .navbar {
+  z-index: 9999999;
+  width: 100%;
   background-color: #9B2335;
   position: fixed;
   top: 0px;
-  z-index: 99999;
-  width: 100%;
   overflow: hidden;
 }
 header .navbar .header-img-div {
   float: left;
-  margin-left: 20px;
 }
 header .navbar .header-img-div .header-img {
   height: 80px;
 }
 header .navbar .navbar-container {
-  margin-top: 5px;
+  margin: 0;
   float: right;
 }
 header .navbar .navbar-container ul {
-  list-style: none;
-  margin-right: -10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: inline;
+  padding-left: 80%;
+}
+header .navbar .navbar-container ul li {
+  float: right;
+  margin-top: 5px;
 }
 header .navbar .navbar-container ul .log-btn {
-  display: inline;
-  margin-right: 0px;
-}
-header .navbar .navbar-container ul .log-btn button {
   background: none;
   text-decoration: none;
-  border: none;
   color: #AE8625;
   font-size: calc(30pt + 0.15vw);
   font-family: "Tangerine", serif;
-}
-header .navbar .navbar-container ul .log-btn a {
-  text-decoration: none;
-  color: #AE8625;
-  font-size: calc(30pt + 0.15vw);
-  font-family: "Tangerine", serif;
+  width: 50pt;
 }
 
 .hero {
@@ -66,6 +61,8 @@ header .navbar .navbar-container ul .log-btn a {
   top: 1;
   align-content: center;
   justify-content: center;
+  position: fixed;
+  width: 100%;
 }
 .hero-img-div {
   grid-area: 1/1/2/2;
@@ -88,7 +85,7 @@ header .navbar .navbar-container ul .log-btn a {
   width: 55%;
   height: 45%;
   margin-left: 40%;
-  margin-top: 5%;
+  margin-top: 15%;
   text-align: center;
   position: relative;
   z-index: 999999;
