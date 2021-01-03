@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
-const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     res.render("dashboard", {
@@ -178,28 +177,7 @@ router.get('/recipes/new', (req,res) => {
     res.render("create-recipe", {
     });
 });
-//edit recipe
-// router.get('/recipes/edit/:id', (req, res) => {
-//     console.log("Test ===========================");
-//     Recipe.findByPk(req.params.id, {
-//         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
-//         include: [
-//             {  
-//                 model: User,
-//                 attributes: ['username']
-//             }
-//         ]
-//     })
-//     .then(dbRecipeData => {
-//         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-//         res.render('edit-recipe', { recipes, loggedIn: true });
-        
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.render(500).json(err);
-//     });
-// });
+
 //create drink
 router.get('/drinks/new', (req,res) => {
     res.render("create-drink", {

@@ -68,8 +68,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-
 //create team code //short unique ID
 router.post('/', (req, res) => {
     const uid = new ShortUniqueId();
@@ -89,7 +87,6 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-
 //add team member to a team
 router.post('/addMember/:teamCode', (req, res) => {
     Team.findOne({
