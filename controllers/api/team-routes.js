@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { default: ShortUniqueId } = require('short-unique-id');
-const { Drink, User, Team, TeamUser } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { User, Team, TeamUser } = require('../../models');
 
 //gets all group members of user's group
 router.get('/', (req, res) => {
@@ -49,7 +48,6 @@ router.get('/:id', (req, res) => {
             'id',
             'team_name',
             'team_code',
-            // [sequelize.literal('(SELECT id FROM user WHERE user.id = TeamUser.user_id)'), 'team_user'],
         ],
         include: [
             {
@@ -83,6 +81,7 @@ router.post('/', (req, res) => {
         user_id: req.session.user_id
     })
     .then(dbTeamData => {
+        console.log(dbTeamData)
         res.json(dbTeamData)
     })
     .catch(err => {

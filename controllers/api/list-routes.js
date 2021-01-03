@@ -1,55 +1,6 @@
 const router = require('express').Router();
-const { Team } = require('../../models');
-const { List, User, TeamUser } = require('../../models');
-const withAuth = require('../../utils/auth');
-// router.get('/', (req, res) => {
-//     TeamUser.findAll({
-//         where: {
-//             user_id: req.body.user_id
-//         },
-//         attributes: [
-//             'id',
-//             'user_id',
-//             'team_id'
-//         ],
-//         include: [
-//             {
-//                 model: Team,
-//                 attributes: ['id', 'team_name', 'team_code'],
-//                 include: [
-//                     {
-//                         model: User,
-//                         attributes: ['username'],
-//                         include: [
-//                             {
-//                             model: List,
-//                             attributes: ['list_name', 'list_items']
-//                             }
-//                         ]
-//                     }
-//                 ],
-//             },
-//             {
-//                 model: User,
-//                 attributes: ['username'],
-//                 include: [
-//                     { 
-//                         model: List,
-//                         attributes: ['list_name', 'list_items']
-//                     }
-//                 ]
-//             }
-//         ]
-// })
-// .then(dbListData => {
-//     const wishs = dbListData.map(wish => wish.get({ plain: true }));
-//     res.render('mylist', { wishs, loggedIn: true });
-// })
-// .catch(err => {
-//     console.log(err);
-//     res.status(500).json(err);
-// });
-// });
+const { List, User } = require('../../models');
+
 router.get('/', (req, res) => {
     List.findAll({
         where: {

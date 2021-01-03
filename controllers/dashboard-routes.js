@@ -39,8 +39,6 @@ router.get('/recipes', (req, res) => {
     .then(dbRecipeData => {
         const food = dbRecipeData.map(recipe => recipe.get({ plain: true }));
         res.render('recipes', { food, loggedIn: true });
-        // res.json(food)
-        console.log("===========", req.session, food)
     })
     .catch(err => {
         console.log(err);
@@ -80,7 +78,6 @@ router.get('/drinks', (req, res) => {
     .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
         res.render('drinks', { drinks, loggedIn: true });
-        // res.json(drinks)
     })
     .catch(err => {
         console.log(err);
@@ -120,8 +117,6 @@ router.get('/lists', (req, res) => {
     .then(dbListData => {
         const wish = dbListData.map(list => list.get({ plain: true }));
         res.render('list', { wish, loggedIn: true });
-        // res.json(lists)
-        console.log(lists, "===========")
     })
     .catch(err => {
         console.log(err);
@@ -171,8 +166,6 @@ router.get('/groups', (req, res) => {
     .then(dbTeamData => {
         const teams = dbTeamData.map(team => team.get({ plain: true }));
         res.render('team', { teams, loggedIn: true });
-        console.log(teams, " ===============")
-        console.log(req.session.user_id, " =============")
     })
     .catch(err => {
         console.log(err);
