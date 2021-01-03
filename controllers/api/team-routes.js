@@ -83,7 +83,8 @@ router.post('/', (req, res) => {
         user_id: req.session.user_id
     })
     .then(dbTeamData => {
-        res.json(dbTeamData)
+        console.log(dbTeamData)
+        res.render('dashboard', {dbTeamData: db.team_code})
     })
     .catch(err => {
         console.log(err);

@@ -5,6 +5,7 @@
   background-image: url("./images/main-bg.jpg");
   object-fit: cover;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .container-fluid {
@@ -29,6 +30,7 @@
   position: relative;
   max-width: 25em;
   min-height: 40vh;
+  border: none;
 }
 .card-deck .card:hover {
   transform: scale(1.2);
@@ -37,6 +39,7 @@
   text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.6em #fff, 0 0 0.8em #fff, 0 0 1em #fff, 0 0 1.2em #fff;
   background-color: rgba(12, 45, 28, 0.75);
   overflow: hidden;
+  box-shadow: 5px 5px 20px black;
 }
 .card-deck .card .card-img-caption {
   border-top-left-radius: calc(.25rem - 1px);
@@ -60,6 +63,6 @@
   font-family: "Tangerine", serif;
 }
 .card-deck .card .card-title:hover {
-  padding: 33% 0;
+  padding: 40% 0;
   overflow: hidden;
 }

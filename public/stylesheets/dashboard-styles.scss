@@ -22,6 +22,7 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
     background-image: url('./images/main-bg.jpg');
     object-fit: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 .container-fluid {
     height: 100vh;
@@ -46,6 +47,7 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
         position: relative;
         max-width: 25em;
         min-height: 40vh;
+        border: none;
            &:hover {
               -webkit-transform: scale(1.2);
                -ms-transform: scale(1.2);
@@ -55,6 +57,8 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
                text-shadow: $shadow;
                background-color: rgba($color: #0c2d1c, $alpha: .75) ;
                overflow: hidden;
+               box-shadow: 5px 5px 20px black;
+               
                }
        
 
@@ -82,9 +86,14 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
         font-family: $main-font;
 
         &:hover {
-            padding: 33% 0;
+            padding: 40% 0;
             overflow: hidden;
+           
         }
     }
 }
+}
+
+@media #{$breakpoint-desktop} {
+
 }
