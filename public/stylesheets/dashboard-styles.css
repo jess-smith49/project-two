@@ -1,12 +1,22 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Tangerine&effect=neon");
-.container-fluid {
-  height: 100vh;
-  width: 100%;
+.dashboard-body {
   background-image: url("./images/main-bg.jpg");
   object-fit: cover;
   background-repeat: no-repeat;
+}
+
+.container-fluid {
+  height: 100vh;
+  width: 100%;
+}
+
+.cta {
+  height: 100px;
+  top: 3;
+  background-color: #F7EF8A;
+  border: 3px solid #AE8625;
 }
 
 .card-deck {
@@ -15,6 +25,7 @@
   justify-content: center;
 }
 .card-deck .card {
+  margin-top: 30%;
   position: relative;
   max-width: 25em;
   min-height: 40vh;

@@ -17,19 +17,32 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Source+Sans+Pro:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Tangerine&effect=neon');
 
-.container-fluid {
-    height: 100vh;
-    width: 100%;
+
+.dashboard-body {
     background-image: url('./images/main-bg.jpg');
     object-fit: cover;
     background-repeat: no-repeat;
+}
+.container-fluid {
+    height: 100vh;
+    width: 100%;
+}
+
+.cta {
+  
+    height: 100px;
+    top: 3;
+    background-color: $gold-font-2;
+    border: 3px solid $gold-font-1;
+   
 }
 .card-deck {
     padding: 50px 0px 50px 0px;
     align-content: center;
     justify-content: center;
-
+    
     .card {
+        margin-top: 30%;
         position: relative;
         max-width: 25em;
         min-height: 40vh;
