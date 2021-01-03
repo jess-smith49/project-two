@@ -1,14 +1,14 @@
 # Santa's Helper
 
 ## Description
-Santa's Helper was created to help celebrate the Christmas Holiday! On the application, a user creates an account and then can either create a group or join an existing group. Once logged in, the users within each group will be able to see each other's posts. Users can post recipes, drinks, and Christmas lists. 
+Santa's Helper was created to help celebrate the Christmas Holiday! On the application, a user creates an account and then can either create a group or join an existing group. Once logged in, the users within each group will be able to see each other's posts. Users can post recipes, drinks, and wishlists. Once in the dashboard, the user is able to edit their own recipes, as well as add new recipes, and delete recipes. The same functions are able for adding, editing, and deleting drinks as well as adding, editing, and deleting wishlists. On the homepage, there is a countdown until Christmas Day to help you plan for your holiday.
 
 ## Images 
 ![Santa's Helper Homepage](./images/) <br>
 ![](./images/)
 
 ## Installation
-    Node, MYSQL2, dotenv, express-handlebars, sequelize, bcrypt, express-session, connect-session-sequelize, sass, short-unique-id
+    npm install
 ## Usage
     For personal use.
 ## License
@@ -25,9 +25,15 @@ Santa's Helper was created to help celebrate the Christmas Holiday! On the appli
 [Heroku webpage] (https://sleepy-citadel-54217.herokuapp.com/) <br />
 
 # Technologies used
- *JS <br>
- *Node <br>
- *MYSQL2<br>
- *SEQUELIZE<br>
- *EXPRESS-HANDLEBARS<br>
- *MYSQL2
+ * JS <br>
+ * Node <br>
+ * MYSQL2<br>
+ * SEQUELIZE<br>
+ * EXPRESS-HANDLEBARS<br>
+ * MYSQL2<br>
+ * DOTENV<br>
+ * BCRYPT<br>
+ * EXPRESS-SESSION<br>
+ * CONNECT-SESSION-SEQUELIZE<br>
+ * SASS<br>
+ * SHORT-UNIQUE-ID

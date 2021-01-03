@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
-const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     res.render("dashboard", {
@@ -39,8 +38,6 @@ router.get('/recipes', (req, res) => {
     .then(dbRecipeData => {
         const food = dbRecipeData.map(recipe => recipe.get({ plain: true }));
         res.render('recipes', { food, loggedIn: true });
-        // res.json(food)
-        console.log("===========", req.session, food)
     })
     .catch(err => {
         console.log(err);
@@ -80,7 +77,6 @@ router.get('/drinks', (req, res) => {
     .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
         res.render('drinks', { drinks, loggedIn: true });
-        // res.json(drinks)
     })
     .catch(err => {
         console.log(err);
@@ -120,8 +116,6 @@ router.get('/lists', (req, res) => {
     .then(dbListData => {
         const wish = dbListData.map(list => list.get({ plain: true }));
         res.render('list', { wish, loggedIn: true });
-        // res.json(lists)
-        console.log(lists, "===========")
     })
     .catch(err => {
         console.log(err);
@@ -171,8 +165,6 @@ router.get('/groups', (req, res) => {
     .then(dbTeamData => {
         const teams = dbTeamData.map(team => team.get({ plain: true }));
         res.render('team', { teams, loggedIn: true });
-        console.log(teams, " ===============")
-        console.log(req.session.user_id, " =============")
     })
     .catch(err => {
         console.log(err);
@@ -185,28 +177,7 @@ router.get('/recipes/new', (req,res) => {
     res.render("create-recipe", {
     });
 });
-//edit recipe
-// router.get('/recipes/edit/:id', (req, res) => {
-//     console.log("Test ===========================");
-//     Recipe.findByPk(req.params.id, {
-//         attributes: ['id', 'recipe_name', 'ingredients', 'instructions'],
-//         include: [
-//             {  
-//                 model: User,
-//                 attributes: ['username']
-//             }
-//         ]
-//     })
-//     .then(dbRecipeData => {
-//         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-//         res.render('edit-recipe', { recipes, loggedIn: true });
-        
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.render(500).json(err);
-//     });
-// });
+
 //create drink
 router.get('/drinks/new', (req,res) => {
     res.render("create-drink", {
