@@ -21,14 +21,13 @@ Santa's Helper was created to help celebrate the Christmas Holiday! On the appli
 ## Tests
     
 ## Questions
-jgrossh2 <br />
-[GitHub](https://github.com/jgrossh2/CMS-blog) <br />
-[Heroku webpage] (https://serene-bastion-77245.herokuapp.com/) <br />
-Please contact <joannagrosshans2@gmail.com> for additional Information.
+[GitHub](https://github.com/jess-smith49/santa's-helper) <br />
+[Heroku webpage] (https://sleepy-citadel-54217.herokuapp.com/) <br />
 
 # Technologies used
  *JS <br>
  *Node <br>
  *MYSQL2<br>
  *SEQUELIZE<br>
- *EXPRESS-HANDLEBARS
+ *EXPRESS-HANDLEBARS<br>
+ *MYSQL2
