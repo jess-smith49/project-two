@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Recipe, List, Drink, User } = require('../models');
-const withAuth = require('../utils/auth');
 
 //get posts from recipes
 router.get('/', (req, res) => {

@@ -96,6 +96,10 @@ router.post('/addMember/:teamCode', (req, res) => {
         }
     })
     .then(dbTeamUserData => {
+    if(!dbTeamUserData){
+        res.status(400).json({message: 'No group found with this ID'})
+        return;
+    }
         TeamUser.create(
             {
                 user_id: req.session.user_id,
@@ -111,6 +115,8 @@ router.post('/addMember/:teamCode', (req, res) => {
         res.status(500).json(err);
     })   
 });
+
+
 router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,
