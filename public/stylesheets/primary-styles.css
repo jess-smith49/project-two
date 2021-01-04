@@ -10,52 +10,44 @@ html, body {
   padding: 0;
 }
 
-header {
+header .navbar {
+  z-index: 9999999;
+  width: 100%;
   background-color: #9B2335;
+  position: fixed;
+  top: 0px;
   overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  top: 0;
-  z-index: 9999;
-  min-width: 100%;
-  height: 80px;
+  box-shadow: 0px 50px 30px rgba(0, 0, 0, 0.3);
 }
-
-.header-img-div .header-img {
-  height: auto;
-  padding-top: 0;
+header .navbar .header-img-div {
   float: left;
 }
-
-nav {
-  margin: 7px 0;
+header .navbar .header-img-div .header-img {
+  height: 80px;
 }
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-nav ul .log-btn {
-  display: inline;
-  padding: 10px 15px;
+header .navbar .navbar-container {
+  margin: 0;
   float: right;
 }
-nav ul .log-btn button {
+header .navbar .navbar-container ul {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: inline;
+  padding-left: 80%;
+}
+header .navbar .navbar-container ul li {
+  float: right;
+  margin-top: 5px;
+}
+header .navbar .navbar-container ul .log-btn {
   background: none;
   text-decoration: none;
-  border: none;
-  color: #AE8625;
   font-size: calc(30pt + 0.15vw);
   font-family: "Tangerine", serif;
+  width: 50pt;
 }
-nav ul .log-btn a {
-  text-decoration: none;
+header .navbar .navbar-container ul a {
   color: #AE8625;
-  font-size: calc(30pt + 0.15vw);
-  font-family: "Tangerine", serif;
 }
 
 .hero {
@@ -67,6 +59,8 @@ nav ul .log-btn a {
   top: 1;
   align-content: center;
   justify-content: center;
+  position: absolute;
+  width: 100%;
 }
 .hero-img-div {
   grid-area: 1/1/2/2;
@@ -85,11 +79,14 @@ nav ul .log-btn a {
   padding: 15px;
   background-color: rgba(174, 134, 37, 0.6);
   border: solid 5px rgba(247, 239, 138, 0.5);
+  box-shadow: 5px 5px 20px black;
   width: 55%;
   height: 45%;
+  margin-top: 10%;
   margin-left: 40%;
-  margin-top: 5%;
+  margin-right: 10%;
   text-align: center;
+  position: relative;
   z-index: 999999;
 }
 .hero-cta .hero-text {
@@ -120,6 +117,9 @@ nav ul .log-btn a {
   font-size: calc(30pt + 0.15vw);
   letter-spacing: 0.05em;
   color: #F7EF8A;
+}
+.hero-cta .option-wrapper {
+  margin-top: 50px;
 }
 .hero-cta .signup-form {
   display: grid;
@@ -165,6 +165,9 @@ nav ul .log-btn a {
 .hero-cta .signup-form .cta-question {
   font-family: "Oswald", sans-serif;
 }
+.hero-cta .signup-form #signup-btn {
+  width: 300px;
+}
 .hero #ctaChoice button {
   font-family: "Oswald", sans-serif;
   font-size: calc(13pt + 0.15vw);
@@ -191,10 +194,35 @@ footer {
   text-align: center;
 }
 
+@media only screen and (min-width :990px) {
+  .hero-cta {
+    width: 50%;
+  }
+}
 @media only screen and (max-width : 768px) {
+  .hero-cta {
+    width: 600px;
+    padding: 20px;
+  }
+}
+@media only screen and (max-width : 414px) {
   header {
-    display: block;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    align-content: center;
+    max-height: 40px;
+  }
+  header .navbar .header-img-div .header-img {
+    padding-left: 20%;
+    float: center;
+    height: 80px;
+  }
+  header .navbar .log-btn {
+    font-size: calc(15pt + 0.15vw);
+  }
+  header .hero-cta {
+    margin-left: 10px;
+    padding: 10px;
+    min-width: 400px;
+    min-height: 1000px;
   }
 }
