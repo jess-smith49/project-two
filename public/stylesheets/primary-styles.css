@@ -17,6 +17,7 @@ header .navbar {
   position: fixed;
   top: 0px;
   overflow: hidden;
+  box-shadow: 0px 50px 30px rgba(0, 0, 0, 0.3);
 }
 header .navbar .header-img-div {
   float: left;
@@ -41,10 +42,12 @@ header .navbar .navbar-container ul li {
 header .navbar .navbar-container ul .log-btn {
   background: none;
   text-decoration: none;
-  color: #AE8625;
   font-size: calc(30pt + 0.15vw);
   font-family: "Tangerine", serif;
   width: 50pt;
+}
+header .navbar .navbar-container ul a {
+  color: #AE8625;
 }
 
 .hero {
@@ -56,7 +59,7 @@ header .navbar .navbar-container ul .log-btn {
   top: 1;
   align-content: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 .hero-img-div {
@@ -76,11 +79,12 @@ header .navbar .navbar-container ul .log-btn {
   padding: 15px;
   background-color: rgba(174, 134, 37, 0.6);
   border: solid 5px rgba(247, 239, 138, 0.5);
-  box-shadow: 10px 10px 10px 10px #0000;
+  box-shadow: 5px 5px 20px black;
   width: 55%;
   height: 45%;
+  margin-top: 10%;
   margin-left: 40%;
-  margin-top: 15%;
+  margin-right: 10%;
   text-align: center;
   position: relative;
   z-index: 999999;
@@ -113,6 +117,9 @@ header .navbar .navbar-container ul .log-btn {
   font-size: calc(30pt + 0.15vw);
   letter-spacing: 0.05em;
   color: #F7EF8A;
+}
+.hero-cta .option-wrapper {
+  margin-top: 50px;
 }
 .hero-cta .signup-form {
   display: grid;
@@ -158,6 +165,9 @@ header .navbar .navbar-container ul .log-btn {
 .hero-cta .signup-form .cta-question {
   font-family: "Oswald", sans-serif;
 }
+.hero-cta .signup-form #signup-btn {
+  width: 300px;
+}
 .hero #ctaChoice button {
   font-family: "Oswald", sans-serif;
   font-size: calc(13pt + 0.15vw);
@@ -184,13 +194,35 @@ footer {
   text-align: center;
 }
 
+@media only screen and (min-width :990px) {
+  .hero-cta {
+    width: 50%;
+  }
+}
+@media only screen and (max-width : 768px) {
+  .hero-cta {
+    width: 600px;
+    padding: 20px;
+  }
+}
 @media only screen and (max-width : 414px) {
   header {
-    float: none;
-    display: block;
-    text-align: left;
+    display: flex;
+    align-content: center;
+    max-height: 40px;
   }
-  header nav {
-    float: none;
+  header .navbar .header-img-div .header-img {
+    padding-left: 20%;
+    float: center;
+    height: 80px;
+  }
+  header .navbar .log-btn {
+    font-size: calc(15pt + 0.15vw);
+  }
+  header .hero-cta {
+    margin-left: 10px;
+    padding: 10px;
+    min-width: 400px;
+    min-height: 1000px;
   }
 }

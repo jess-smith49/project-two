@@ -27,15 +27,14 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
   }
 
 header {
-   
-
-.navbar {
-    z-index: 9999999;
-    width: 100%;
-    background-color: $accent-color;
-    position: fixed;
-    top: 0px;
-    overflow: hidden;
+    .navbar {
+        z-index: 9999999;
+        width: 100%;
+        background-color: $accent-color;
+        position: fixed;
+        top: 0px;
+        overflow: hidden;
+        box-shadow: 0px 50px 30px rgba(0, 0, 0, .3);
  
    
     .header-img-div {
@@ -66,12 +65,16 @@ header {
             .log-btn {
                 background: none;
                 text-decoration: none;
-                color: $gold-font-1;
                 font-size: calc(30pt + 0.15vw);
                 font-family: $main-font;
                 width: 50pt;
-             
-               
+                
+                
+            }
+            
+            a {
+                color: $gold-font-1;
+
             }
         
         }
@@ -91,7 +94,7 @@ header {
     top: 1;
     align-content: center;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     width: 100%;
     &-img-div {
         grid-area: 1/1/2/2;
@@ -111,11 +114,12 @@ header {
         padding: 15px;
         background-color: rgba($color: $gold-font-1, $alpha: .60) ;
         border: solid 5px rgba($color: $gold-font-2, $alpha: .50);
-        box-shadow: 10px 10px 10px 10px #0000;
+        box-shadow: 5px 5px 20px black;
         width: 55%;
         height: 45%;
+        margin-top: 10%;
         margin-left: 40%;
-        margin-top: 15%;
+        margin-right: 10%;
         text-align: center;
         position: relative;
         z-index: 999999;
@@ -154,57 +158,66 @@ header {
                 
             }
         }
+        .option-wrapper {
 
-        .signup-form {
-            display: grid;
-            place-items: center;
-            .form-input {
-                z-index: 99999;
-                display: block;
-                font-size: 16px;
-                line-height: 5px;
-                font-family: $secondary-font;
-                border: none;
-                width: 75%;
-                padding: 7px;
-                margin-bottom: 10px;
-                background-color: rgba(255,255,255, 0.5);
-                &:focus {
-                    background-color: rgba(255,255,255, 1);
-                  }
-                &:hover {
-                    background-color: rgba(255,255,255, 1);
-                    outline: none;
-                }
-
-
-            }
-                .form-submit {
-                    font-family: $main-font;
-                    font-size: calc(20pt + 0.15vw);
-                    padding: 0;
-                    color: $gold-font-1;
-                    background: #0c2d1c;
-                    border: none;
-                    width: 50%;
-                    height: 50px;
-
-                    &:hover {
-                        background-color: $accent-color;
-                        transition: margin-right 4s 1s;
-                        font-size: calc(23pt + 0.15vw);
-                    }
-                }
-
-               
-                label{
-                    font-family: $secondary-font;
-                }
-
-                .cta-question {
-                    font-family: $secondary-font;
-                }
+            margin-top: 50px;
         }
+            .signup-form {
+                display: grid;
+                place-items: center;
+                .form-input {
+                    z-index: 99999;
+                    display: block;
+                    font-size: 16px;
+                    line-height: 5px;
+                    font-family: $secondary-font;
+                    border: none;
+                    width: 75%;
+                    padding: 7px;
+                    margin-bottom: 10px;
+                    background-color: rgba(255,255,255, 0.5);
+                    &:focus {
+                        background-color: rgba(255,255,255, 1);
+                    }
+                    &:hover {
+                        background-color: rgba(255,255,255, 1);
+                        outline: none;
+                    }
+
+                    
+                }
+                
+               
+                    .form-submit {
+                        font-family: $main-font;
+                        font-size: calc(20pt + 0.15vw);
+                        padding: 0;
+                        color: $gold-font-1;
+                        background: #0c2d1c;
+                        border: none;
+                        width: 50%;
+                        height: 50px;
+                        &:hover {
+                            background-color: $accent-color;
+                            transition: margin-right 4s 1s;
+                            font-size: calc(23pt + 0.15vw);
+                        }
+                    }
+
+                
+                    label{
+                        font-family: $secondary-font;
+                    }
+
+                    .cta-question {
+                        font-family: $secondary-font;
+                    }
+
+                    #signup-btn {
+                        width: 300px;
+                    }
+            }
+        
     }
 
     #ctaChoice {
@@ -243,17 +256,49 @@ footer {
 }
 
 
+@media #{$breakpoint-desktop} {
 
-
+    .hero-cta {
+        width: 50%;
+    }
+}
+@media #{$breakpoint-tablet} {
+    .hero-cta {
+        width: 600px;
+        padding: 20px;
+        
+    }
+}
 @media #{$breakpoint-phone} {
     header {
-        float: none;
-        display: block;
-        text-align: left;
-      nav {
-          float: none;
-      }
+        display: flex;
+        align-content: center;
+        max-height: 40px;
+        .navbar {
+
+            .header-img-div {
+                .header-img {
+                    padding-left: 20%;
+                    float: center;
+                    height: 80px;
+                }
+        }
+
+        .log-btn {
+            font-size: calc(15pt + 0.15vw);
+        }
     }
+
+    
+        .hero-cta {
+                margin-left: 10px;
+                padding: 10px;
+                min-width: 400px;
+                min-height: 1000px;
+            
+        }
+        
+   }
 }
 
 

@@ -9,7 +9,7 @@ $main-font: 'Tangerine', serif;
 $secondary-font: 'Oswald', sans-serif; 
 //create brakpoints for media queries
 $breakpoint-lg-desktop: "only screen and (min-width :1880px)";
-$breakpoint-desktop: "only screen and (min-width :990px)";
+$breakpoint-desktop: "only screen and (min-width :1749px)";
 $breakpoint-tablet: "only screen and (max-width : 768px)";
 $breakpoint-phone: "only screen and (max-width : 414px)";
 
@@ -48,6 +48,7 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
         max-width: 25em;
         min-height: 40vh;
         border: none;
+        box-shadow: 5px 5px 20px black;
            &:hover {
               -webkit-transform: scale(1.2);
                -ms-transform: scale(1.2);
@@ -57,7 +58,7 @@ $breakpoint-phone: "only screen and (max-width : 414px)";
                text-shadow: $shadow;
                background-color: rgba($color: #0c2d1c, $alpha: .75) ;
                overflow: hidden;
-               box-shadow: 5px 5px 20px black;
+               box-shadow: 5px 5px 20px $gold-font-2;
                
                }
        
