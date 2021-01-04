@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, List, User, Drink, Team, TeamUser } = require('../../models');
+const { Recipe, List, User, Drink, Team } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -82,7 +82,6 @@ router.post('/', (req, res) => {
     });
 });
 router.post('/login', (req, res) => {
-    console.log(req.body, "===============");
     User.findOne({
         where: {
             username: req.body.username

@@ -3,14 +3,21 @@
     <div class="addContainer" id="add-container">
       <button class="add-list-item" id="newList">Add an Item to Your List</button>
     </div>
-    <div class="editContainer" id="edit-container">
+    <div class="inputContainer">
+        <label for="newListName">List Name</label>
+        <input type="text" placeholder="Ex: Jim Bob's List" name="newListName" id="newListName" class="form-input" />
+        <label for="newListItems">Item Name</label>
+        <input type="text" placeholder="Ex: Hot Cheetos" name="newListItems" id="newListItems" class="form-input" />
+        <button type="submit" class="add-list-item" id="addList">Add Item to Your List</button>
+    </div>
+    {{!-- <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
       <button class="edit-list-item" id="editList">Edit an Item on Your List</button>
     </div>
     <div class="deleteContainer">
       <button class="delete-list-item" id="deleteList">Delete an Item From Your List</button>
-    </div>
+    </div> --}}
   </div>
   <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
   <button onclick="window.location.href='/dashboard/lists'">Return to Lists</button>
@@ -23,7 +30,8 @@
   {{#each lists as |list|}}
   <div class="card">
     <div class="card-title">
-      <h3>{{this.list_name}}</h3>
+      <h3>
+        <a href='/api/lists/edit/{{id}}'>{{this.list_name}}</a></h3>
     </div>
     <div class="card-body">
       <p>{{this.list_items}}</p>
@@ -32,4 +40,5 @@
   {{/each}}
 </section>
 
-<script src="/javascript/list-buttons.js"></script>
+<script src="/javascript/add-list.js"></script>
+

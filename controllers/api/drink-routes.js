@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Drink, User } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Drink.findAll({
@@ -61,12 +60,32 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//edit drink
+router.get('/edit/:id', (req, res) => {
+    Drink.findByPk(req.params.id, {
+        attributes: ['id', 'drink_name', 'ingredients', 'instructions'],
+        include: [
+            {  
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbDrinkData => {
+        const drinks = dbDrinkData.get({ plain: true });
+        res.render('edit-drink', { drinks, loggedIn: true });
+        
+    })
+    .catch(err => {
+        console.log(err);
+        res.render(500).json(err);
+    });
+});
 router.post('/', (req, res) => {
     Drink.create({
-        drink_name: req.body.drink_name,
-        ingredients: req.body.ingredients,
-        instructions: req.body.instructions,
+        drink_name: req.body.drinkName,
+        ingredients: req.body.drinkInstructions,
+        instructions: req.body.drinkIngredients,
         user_id: req.session.user_id
     })
     .then(dbDrinkData => {
@@ -79,9 +98,9 @@ router.post('/', (req, res) => {
 });
 router.put('/:id', (req, res) => {
     Drink.update({
-        drink_name: req.body.drink_name,
-        ingredients: req.body.ingredients,
-        instructions: req.body.instructions
+        drink_name: req.body.drinkName,
+        ingredients: req.body.drinkIngr,
+        instructions: req.body.drinkIns
     },
     {
         where: {

@@ -1,0 +1,26 @@
+<section class="db-groups">
+  <div class="card-group">
+    <h2>My Recipes</h2>
+  </div>
+  <div class="card">
+    <div class="card-title">
+      <h4>Recipe Name:</h4>
+      <input name="recipe-name" type="text" value="{{recipes.recipe_name}}" />
+    <div class="card-body">
+    <h5>Ingredients:</h5>
+      <input name="recipe-ingredients" type="text" value="{{recipes.ingredients}}" />
+    <h5>Instructions: </h5>
+      <input name="recipe-instructions" type="text" value="{{recipes.instructions}}" />
+    </div>
+    </div>
+  </div>
+</section>
+
+    <div class="btn">
+      <button type="submit" id="save-recipe">Save recipe</button>
+      <button type="button" id="delete-recipe">Delete recipe</button>
+    </div>
+    </div>
+
+
+<script src="/javascript/edit-recipe.js"></script>

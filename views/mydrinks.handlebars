@@ -3,7 +3,16 @@
     <div class="addContainer" id="add-container">
       <button class="add-drink" id="newDrink">Add a New Drink</button>
     </div>
-    <div class="editContainer" id="edit-container">
+    <div class="inputContainer">
+        <label for="newRecipeName">Drink Name</label>
+        <input type="text" placeholder="Grasshopper" name="newDrinkName" id="newDrinkName" class="form-input" />
+        <label for="newDrinkIngr">List Ingredients Here:</label>
+        <input type="text" placeholder="Creme De Menthe" name="newDrinkIngr" id="newDrinkIngr" class="form-input"/>
+        <label for="newRecipeInstructions">Write Instructions Here:</label>
+        <input type="text" placeholder="Blend Ice Cream" name="newDrinkIns" id="newDrinkIns" class="form-input"/>
+        <button type="submit" class="add-list-item" id="addDrink">Add Drink to Your List</button>
+    </div>
+    {{!-- <div class="editContainer" id="edit-container">
       <div class="editNameInput" id="edit-name"></div>
       <div class="editNameInput" id="edit-item"></div>
       <div class="editNameInput" id="edit-inst"></div>
@@ -11,7 +20,7 @@
     </div>
     <div class="deleteContainer">
       <button class="delete-list-item" id="deleteDrink">Delete a Recipe</button>
-    </div>
+    </div> --}}
   </div>
   <button onclick="window.location.href='/dashboard'">Return to Dashboard</button>
   <button onclick="window.location.href='/dashboard/drinks'">Return to Drinks</button>
@@ -20,18 +29,14 @@
 </div>
 
 <section class="db-groups">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 0984b1ecf2e67a8c4f72efc99b3796e8d5cd5f0b
     <div class="card-group">
             <h2>My Drinks</h2>
         </div>
             {{#each drinks as |drink|}}
             <div class="card">
                 <div class="card-title">
-                     <h4>Drink Name: {{this.drink_name}}</h4>
+                     <h4>Drink Name:</h4>
+                     <a href='/api/drinks/edit/{{id}}'>{{this.drink_name}}</a>
                 </div>
                 <div class="card-body">
                     <p>Ingredients: {{this.ingredients}}</p>
@@ -41,28 +46,6 @@
             </div>
             {{/each}}
 </section>
-<<<<<<< HEAD
-=======
-  <div class="card-group">
-    <h2>My Drinks</h2>
-  </div>
-  {{#each drinks as |drink|}}
-  <div class="card">
-    <div class="card-title">
-      <h4>Drink Name: {{this.drink_name}}</h4>
-    </div>
-    <div class="card-body">
-      <p>Ingredients: {{this.ingredients}}</p>
-      <p>Instructions: {{this.instructions}}</p>
-      <p>Created By: {{user.username}}</p>
-    </div>
-  </div>
-  {{/each}}
-</section>
 
-<script src="/javascript/drink-buttons.js"></script>
->>>>>>> ec0880d102412c01ec710567156ae22f5180a8b9
-=======
+<script src="/javascript/add-drink.js"></script>
 
-<script src="/javascript/drink-buttons.js"></script>
->>>>>>> 0984b1ecf2e67a8c4f72efc99b3796e8d5cd5f0b

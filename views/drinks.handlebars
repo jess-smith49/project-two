@@ -13,7 +13,6 @@
                     {{#each team.users as |user|}}
                     {{#each user.drinks as |drink|}}
                     <h4>Drink Name: {{this.drink_name}}</h4>
-                </div>
                 <div class="card-body">
                     <p>Ingredients: {{this.ingredients}}</p>
                     <p>Instructions: {{this.instructions}}</p>
@@ -21,6 +20,7 @@
                     {{/each}}
                 </div>
                 {{/each}}
+                </div>
             </div>
             {{/each}}
 </section>
