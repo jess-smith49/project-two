@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { default: ShortUniqueId } = require('short-unique-id');
-const { Drink, User, Team, TeamUser } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { User, Team, TeamUser } = require('../../models');
 
 //gets all group members of user's group
 router.get('/', (req, res) => {
@@ -49,7 +48,6 @@ router.get('/:id', (req, res) => {
             'id',
             'team_name',
             'team_code',
-            // [sequelize.literal('(SELECT id FROM user WHERE user.id = TeamUser.user_id)'), 'team_user'],
         ],
         include: [
             {
@@ -70,8 +68,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-
 //create team code //short unique ID
 router.post('/', (req, res) => {
     const uid = new ShortUniqueId();
@@ -84,14 +80,13 @@ router.post('/', (req, res) => {
     })
     .then(dbTeamData => {
         console.log(dbTeamData)
-        res.render('dashboard', {dbTeamData: db.team_code})
+        res.json(dbTeamData)
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
-
 
 //add team member to a team
 router.post('/addMember/:teamCode', (req, res) => {

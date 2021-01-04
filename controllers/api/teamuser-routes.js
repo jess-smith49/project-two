@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { default: ShortUniqueId } = require('short-unique-id');
-const { Drink, User, Team, TeamUser } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { User, Team, TeamUser } = require('../../models');
 
 router.get('/', (req, res) => {
     TeamUser.findAll({
