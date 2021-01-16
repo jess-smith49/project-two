@@ -9,7 +9,7 @@ async function signUpHandler(event) {
     const username = document.querySelector('#username').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
-
+    // const groupCode = document.querySelector('#group').value.trim();
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
@@ -17,13 +17,18 @@ async function signUpHandler(event) {
             body: JSON.stringify({
                 username: username,
                 email: email,
-                password: password
+                password: password,
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-
         if (response.ok) {
+            // if (groupCode) {
+                // add user to team by groupcode
+                // .then....
             document.location.replace('/dashboard');
+            // } else {
+                // document.location.replace('/group-code');
+            // }
         }
         else {
             alert(response.statusText);
@@ -33,40 +38,37 @@ async function signUpHandler(event) {
     console.log('Successful Sign-up')
 }
 
-createGroupInput = function() {
-    let insertCreateInput = `<label for="group-code"></label>
-    <input type="text" class="form-input" name="group-code" id="group-input" placeholder="Create Group">`
+// createGroupInput = function() {
+//     let insertCreateInput = `<label for="group-code"></label>
+//     <input type="text" class="form-input" name="group-code" id="group-input" placeholder="Create Group">`
 
-    codeContainer.innerHTML = insertCreateInput;
-}
+//     codeContainer.innerHTML = insertCreateInput;
+// }
 
-joinGroupInput = function () {
-    let insertJoinInput = `<label for="group-code">Enter your Group's 6 Digit Code</label>
-    <input type="text" class="form-input" name="group-code" id="group-input" placeholder="Join Group">`
+// joinGroupInput = function () {
+//     let insertJoinInput = `<label for="group-code">Enter your Group's 6 Digit Code</label>
+//     <input type="text" class="form-input" name="group-code" id="group-input" placeholder="Join Group">`
 
-    codeContainer.innerHTML = insertJoinInput;
+//     codeContainer.innerHTML = insertJoinInput;
 
-}
+// }
 
 // createGroupEvent.onclick = function() {
 //     createGroupInput();
 // };
 
 
-// async function groupCodeInsert(event) {
+// async function createGroupHandler(event) {
 //     event.preventDefault();
-
-
-//     if (username && password) {
-//         const response = await fetch('/api/users/login', {
-//             method: 'post',
-//             body: JSON.stringify({
-//                 username: username,
-//                 password: password
-//             }),
-//             headers: { 'Content-Type': 'application/json' }
-//         })
-//             .then(function () {
+        // const response = await fetch('/api/teams', {
+        //     method: 'post',
+        //     body: JSON.stringify({
+        //         username: username,
+        //         password: password
+        //     }),
+        //     headers: { 'Content-Type': 'application/json' }
+        // })
+        //     .then(function () {
 //                 const response = fetch('/api/teams', {
 //                     method: 'post',
 //                     body: JSON.stringify({
@@ -75,23 +77,20 @@ joinGroupInput = function () {
 //                     }),
 //                     headers: { 'Content-Type': 'application/json' }
 //                 });
-//             })
 //             if (response.ok) {
 //                 console.log('Please')
 //                 document.location.replace('/dashboard')
-                
 //             }
 //             else {
 //                 alert(response.statusText);
 //             }
 
-//         }
 // };
 
 
-joinGroupEvent.onclick = function () {
-    joinGroupInput();
-};
+// joinGroupEvent.onclick = function () {
+//     joinGroupInput();
+// };
 // document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
+// document.querySelector('.group-page').addEventListener('submit', createGroupHandler);
 document.querySelector('.signup-form').addEventListener('submit', signUpHandler);

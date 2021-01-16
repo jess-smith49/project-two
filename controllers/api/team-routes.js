@@ -74,7 +74,7 @@ router.post('/', (req, res) => {
     teamCode = uid.randomUUID(6);
 
     Team.create({
-        team_name: req.body.team_name,
+        // team_name: req.body.team_name,
         team_code: teamCode,
         user_id: req.session.user_id
     })

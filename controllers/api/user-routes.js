@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Recipe, List, User, Drink, Team } = require('../../models');
+const { default: ShortUniqueId } = require('short-unique-id');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -65,10 +66,12 @@ router.get('/:id', (req, res) => {
      })
 })
 router.post('/', (req, res) => {
+    const uid = new ShortUniqueId();
+    teamCode = uid.randomUUID(6);
     User.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
     })
     .then(dbUserData => {
         req.session.save(() => {
@@ -77,8 +80,23 @@ router.post('/', (req, res) => {
         req.session.email = dbUserData.email;
         req.session.loggedIn = true;
 
-        res.json(dbUserData);
+        Team.create({
+            // team_name: req.body.team_name,
+            team_code: teamCode,
+            user_id: dbUserData.id
+        })
+        .then(dbTeamData => {
+            console.log(dbTeamData)
+            const codes = dbTeamData.get({ plain: true });
+            res.render('dashboard', { codes, loggedIn: true });
+            // res.json(codes)
+            console.log("codes==========", codes)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
+    });
     });
 });
 router.post('/login', (req, res) => {

@@ -15,14 +15,19 @@
         </p>
       </div>
   
-      <form class="signup-form">
+      <form class="login-form">
         <label for="username">Enter Your Festive Username:</label>
         <input type="username" placeholder="Username" name="username" id="username" class="form-input"/>
         <label for="password">Enter your password:</label>
         <input type="password" placeholder="Password" name="password" id="password" class="form-input"/>
+        <label for="group-code">Enter group code: </label>
+        <input type="code" placeholder="Group Code" name="code" id="code" class="form-input"/>
+         {{!-- add group code enter button --}}
+         {{!--if no code, then taken to personal group --}}
          <button type="submit" class="form-submit" id="login-btn">
           Spread Holiday Cheer!
         </button>
+
   </section>
 </main>
 

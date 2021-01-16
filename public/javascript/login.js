@@ -17,7 +17,6 @@ async function loginFormHandler(event){
         if(response.ok){
             console.log('Successful login')
             document.location.replace('/dashboard')
-         
         }
         else {
             alert(response.statusText);

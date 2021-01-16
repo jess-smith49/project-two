@@ -1,7 +1,26 @@
 const router = require('express').Router();
 const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
+const { default: ShortUniqueId } = require('short-unique-id');
 
 router.get('/', (req, res) => {
+    // router.post('/', (req, res) => {
+        // const uid = new ShortUniqueId();
+        // teamCode = uid.randomUUID(6);
+    
+        // Team.create({
+        //     // team_name: req.body.team_name,
+        //     team_code: teamCode,
+        //     user_id: req.session.user_id
+        // })
+        // .then(dbTeamData => {
+        //     console.log(dbTeamData)
+        //     res.json(dbTeamData)
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        //     res.status(500).json(err);
+        // });
+    // });
     res.render("dashboard", {
     });
 });

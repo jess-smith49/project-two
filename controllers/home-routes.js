@@ -97,5 +97,10 @@ router.get('/sign-up', (req, res) => {
   res.render('sign-up', {
   });
 });
+router.get('/group-code', (req, res) => {
+    // sign in and then create code
+    res.render('group-code', {
+    });
+})
 
 module.exports = router;
