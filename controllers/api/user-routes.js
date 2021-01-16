@@ -65,6 +65,7 @@ router.get('/:id', (req, res) => {
          res.status(500).json(err);
      })
 })
+// creates new user and assigns group code
 router.post('/', (req, res) => {
     const uid = new ShortUniqueId();
     teamCode = uid.randomUUID(6);
