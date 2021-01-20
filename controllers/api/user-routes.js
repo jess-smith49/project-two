@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, List, User, Drink, Team } = require('../../models');
+const { Recipe, List, User, Drink, Team, TeamUser } = require('../../models');
 const { default: ShortUniqueId } = require('short-unique-id');
 
 router.get('/', (req, res) => {
@@ -90,8 +90,8 @@ router.post('/', (req, res) => {
             console.log(dbTeamData)
             const codes = dbTeamData.get({ plain: true });
             res.render('dashboard', { codes, loggedIn: true });
-            // res.json(codes)
-            console.log("codes==========", codes)
+            // res.json({ codes, loggedIn: true })
+            console.log(codes)
         })
         .catch(err => {
             console.log(err);
@@ -121,6 +121,51 @@ router.post('/login', (req, res) => {
             req.session.username = dbUserData.username;
             req.session.email = dbUserData.email;
             req.session.loggedIn = true;
+            console.log(req.session)
+    //         Team.findOne({
+    //             where: {
+    //                 team_code: req.body.teamCode
+    //                 // user_id: req.session.user_id
+    //             }
+    //         })
+    //         .then(dbTeamUserData => {
+    //             if(!dbTeamUserData){
+    //                 res.status(400).json({message: 'No group found with this ID'})
+    //                 return;
+    //             }
+    //                 TeamUser.create(
+    //                     {
+    //                         user_id: req.session.user_id,
+    //                         team_id: dbTeamUserData.dataValues.id
+    //                     }
+    //                 )
+    //             })
+    //             .then(dbTeamUserData =>{
+    //                 console.log(dbTeamData)
+    //                     const group = dbTeamData.get({ plain: true });
+    //                     res.render('dashboard', { group, loggedIn: true });
+    //                     // res.json({ codes, loggedIn: true })
+    //                     console.log(group)
+    //                 res.json(dbTeamUserData);
+    //             })
+    //             .catch(err => {
+    //                 console.log(err);
+    //                 res.status(500).json(err);
+    //             })   
+    //         });
+    //         // .then(dbTeamData => {
+    //         //     console.log(dbTeamData)
+    //         //     const group= dbTeamData.get({ plain: true });
+    //         //     res.render('dashboard', { group, loggedIn: true });
+    //         //     // res.json({ codes, loggedIn: true })
+    //         //     console.log("group =======", group)
+    //         // })
+    //         // .catch(err => {
+    //         //     console.log(err);
+    //         //     res.status(500).json(err);
+    //         // });
+    //     });
+    // });
 
             res.json({ user: dbUserData, message: 'You are now logged in.'});
         });

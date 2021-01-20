@@ -89,31 +89,39 @@ router.post('/', (req, res) => {
 });
 
 //add team member to a team
-router.post('/addMember/:teamCode', (req, res) => {
+router.post('/addMember/:team_code', (req, res) => {
     Team.findOne({
         where: {
-            team_code: req.params.teamCode
+            team_code: req.body.team_code
         }
     })
     .then(dbTeamUserData => {
-    if(!dbTeamUserData){
-        res.status(400).json({message: 'No group found with this ID'})
-        return;
-    }
+    // if(!dbTeamUserData){
+    //     res.status(400).json({message: 'No group found with this ID'})
+    //     return;
+    // }
+    console.log("data", dbTeamUserData)
+    console.log("id", req.session)
+
         TeamUser.create(
             {
                 user_id: req.session.user_id,
                 team_id: dbTeamUserData.dataValues.id
             }
         )
-    })
     .then(dbTeamUserData =>{
+        console.log(dbTeamUserData)
+            const group = dbTeamUserData.get({ plain: true });
+            res.render('dashboard', { group, loggedIn: true });
+            // res.json({ codes, loggedIn: true })
+            console.log("group", group)
         res.json(dbTeamUserData);
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })   
+})
 });
 
 

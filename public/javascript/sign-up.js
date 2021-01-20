@@ -23,19 +23,29 @@ async function signUpHandler(event) {
         });
         if (response.ok) {
             // if (groupCode) {
+            //     // /function () {
+            //         const response = fetch('/api/addMember/:teamCode', {
+            //             method: 'post',
+            //             body: JSON.stringify({
+            //                 team_code: teamCode,
+            //                 user_id: req.session.user_id
+            //             }),
+            //             headers: { 'Content-Type': 'application/json' }
+            //         });
+            //         if (response.ok) {
+            //             console.log('Team member added')
+            //             // document.location.replace('/dashboard')
+                }
+                else {
+                    alert(response.statusText);
+                }
                 // add user to team by groupcode
                 // .then....
-            document.location.replace('/dashboard');
-            // } else {
-                // document.location.replace('/group-code');
-            // }
-        }
-        else {
-            alert(response.statusText);
-        }
-    }
-
+            // document.location.replace('/dashboard');
+        
+    
     console.log('Successful Sign-up')
+};
 }
 
 // createGroupInput = function() {
