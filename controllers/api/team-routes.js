@@ -115,7 +115,7 @@ router.post('/addMember/:team_code', (req, res) => {
             res.render('dashboard', { group, loggedIn: true });
             // res.json({ codes, loggedIn: true })
             console.log("group", group)
-        res.json(dbTeamUserData);
+        // res.json(dbTeamUserData);
     })
     .catch(err => {
         console.log(err);

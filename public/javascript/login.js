@@ -19,8 +19,8 @@ async function loginFormHandler(event){
         if(response.ok){
             if (teamCode) {
                 console.log(teamCode)
-            //     // function () {
-                    const response = fetch('/api/teams/addMember/:team_code', {
+                // function () {
+                    const response = await fetch('/api/teams/addMember/:team_code', {
                         method: 'post',
                         body: JSON.stringify({
                             team_code: teamCode,
@@ -36,5 +36,6 @@ async function loginFormHandler(event){
         }
     }
     }
+    
 };
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
