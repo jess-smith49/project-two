@@ -17,17 +17,17 @@ async function loginFormHandler(event){
         });
 
         if(response.ok){
-            if (teamCode) {
-                console.log(teamCode)
-                // function () {
-                    const response = await fetch('/api/teams/addMember/:team_code', {
-                        method: 'post',
-                        body: JSON.stringify({
-                            team_code: teamCode,
-                            // user_id: req.session.user_id
-                        }),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
+            // if (teamCode) {
+            //     console.log(teamCode)
+            //     // function () {
+            //         const response = await fetch('/api/teams/addMember/:team_code', {
+            //             method: 'post',
+            //             body: JSON.stringify({
+            //                 team_code: teamCode,
+            //                 // user_id: req.session.user_id
+            //             }),
+            //             headers: { 'Content-Type': 'application/json' }
+            //         });
                    console.log('Team member added')
             // document.location.replace('/dashboard')
         }
@@ -35,7 +35,5 @@ async function loginFormHandler(event){
             alert(response.statusText);
         }
     }
-    }
-    
 };
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

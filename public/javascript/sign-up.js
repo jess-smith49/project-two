@@ -22,6 +22,7 @@ async function signUpHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
+            console.log("yay")
             // if (groupCode) {
             //     // /function () {
             //         const response = fetch('/api/addMember/:teamCode', {
@@ -34,16 +35,12 @@ async function signUpHandler(event) {
             //         });
             //         if (response.ok) {
             //             console.log('Team member added')
-            //             // document.location.replace('/dashboard')
+                        document.location.replace('/dashboard')
                 }
                 else {
                     alert(response.statusText);
                 }
-                // add user to team by groupcode
-                // .then....
-            // document.location.replace('/dashboard');
-        
-    
+
     console.log('Successful Sign-up')
 };
 }

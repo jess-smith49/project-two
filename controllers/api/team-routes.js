@@ -69,30 +69,30 @@ router.get('/:id', (req, res) => {
     });
 });
 //create team code //short unique ID
-router.post('/', (req, res) => {
-    const uid = new ShortUniqueId();
-    teamCode = uid.randomUUID(6);
+// router.post('/', (req, res) => {
+//     const uid = new ShortUniqueId();
+//     teamCode = uid.randomUUID(6);
 
-    Team.create({
-        // team_name: req.body.team_name,
-        team_code: teamCode,
-        user_id: req.session.user_id
-    })
-    .then(dbTeamData => {
-        console.log(dbTeamData)
-        res.json(dbTeamData)
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+//     Team.create({
+//         // team_name: req.body.team_name,
+//         team_code: teamCode,
+//         user_id: req.session.user_id
+//     })
+//     .then(dbTeamData => {
+//         console.log(dbTeamData)
+//         res.json(dbTeamData)
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 //add team member to a team
 router.post('/addMember/:team_code', (req, res) => {
     Team.findOne({
         where: {
-            team_code: req.body.team_code
+            team_code: req.body.teamCode
         }
     })
     .then(dbTeamUserData => {
