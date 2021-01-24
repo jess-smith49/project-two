@@ -65,12 +65,7 @@ router.get('/:id', (req, res) => {
          res.status(500).json(err);
      })
 })
-// router.get('/dashboard2', (req, res) => {
-//     res.render('dashboard', data)
-// })
 // creates new user and assigns group code
-// need to create dashboard to get team code to display
-// post route cannot send data and post, need get data to post actual data
 router.post('/', (req, res) => {
     const uid = new ShortUniqueId();
     teamCode = uid.randomUUID(6);
@@ -86,27 +81,20 @@ router.post('/', (req, res) => {
         req.session.email = dbUserData.email;
         req.session.loggedIn = true;
         })
-        // data = dbUserData.get({ plain: true });
-        console.log("user", dbUserData)
         Team.create({
             team_name: req.body.team_name,
             team_code: teamCode,
             user_id: dbUserData.id
         })
         .then(dbTeamData => {
-            console.log("team", dbTeamData)
             const codes = dbTeamData.get({ plain: true });
-            // res.render('dashboard', { codes, loggedIn: true });
             res.json(codes)
-            console.log(codes)
-            console.log(req.session)
         })
         .catch(err => {
             console.log("error", err);
             res.status(500).json(err);
         });
     });
-    // }):
 });
 router.post('/login', (req, res) => {
     User.findOne({
