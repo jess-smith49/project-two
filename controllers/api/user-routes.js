@@ -81,6 +81,7 @@ router.post('/', (req, res) => {
         req.session.email = dbUserData.email;
         req.session.loggedIn = true;
         })
+        console.log(req.session)
         Team.create({
             team_name: req.body.team_name,
             team_code: teamCode,
@@ -89,6 +90,8 @@ router.post('/', (req, res) => {
         .then(dbTeamData => {
             const codes = dbTeamData.get({ plain: true });
             res.json(codes)
+            console.log(req.session)
+            console.log(codes)
         })
         .catch(err => {
             console.log("error", err);
@@ -102,19 +105,19 @@ router.post('/login', (req, res) => {
             username: req.body.username
         }
     }).then(dbUserData => {
-            // if (!dbUserData) {
-            //     res.status(400).json({ message: 'No user with that username found.'});
-            //     return;
-            // }
-            // const validPassword = dbUserData.checkPassword(req.body.password);
-            // if (!validPassword) {
-            //     res.status(400).json({ message: 'Incorrect password!'});
-            //     return;
-            // }
+            if (!dbUserData) {
+                res.status(400).json({ message: 'No user with that username found.'});
+                return;
+            }
+            const validPassword = dbUserData.checkPassword(req.body.password);
+            if (!validPassword) {
+                res.status(400).json({ message: 'Incorrect password!'});
+                return;
+            }
         console.log(dbUserData)
         const data = dbUserData.get({ plain: true });
-        res.render('dashboard', { data, loggedIn: true });
-        // res.json({ codes, loggedIn: true })
+        // res.render('dashboard', { data, loggedIn: true });
+        res.json(data)
         console.log(data)
     })
     .catch(err => {

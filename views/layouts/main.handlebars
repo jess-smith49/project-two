@@ -22,9 +22,11 @@
     </div>
       <div class="container navbar-container">
         <ul class="nav navbar-nav navbar-right">
+          {{!-- {{#if loggedIn}} --}}
           <li class="log-btn nav-item" id="logout-btn">
             <a href="/" id="logout" class="nav-link">logout</a>
           </li>
+          {{!-- {{/if}} --}}
           <li class="log-btn nav-item" id="login-btn">
             <a href="/login" class="nav-link">login</a>
           </li>
@@ -48,8 +50,9 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-    <script src="/javascript/logout.js"></script>
-
+  {{!-- {{#if loggedIn}} --}}
+  <script src="/javascript/logout.js"></script>
+  {{!-- {{/if}} --}}
 
 </body>
 </html>

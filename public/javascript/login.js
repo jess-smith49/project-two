@@ -11,7 +11,7 @@ async function loginFormHandler(event){
             body: JSON.stringify({
                 username: username,
                 password: password,
-                // team_code: teamCode
+                team_code: teamCode
             }),
             headers:{'Content-Type': 'application/json'}
         });
@@ -24,12 +24,12 @@ async function loginFormHandler(event){
             //             method: 'post',
             //             body: JSON.stringify({
             //                 team_code: teamCode,
-            //                 // user_id: req.session.user_id
+            //                 // user_id: req.body.user_id
             //             }),
             //             headers: { 'Content-Type': 'application/json' }
             //         });
-                   console.log('Team member added')
-            // document.location.replace('/dashboard')
+            //        console.log('Team member added')
+            document.location.replace('/dashboard')
         }
         else {
             alert(response.statusText);

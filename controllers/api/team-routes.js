@@ -96,10 +96,10 @@ router.post('/addMember/:team_code', (req, res) => {
         }
     })
     .then(dbTeamUserData => {
-    // if(!dbTeamUserData){
-    //     res.status(400).json({message: 'No group found with this ID'})
-    //     return;
-    // }
+    if(!dbTeamUserData){
+        res.status(400).json({message: 'No group found with this ID'})
+        return;
+    }
     console.log("data", dbTeamUserData)
     console.log("id", req.session)
 
@@ -112,8 +112,8 @@ router.post('/addMember/:team_code', (req, res) => {
     .then(dbTeamUserData =>{
         console.log(dbTeamUserData)
             const group = dbTeamUserData.get({ plain: true });
-            res.render('dashboard', { group, loggedIn: true });
-            // res.json({ codes, loggedIn: true })
+            // res.render('dashboard', { group, loggedIn: true });
+            res.json(group)
             console.log("group", group)
         // res.json(dbTeamUserData);
     })
@@ -123,8 +123,6 @@ router.post('/addMember/:team_code', (req, res) => {
     })   
 })
 });
-
-
 router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,

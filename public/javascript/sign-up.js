@@ -1,7 +1,7 @@
-const codeContainer = document.querySelector('.code-container');
+// const codeContainer = document.querySelector('.code-container');
 
-let createGroupEvent = document.getElementById('create-group');
-let joinGroupEvent = document.getElementById("join-group");
+// let createGroupEvent = document.getElementById('create-group');
+// let joinGroupEvent = document.getElementById("join-group");
 
 async function signUpHandler(event) {
     event.preventDefault();
