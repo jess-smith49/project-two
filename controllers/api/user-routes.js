@@ -105,7 +105,7 @@ router.post('/login', (req, res) => {
         where: {
             username: req.body.username
         }
-    }).then(dbUserData => {
+        }).then(dbUserData => {
             if (!dbUserData) {
                 res.status(400).json({ message: 'No user with that username found.'});
                 return;
@@ -115,11 +115,21 @@ router.post('/login', (req, res) => {
                 res.status(400).json({ message: 'Incorrect password!'});
                 return;
             }
-        console.log(dbUserData)
-        const data = dbUserData.get({ plain: true });
+        // }).then(dbUserData => {
+            req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.email = dbUserData.email;
+            // req.session.team = dbUserData.teamCode;
+            req.session.loggedIn = true;
+            
+            console.log("126======", req.session)
+            })
+        console.log("128====", dbUserData)
+        const codes = dbUserData.get({ plain: true });
         // res.render('dashboard', { data, loggedIn: true });
-        res.json(data)
-        console.log(data)
+        res.json(codes)
+        console.log(codes)
     })
     .catch(err => {
         console.log(err);
