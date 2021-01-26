@@ -24,7 +24,7 @@ Santa's Helper was created to help celebrate the Christmas Holiday! On the appli
     
 ## Questions
 [GitHub](https://github.com/jess-smith49/santas-helper) <br />
-[Heroku webpage] (https://stark-thicket-72427.herokuapp.com/) <br />
+[Heroku webpage](https://stark-thicket-72427.herokuapp.com/) <br />
 
 
 # Technologies used

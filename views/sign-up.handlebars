@@ -23,32 +23,19 @@
             <input type="email" placeholder="Email Address" name="email" id="email" class="form-input"/>
             <label for="password">Enter a secure password:</label>
             <input type="password" placeholder="Password" name="password" id="password" class="form-input" />
-            <p class="cta-question">Would you like to create a group or join an existing group?
-            </p>
             <div class="confirm-wrapper">
                 <div class="radio-wrapper">
-                    <input type="radio" name="group-confirm" id="create-group" />
-                    <label for="create-group">Create a Group</label>
+                </div> 
                 </div>
-
-                <div class="radio-wrapper">
-                    <input type="radio" name="group-confirm" id="join-group" />
-                    <label for="join-group">Join a Group</label>
-                    <div class="code-container"></div>
-                    {{!-- <label for="group-code">Enter your Group's Code</label>
-                     <input type="text" name="group-code"class="form-input" id="group-input" > --}}
-                </div>
+                {{!-- go to dashboard, automatically assigns group in dashboard --}}
                 <button type="submit" class="form-submit" id="signup-btn">
                     Spread Holiday Cheer!
                 </button>
-<!--
-                    {{#if joinGroup}}
-                        <input type="number" name="group-code"class="form-input" id="group" >
-                        <label for="group-number">Enter your Group's Code</label>
-                    {{/if}} -->
+
             </div>
         </form>
     </div>
 </section>
 
 <script src="/javascript/sign-up.js"></script>
+

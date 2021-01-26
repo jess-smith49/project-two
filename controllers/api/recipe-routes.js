@@ -88,7 +88,6 @@ router.get('/edit/:id', (req, res) => {
     .then(dbRecipeData => {
         const recipes = dbRecipeData.get({ plain: true });
         res.render('edit-recipe', { recipes, loggedIn: true });
-        
     })
     .catch(err => {
         console.log(err);

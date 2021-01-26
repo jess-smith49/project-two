@@ -68,31 +68,11 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-//create team code //short unique ID
-router.post('/', (req, res) => {
-    const uid = new ShortUniqueId();
-    teamCode = uid.randomUUID(6);
-
-    Team.create({
-        team_name: req.body.team_name,
-        team_code: teamCode,
-        user_id: req.session.user_id
-    })
-    .then(dbTeamData => {
-        console.log(dbTeamData)
-        res.json(dbTeamData)
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
 //add team member to a team
-router.post('/addMember/:teamCode', (req, res) => {
+router.post('/addMember/:team_code', (req, res) => {
     Team.findOne({
         where: {
-            team_code: req.params.teamCode
+            team_code: req.body.teamCode
         }
     })
     .then(dbTeamUserData => {
@@ -100,23 +80,29 @@ router.post('/addMember/:teamCode', (req, res) => {
         res.status(400).json({message: 'No group found with this ID'})
         return;
     }
+    console.log("data", dbTeamUserData)
+    console.log("id", req.session)
+
         TeamUser.create(
             {
                 user_id: req.session.user_id,
                 team_id: dbTeamUserData.dataValues.id
             }
         )
-    })
     .then(dbTeamUserData =>{
-        res.json(dbTeamUserData);
+        console.log(dbTeamUserData)
+            const group = dbTeamUserData.get({ plain: true });
+            // res.render('dashboard', { group, loggedIn: true });
+            res.json(group)
+            console.log("group", group)
+        // res.json(dbTeamUserData);
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })   
+})
 });
-
-
 router.put('/:id', (req, res) => {
     Team.update({
         team_name: req.body.team_name,
