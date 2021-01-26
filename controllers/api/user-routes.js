@@ -80,8 +80,9 @@ router.post('/', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.email = dbUserData.email;
         req.session.loggedIn = true;
+        
+        console.log("req==========", req.session)
         })
-        console.log(req.session)
         Team.create({
             team_name: req.body.team_name,
             team_code: teamCode,

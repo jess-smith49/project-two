@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
 // need to query from t get team code using user id
 router.get('/', (req, res) => {
-    console.log("in user")
+    console.log("in user", req.session)
     User.findOne({
         where: {
             // username: req.body.username
-            id: req.session.user_id
+            user_id: req.session.user_id
         },
         attributes: [
             'id',
