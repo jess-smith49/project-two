@@ -15,8 +15,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
     secret: 'Secret to be guarded to env file',
+    resave: true,
     cookie: {secure: false},
-    resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize

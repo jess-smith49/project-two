@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     User.findOne({
         where: {
             // username: req.body.username
-            user_id: req.session.user_id
+            id: req.session.user_id
         },
         attributes: [
             'id',
