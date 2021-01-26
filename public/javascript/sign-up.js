@@ -9,7 +9,6 @@ async function signUpHandler(event) {
     const username = document.querySelector('#username').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
-    // const groupCode = document.querySelector('#group').value.trim();
 
     if (username && email && password) {
         const response = await fetch('/api/users', {
@@ -22,28 +21,13 @@ async function signUpHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            console.log("yay")
-            // if (groupCode) {
-            //     // /function () {
-            //         const response = fetch('/api/addMember/:teamCode', {
-            //             method: 'post',
-            //             body: JSON.stringify({
-            //                 team_code: teamCode,
-            //                 user_id: req.session.user_id
-            //             }),
-            //             headers: { 'Content-Type': 'application/json' }
-            //         });
-            //         if (response.ok) {
-            //             console.log('Team member added')
-                        document.location.replace('/dashboard')
-                }
-                else {
-                    alert(response.statusText);
-                }
-
-    console.log('Successful Sign-up')
+            document.location.replace('/dashboard')
+            }
+            else {
+            alert(response.statusText);
+            }
+        };
 };
-}
 
 // createGroupInput = function() {
 //     let insertCreateInput = `<label for="group-code"></label>

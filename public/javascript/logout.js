@@ -5,8 +5,7 @@ function logout() {
         headers: {'Content-Type': 'application/json'}
     })
     .then(function() {
-        console.log('clicked ========')
-        // document.location.replace('/');
+        console.log('clicked ========');
     })
     .catch(err => console.log(err));
 }

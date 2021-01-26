@@ -115,12 +115,11 @@ router.post('/login', (req, res) => {
                 res.status(400).json({ message: 'Incorrect password!'});
                 return;
             }
-        // }).then(dbUserData => {
             req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.email = dbUserData.email;
-            // req.session.team = dbUserData.teamCode;
+            // req.session.teamCode = dbUserData.teamCode;
             req.session.loggedIn = true;
             
             console.log("126======", req.session)
@@ -136,67 +135,18 @@ router.post('/login', (req, res) => {
         res.status(500).json(err);
     });
 });
-        // req.session.save(() => {
-        //     req.session.user_id = dbUserData.id;
-        //     req.session.username = dbUserData.username;
-        //     req.session.email = dbUserData.email;
-        //     req.session.loggedIn = true;
-        //     console.log(req.session)
             // Team.findOne({
             //     where: {
             //         team_code: req.body.teamCode
             //         // user_id: req.session.user_id
             //     }
             // })
-            // .then(dbTeamUserData => {
-            //     console.log("==========", dbTeamUserData)
-            //     if(!dbTeamUserData){
-            //         res.status(400).json({message: 'No group found with this ID'})
-            //         return;
-            //     }
-            //         TeamUser.create(
-            //             {
-            //                 user_id: req.session.user_id,
-            //                 team_id: dbTeamUserData.dataValues.id
-            //             }
-            //         )
-            //     })
-            //     .then(dbTeamUserData =>{
-            //         console.log(dbTeamUserData)
-            //             const group = dbTeamUserData.get({ plain: true });
-            //             res.render('dashboard', { group, loggedIn: true });
-            //             // res.json({ codes, loggedIn: true })
-            //             console.log(group)
-            //         // res.json(dbTeamUserData);
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //         res.status(500).json(err);
-            //     })   
-            // });
-    //         // .then(dbTeamData => {
-    //         //     console.log(dbTeamData)
-    //         //     const group= dbTeamData.get({ plain: true });
-    //         //     res.render('dashboard', { group, loggedIn: true });
-    //         //     // res.json({ codes, loggedIn: true })
-    //         //     console.log("group =======", group)
-    //         // })
-    //         // .catch(err => {
-    //         //     console.log(err);
-    //         //     res.status(500).json(err);
-    //         // });
-    //     });
-    // });
-
-            // res.json({ user: dbUserData, message: 'You are now logged in.'});
-        // });
-    // });
-// });
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
+        console.log("loggedout======", req.session)
     }
     else {
         res.status(404).end();

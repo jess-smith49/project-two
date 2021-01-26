@@ -1,3 +1,7 @@
+// login works for user, but need to incorporate group into login
+// if logged in with group, then show that group
+// if no group when logged in, show user's individual group
+
 async function loginFormHandler(event){
     event.preventDefault();
 

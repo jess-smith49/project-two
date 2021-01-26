@@ -3,26 +3,15 @@ const { Recipe, List, Drink, User, Team, TeamUser } = require('../models');
 // need to query from t get team code using user id
 router.get('/', (req, res) => {
     console.log("in user", req.session)
-    User.findOne({
+    Team.findOne({
         where: {
-            // username: req.body.username
             id: req.session.user_id
         },
         attributes: [
             'id',
-            'username',
-            'email'
+            'team_name',
+            'team_code'
         ],
-        //     include: [
-        //         {
-        //         model: Team,
-        //         attributes: [
-        //             'id',
-        //             'team_code',
-        //             'team_name'
-        //         ]
-        //     }
-        // ],
     })
     .then(dbUserData => {
         const team = dbUserData.get({ plain: true });
@@ -33,42 +22,7 @@ router.get('/', (req, res) => {
         console.log(err);
         res.render(500).json(err);
     });
-})
-// router.get('/2', (req, res) => {
-//     Team.findOne({
-//         where: {
-//             team_code: teamCode
-//         }
-//     })
-//     .then(dbTeamUserData => {
-//     if(!dbTeamUserData){
-//         res.status(400).json({message: 'No group found with this ID'})
-//         return;
-//     }
-//     console.log("data", dbTeamUserData)
-//     console.log("id", req.session)
-
-//         TeamUser.create(
-//             {
-//                 user_id: req.session.user_id,
-//                 team_id: dbTeamUserData.dataValues.id
-//             }
-//         )
-//     .then(dbTeamUserData =>{
-//         console.log(dbTeamUserData)
-//             const group = dbTeamUserData.get({ plain: true });
-//             // res.render('dashboard', { group, loggedIn: true });
-//             res.json(group)
-//             console.log("group", group)
-//         // res.json(dbTeamUserData);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })   
-// })
-// });
-
+});
 //get all recipes
 router.get('/recipes', (req, res) => {
     TeamUser.findAll({
